@@ -1,6 +1,5 @@
 import sunburnHoodieAcidBlack from "@/assets/clothes/hoodies/sunburn-hoodie-acid-black.webp";
 import blessednLostLsAcidBlack from "@/assets/clothes/longsleeves/blessedn-lost-ls-acid-black.jpg";
-import aquaBoxTeeVintageWhite from "@/assets/clothes/tees/aqua-box-tee-vintage-white.jpg";
 import waveTigerTeePinkKush from "@/assets/clothes/tees/wave-tiger-tee-pink-kush.webp";
 import { Clothes } from "./types";
 
@@ -8,7 +7,7 @@ export const TEES: Clothes[] = [
   {
     id: "T1",
     name: "Wave Tiger Tee - Pink Kush",
-    images: [waveTigerTeePinkKush],
+    images: [{ id: "T-I1", src: waveTigerTeePinkKush }],
     price: "62",
     description: "",
     bestseller: true,
@@ -16,7 +15,7 @@ export const TEES: Clothes[] = [
   {
     id: "T2",
     name: "Aqua Box Tee - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I2", src: waveTigerTeePinkKush }],
     price: "50",
     description: "",
     bestseller: true,
@@ -24,7 +23,7 @@ export const TEES: Clothes[] = [
   {
     id: "T3",
     name: "Sunburn Tee - Super Natural",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I3", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: true,
@@ -32,7 +31,7 @@ export const TEES: Clothes[] = [
   {
     id: "T4",
     name: "No Rules Tee - Paper White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I4", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: false,
@@ -40,7 +39,7 @@ export const TEES: Clothes[] = [
   {
     id: "T5",
     name: "Joints & Surf Tee - Super Natural",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I5", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: true,
@@ -48,7 +47,7 @@ export const TEES: Clothes[] = [
   {
     id: "T6",
     name: "Own Business Tee - Super Natural",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I6", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: false,
@@ -56,7 +55,7 @@ export const TEES: Clothes[] = [
   {
     id: "T7",
     name: "Potato Wave Tee - Super Natural",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I7", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: false,
@@ -64,7 +63,7 @@ export const TEES: Clothes[] = [
   {
     id: "T8",
     name: "CH6 Tee - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I8", src: waveTigerTeePinkKush }],
     price: "48",
     description: "",
     bestseller: false,
@@ -72,7 +71,7 @@ export const TEES: Clothes[] = [
   {
     id: "T9",
     name: "Wave Tiger Tee - Purple Haze",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I9", src: waveTigerTeePinkKush }],
     price: "62",
     description: "",
     bestseller: false,
@@ -80,7 +79,7 @@ export const TEES: Clothes[] = [
   {
     id: "T10",
     name: "Surf People Tee - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I10", src: waveTigerTeePinkKush }],
     price: "48",
     description: "",
     bestseller: false,
@@ -88,7 +87,7 @@ export const TEES: Clothes[] = [
   {
     id: "T11",
     name: "Power Flower Tee - Dirty White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I11", src: waveTigerTeePinkKush }],
     price: "62",
     description: "",
     bestseller: false,
@@ -96,7 +95,7 @@ export const TEES: Clothes[] = [
   {
     id: "T12",
     name: "Trippin' Tee - Pink Kush",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I12", src: waveTigerTeePinkKush }],
     price: "60",
     description: "",
     bestseller: false,
@@ -104,7 +103,7 @@ export const TEES: Clothes[] = [
   {
     id: "T13",
     name: "Do Nothing Club Tee - Acid Black",
-    images: [aquaBoxTeeVintageWhite],
+    images: [{ id: "T-I13", src: waveTigerTeePinkKush }],
     price: "80",
     description: "",
     bestseller: false,
@@ -115,7 +114,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H1",
     name: "Sunburn Hoodie - Acid Black",
-    images: [sunburnHoodieAcidBlack],
+    images: [{ id: "H-I1", src: sunburnHoodieAcidBlack }],
     price: "92",
     description: "",
     bestseller: true,
@@ -123,7 +122,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H2",
     name: "Aqua Sweat - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "80",
     description: "",
     bestseller: true,
@@ -131,7 +130,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H3",
     name: "Power Flower Sweat - Pink Kush",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "80",
     description: "",
     bestseller: true,
@@ -139,7 +138,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H4",
     name: "Organic Wave Sweat - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "80",
     description: "",
     bestseller: true,
@@ -147,7 +146,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H5",
     name: "CH6 Hoodie - Cookie",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "92",
     description: "",
     bestseller: false,
@@ -155,7 +154,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H6",
     name: "CH6 Hoodie - Acid Black",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "92",
     description: "",
     bestseller: false,
@@ -163,7 +162,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H7",
     name: "Surf Star Hoodie - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "103",
     description: "",
     bestseller: false,
@@ -171,7 +170,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H8",
     name: "Play N'Pray Hoodie - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "103",
     description: "",
     bestseller: false,
@@ -179,7 +178,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H9",
     name: "Mad Company Sweat - Acid Black",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "80",
     description: "",
     bestseller: false,
@@ -187,7 +186,7 @@ export const HOODIES: Clothes[] = [
   {
     id: "H10",
     name: "Wine And Surf Sweat - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "85",
     description: "",
     bestseller: false,
@@ -198,7 +197,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L1",
     name: "Blessedn' Lost LS - Acid Black",
-    images: [blessednLostLsAcidBlack],
+    images: [{ id: "L-I1", src: blessednLostLsAcidBlack }],
     price: "92",
     description: "",
     bestseller: false,
@@ -206,7 +205,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L2",
     name: "Party Wave LS - Pink Kush",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "92",
     description: "",
     bestseller: false,
@@ -214,7 +213,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L3",
     name: "Cobra Grip LS - Acid Black",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "92",
     description: "",
     bestseller: false,
@@ -222,7 +221,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L4",
     name: "Sea Lions LS - Dirty White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "69",
     description: "",
     bestseller: true,
@@ -230,7 +229,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L5",
     name: "Starfish LS - Dirty White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "69",
     description: "",
     bestseller: false,
@@ -238,7 +237,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L6",
     name: "No Rules LS - Brownie",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "69",
     description: "",
     bestseller: true,
@@ -246,7 +245,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L7",
     name: "Sunburn LS - Optic White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "69",
     description: "",
     bestseller: true,
@@ -254,7 +253,7 @@ export const LONGSLEEVES: Clothes[] = [
   {
     id: "L8",
     name: "Salty Dreams LS - Vintage White",
-    images: [aquaBoxTeeVintageWhite],
+    images: [],
     price: "57",
     description: "",
     bestseller: false,

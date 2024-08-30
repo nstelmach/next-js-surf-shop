@@ -17,10 +17,16 @@ export default function ClothesList({ title, items }: ClothesListProps) {
           return (
             <Card key={item.id}>
               <CardHeader>
-                <Link href="">
-                  <Image src={item.images[0]} alt={item.name} width={200} />
+                <Link href={`/tees/${item.id}`}>
+                  <Image
+                    src={item.images[0]?.src}
+                    alt={item.name}
+                    width={200}
+                  />
                 </Link>
-                <CardTitle>{item.name}</CardTitle>
+                <Link href={`/tees/${item.id}`}>
+                  <CardTitle>{item.name}</CardTitle>
+                </Link>
               </CardHeader>
               <CardContent>{item.price} €</CardContent>
             </Card>
