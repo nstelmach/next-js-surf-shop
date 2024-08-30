@@ -12,22 +12,22 @@ export default function Footer() {
             <span>INFORMATION</span>
             <ul>
               <li>
-                <Link href="">
+                <Link href="/contact">
                   <span>CONTACT US</span>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/about">
                   <span>ABOUT US</span>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/terms">
                   <span>TERMS AND CONDITIONS</span>
                 </Link>
               </li>
               <li>
-                <Link href="">
+                <Link href="/policy">
                   <span>PRIVACY POLICY</span>
                 </Link>
               </li>
@@ -36,11 +36,18 @@ export default function Footer() {
           <div className="flex-column ">
             <span>OUR SOCIAL MEDIA</span>
             <div className="flex justify-center items-center">
-              <Link href="/">
+              <Link
+                href="https://instagram.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Image src={instagramImg} alt="Instagram" width={24} />
               </Link>
-
-              <Link href="/">
+              <Link
+                href="https://facebook.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Image src={facebookImg} alt="Facebook" width={24} />
               </Link>
             </div>
