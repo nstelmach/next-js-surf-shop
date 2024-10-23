@@ -1,38 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clothes } from "@/lib/types";
-import Image from "next/image";
-import Link from "next/link";
+import {Clothes} from "@/lib/types";
+import ClothesCard from "@/components/clothes/clothes-list/clothes-card";
+import Paragraph from "@/components/typohgraphy/paragraph";
 
 interface ClothesListProps {
-  title: string;
-  items: Clothes[];
+    title: string;
+    items: Clothes[];
 }
 
-export default function ClothesList({ title, items }: ClothesListProps) {
-  return (
-    <div>
-      <p>{title}</p>
-      <div className="grid grid-cols-3 gap-4">
-        {items.map((item) => {
-          return (
-            <Card key={item.id}>
-              <CardHeader>
-                <Link href={`/tees/${item.id}`}>
-                  <Image
-                    src={item.images[0]?.src}
-                    alt={item.name}
-                    width={200}
-                  />
-                </Link>
-                <Link href={`/tees/${item.id}`}>
-                  <CardTitle>{item.name}</CardTitle>
-                </Link>
-              </CardHeader>
-              <CardContent>{item.price} €</CardContent>
-            </Card>
-          );
-        })}
-      </div>
-    </div>
-  );
+export default function ClothesList({title, items}: ClothesListProps) {
+    return <>
+        <Paragraph className="text-3xl md:text-4xl xl:text-2xl font-bold m-4">{title}</Paragraph>
+        <div className="grid xl:grid-cols-3 grid-cols-1 gap-8">
+            {items.map((item) => (<ClothesCard key={item.id} item={item}/>
+            ))}
+        </div>
+    </>
 }
