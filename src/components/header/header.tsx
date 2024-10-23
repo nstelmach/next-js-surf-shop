@@ -1,59 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-
-import cartImg from "@/assets/icons/cart.png";
 import logoImg from "@/assets/icons/logo.jpg";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+import HeaderNavigationMenu from "@/components/header/header-navigation-menu";
+import Flex from "@/components/typohgraphy/flex";
+import cartIcon from "@/assets/svg/shopping-bag.svg";
+import SocialMediaIcons from "@/components/social-media/social-media-icons";
 
 export default function Header() {
-  return (
-    <header className="flex justify-center items-center">
-      <Link href="/">
-        <Image src={logoImg} alt="Surf Shop Logo" width={100} />
-      </Link>
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-            <Link href="/bestsellers">
-              <NavigationMenuLink>BESTSELLERS</NavigationMenuLink>
+    return <header
+        className="flex flex-col justify-center items-center sticky top-0 bg-background z-10 p-2 md:p-4 md:px-8 gap-2">
+        <Flex className="flex-row justify-between items-center w-full">
+            <SocialMediaIcons/>
+            <Link href="/" className="m-2">
+                <Image src={logoImg} alt="Surf Shop Logo" width={150} className="xl:w-[150px] w-[200px]"/>
             </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/tees">
-            <NavigationMenuLink>TEES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/longsleeves">
-            <NavigationMenuLink>LONGSLEEVES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/hoodies">
-            <NavigationMenuLink>HOODIES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink>ABOUT</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="" legacyBehavior passHref>
-            <NavigationMenuLink>SIGN IN</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenu>
-      <Link href="">
-        <Image src={cartImg} alt="Cart" width={36} />
-      </Link>
+            <Link href="/cart" className="m-2">
+                <Image src={cartIcon} alt="Cart" width={40} className="xl:w-[30px] md:w-[50px] w-[40px]"/>
+            </Link>
+
+        </Flex>
+        <HeaderNavigationMenu/>
     </header>
-  );
 }
