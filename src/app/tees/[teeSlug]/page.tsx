@@ -1,14 +1,22 @@
-import ClothesDetails from "@/components/clothes/clothes-details/clothes-details";
-import {TEES} from "@/lib/constants";
+"use client"
+import ClothesDetails from "@/src/components/clothes/clothes-details/clothes-details"
+import { useQuery } from "@blitzjs/rpc"
+import getProduct from "@/src/queries/getProduct"
+import { useParams } from "next/navigation"
 
-export default function TeeDetailsPage({params}) {
-    const tee = TEES.find((item) => item.id === params.teeSlug);
+export default function TeeDetailsPage() {
+  const params = useParams<{ teeSlug: string }>()
 
-    return <ClothesDetails
-        title={tee?.name}
-        description={tee?.description}
-        price={tee?.price}
-        images={tee?.images}
-        auctionPrice="50"
+  const [tee] = useQuery(getProduct, { id: +params.teeSlug })
+
+  //TODO auction price
+  return (
+    <ClothesDetails
+      title={tee?.name}
+      description={tee?.description}
+      price={tee?.price}
+      images={tee?.images}
+      auctionPrice="50"
     />
+  )
 }

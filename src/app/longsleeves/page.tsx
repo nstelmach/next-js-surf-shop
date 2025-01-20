@@ -1,6 +1,11 @@
-import ClothesList from "@/components/clothes/clothes-list/clothes-list";
-import {LONGSLEEVES} from "@/lib/constants";
+"use client"
+import ClothesList from "@/src/components/clothes/clothes-list/clothes-list"
+import { Category } from "@prisma/client"
+import getProducts from "@/src/queries/getProducts"
+import { useQuery } from "@blitzjs/rpc"
 
 export default function LongSleevesPage() {
-    return <ClothesList title="LONGSLEEVES" items={LONGSLEEVES}/>
+  const [longsleeves] = useQuery(getProducts, { category: Category.longsleeves })
+
+  return <ClothesList title="LONGSLEEVES" items={longsleeves} />
 }

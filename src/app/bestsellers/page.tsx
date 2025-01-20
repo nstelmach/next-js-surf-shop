@@ -1,13 +1,10 @@
-import ClothesList from "@/components/clothes/clothes-list/clothes-list";
-import {HOODIES, LONGSLEEVES, TEES} from "@/lib/constants";
-import {Clothes} from "@/lib/types";
+"use client"
+import ClothesList from "@/src/components/clothes/clothes-list/clothes-list"
+import { useQuery } from "@blitzjs/rpc"
+import getProducts from "@/src/queries/getProducts"
 
 export default function BestsellersPage() {
-    const BESTSELLERS: Clothes[] = [
-        ...TEES.filter((item) => item.bestseller),
-        ...HOODIES.filter((item) => item.bestseller),
-        ...LONGSLEEVES.filter((item) => item.bestseller),
-    ];
+  const [bestsellers] = useQuery(getProducts, { bestseller: true })
 
-    return <ClothesList title="BESTSELLERS" items={BESTSELLERS}/>
+  return <ClothesList title="BESTSELLERS" items={bestsellers} />
 }
