@@ -1,8 +1,11 @@
-import {PropsWithChildren} from "react";
-import {cn} from "@/lib/utils";
+import { PropsWithChildren } from "react"
+import { cn } from "@/src/lib/utils"
 
-export default function Paragraph({children, className}: PropsWithChildren<{
-    className?: string
+export default function Paragraph({
+  children,
+  className,
+}: PropsWithChildren<{
+  className?: string
 }>) {
-    return <p className={cn("text-primary", className)}>{children}</p>
+  return <p className={cn("text-primary", className)}>{children}</p>
 }

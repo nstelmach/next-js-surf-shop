@@ -1,332 +1,54 @@
-import sunburnHoodieAcidBlack from "@/assets/clothes/hoodies/sunburn-hoodie-acid-black.webp";
-import blessednLostLsAcidBlack from "@/assets/clothes/longsleeves/blessedn-lost-ls-acid-black.jpg";
-import waveTigerTeePinkKush from "@/assets/clothes/tees/wave-tiger-tee-pink-kush.webp";
-import {CartItem, Clothes, RadioGroupCartItem} from "./types";
-
-export const TEES: Clothes[] = [
-    {
-        id: "T1",
-        name: "Wave Tiger Tee - Pink Kush",
-        images: [{id: "T-I1-1", src: waveTigerTeePinkKush}, {id: "T-I1-2", src: blessednLostLsAcidBlack}],
-        price: "62",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "tees",
-    },
-    {
-        id: "T2",
-        name: "Aqua Box Tee - Vintage White",
-        images: [{id: "T-I2", src: waveTigerTeePinkKush}],
-        price: "50",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "tees",
-    },
-    {
-        id: "T3",
-        name: "Sunburn Tee - Super Natural",
-        images: [{id: "T-I3", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "tees",
-    },
-    {
-        id: "T4",
-        name: "No Rules Tee - Paper White",
-        images: [{id: "T-I4", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T5",
-        name: "Joints & Surf Tee - Super Natural",
-        images: [{id: "T-I5", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "tees",
-    },
-    {
-        id: "T6",
-        name: "Own Business Tee - Super Natural",
-        images: [{id: "T-I6", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T7",
-        name: "Potato Wave Tee - Super Natural",
-        images: [{id: "T-I7", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T8",
-        name: "CH6 Tee - Vintage White",
-        images: [{id: "T-I8", src: waveTigerTeePinkKush}],
-        price: "48",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T9",
-        name: "Wave Tiger Tee - Purple Haze",
-        images: [{id: "T-I9", src: waveTigerTeePinkKush}],
-        price: "62",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T10",
-        name: "Surf People Tee - Vintage White",
-        images: [{id: "T-I10", src: waveTigerTeePinkKush}],
-        price: "48",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T11",
-        name: "Power Flower Tee - Dirty White",
-        images: [{id: "T-I11", src: waveTigerTeePinkKush}],
-        price: "62",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T12",
-        name: "Trippin' Tee - Pink Kush",
-        images: [{id: "T-I12", src: waveTigerTeePinkKush}],
-        price: "60",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-    {
-        id: "T13",
-        name: "Do Nothing Club Tee - Acid Black",
-        images: [{id: "T-I13", src: waveTigerTeePinkKush}],
-        price: "80",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "tees",
-    },
-];
-
-export const HOODIES: Clothes[] = [
-    {
-        id: "H1",
-        name: "Sunburn Hoodie - Acid Black",
-        images: [{id: "H-I1", src: sunburnHoodieAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "hoodies",
-    },
-    {
-        id: "H2",
-        name: "Aqua Sweat - Vintage White",
-        images: [{id: "H-I1", src: sunburnHoodieAcidBlack}],
-        price: "80",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "hoodies"
-    },
-    {
-        id: "H3",
-        name: "Power Flower Sweat - Pink Kush",
-        images: [{id: "H-I1", src: sunburnHoodieAcidBlack}],
-        price: "80",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "hoodies"
-    },
-    {
-        id: "H4",
-        name: "Organic Wave Sweat - Vintage White",
-        images: [{id: "H-I1", src: sunburnHoodieAcidBlack}],
-        price: "80",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "hoodies"
-    },
-    {
-        id: "H5",
-        name: "CH6 Hoodie - Cookie",
-        images: [{id: "H-I1", src: sunburnHoodieAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    },
-    {
-        id: "H6",
-        name: "CH6 Hoodie - Acid Black",
-        images: [{id: "H-I2", src: sunburnHoodieAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    },
-    {
-        id: "H7",
-        name: "Surf Star Hoodie - Vintage White",
-        images: [{id: "H-I3", src: sunburnHoodieAcidBlack}],
-        price: "103",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    },
-    {
-        id: "H8",
-        name: "Play N'Pray Hoodie - Vintage White",
-        images: [{id: "H-I4", src: sunburnHoodieAcidBlack}],
-        price: "103",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    },
-    {
-        id: "H9",
-        name: "Mad Company Sweat - Acid Black",
-        images: [{id: "H-I5", src: sunburnHoodieAcidBlack}],
-        price: "80",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    },
-    {
-        id: "H10",
-        name: "Wine And Surf Sweat - Vintage White",
-        images: [{id: "H-I6", src: sunburnHoodieAcidBlack}],
-        price: "85",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "hoodies"
-    }
-];
-
-export const LONGSLEEVES: Clothes[] = [
-    {
-        id: "L1",
-        name: "Blessedn' Lost LS - Acid Black",
-        images: [{id: "L-I1", src: blessednLostLsAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "longsleeves",
-    },
-    {
-        id: "L2",
-        name: "Party Wave LS - Pink Kush",
-        images: [{id: "L-I2", src: blessednLostLsAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "longsleeves",
-    },
-    {
-        id: "L3",
-        name: "Cobra Grip LS - Acid Black",
-        images: [{id: "L-I3", src: blessednLostLsAcidBlack}],
-        price: "92",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "longsleeves",
-    },
-    {
-        id: "L4",
-        name: "Sea Lions LS - Dirty White",
-        images: [{id: "L-I4", src: blessednLostLsAcidBlack}],
-        price: "69",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "longsleeves",
-    },
-    {
-        id: "L5",
-        name: "Starfish LS - Dirty White",
-        images: [{id: "L-I5", src: blessednLostLsAcidBlack}],
-        price: "69",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "longsleeves",
-    },
-    {
-        id: "L6",
-        name: "No Rules LS - Brownie",
-        images: [{id: "L-I6", src: blessednLostLsAcidBlack}],
-        price: "69",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "longsleeves",
-    },
-    {
-        id: "L7",
-        name: "Sunburn LS - Optic White",
-        images: [{id: "L-I7", src: blessednLostLsAcidBlack}],
-        price: "69",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: true,
-        category: "longsleeves",
-    },
-    {
-        id: "L8",
-        name: "Salty Dreams LS - Vintage White",
-        images: [{id: "L-I8", src: blessednLostLsAcidBlack}],
-        price: "57",
-        description: "Some description iehfui iufhuirhg uhguh gihguhrgig.",
-        bestseller: false,
-        category: "longsleeves",
-    }
-];
+import sunburnHoodieAcidBlack from "../../public/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-1.webp"
+import waveTigerTeePinkKush from "../../public/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-1.webp"
+import { CartItem, RadioGroupCartItem } from "@/types"
 
 export const SHIPPING_ITEMS: RadioGroupCartItem[] = [
-    {label: "InPost", id: "inpost", price: 6},
-    {
-        label: "Orlen Paczka",
-        id: "orlen", price: 5
-    },
-    {
-        label: "Poczta Polska",
-        id: "poczta", price: 4
-    }, {label: "Kurier DPD", id: "dpd", price: 7}]
+  { label: "InPost", id: "inpost", price: 6 },
+  {
+    label: "Orlen Paczka",
+    id: "orlen",
+    price: 5,
+  },
+  {
+    label: "Poczta Polska",
+    id: "poczta",
+    price: 4,
+  },
+  { label: "Kurier DPD", id: "dpd", price: 7 },
+]
 
-export const DELIVERY_ITEMS: RadioGroupCartItem[] = [{label: "BLIK", id: "blik"}, {
+export const DELIVERY_ITEMS: RadioGroupCartItem[] = [
+  { label: "BLIK", id: "blik" },
+  {
     label: "Online Transfer",
-    id: "transfer"
-}, {
+    id: "transfer",
+  },
+  {
     label: "Payment Card",
-    id: "card"
-}]
+    id: "card",
+  },
+]
 
-export const CART_ITEMS: CartItem[] = [{
+export const CART_ITEMS: CartItem[] = [
+  {
     id: "H3",
     name: "Power Flower Sweat - Pink Kush",
     image: sunburnHoodieAcidBlack,
     size: "S",
     quantity: 1,
     price: 80,
-    category: "hoodies"
-}, {
+    category: "hoodies",
+  },
+  {
     id: "T2",
     name: "Aqua Box Tee - Vintage White",
     image: waveTigerTeePinkKush,
     size: "S",
     quantity: 1,
     price: 50,
-    category: "tees"
-}]
+    category: "tees",
+  },
+]
 
 export const TERMS_AND_CONDITIONS = `
 **SHOP RULES**
