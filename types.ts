@@ -41,6 +41,7 @@ declare module "@blitzjs/auth" {
     PublicData: {
       userId: User["id"]
       role: Role
+      email: string
     }
   }
 }

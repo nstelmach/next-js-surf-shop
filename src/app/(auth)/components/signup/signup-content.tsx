@@ -1,8 +1,8 @@
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import Link from "next/link"
-import CreateAccountForm from "@/src/components/forms/create-account-form"
- 
-export default function CreateAccountContent() {
+import SignupForm from "@/src/app/(auth)/components/signup/signup-form"
+
+export default function SignupContent() {
   return (
     <>
       <Paragraph className="xl:text-base text-xl md:text-2xl m-4 text-center xl:text-left">
@@ -11,7 +11,7 @@ export default function CreateAccountContent() {
           Log in instead!
         </Link>
       </Paragraph>
-      <CreateAccountForm />
+      <SignupForm />
     </>
   )
 }

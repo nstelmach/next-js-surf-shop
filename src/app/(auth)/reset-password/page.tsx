@@ -1,5 +1,13 @@
-import { ResetPasswordForm } from "../components/ResetPasswordForm"
+import ResetPasswordForm from "@/src/app/(auth)/components/reset-password/reset-password-form"
+import Paragraph from "@/src/components/typohgraphy/paragraph"
 
 export default function ResetPasswordPage() {
-  return <ResetPasswordForm />
+  return (
+    <>
+      <Paragraph className="text-3xl md:text-4xl xl:text-2xl font-bold m-4 text-center">
+        RESET PASSWORD
+      </Paragraph>
+      <ResetPasswordForm />
+    </>
+  )
 }

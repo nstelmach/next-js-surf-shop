@@ -1,5 +1,5 @@
 import db from "db"
- 
+
 enum Size {
   XS = "XS",
   S = "S",
@@ -505,6 +505,9 @@ const seed = async () => {
   await db.image.deleteMany()
   await db.price.deleteMany()
   await db.product.deleteMany()
+  await db.token.deleteMany()
+  await db.session.deleteMany()
+  await db.user.deleteMany()
 
   for (const product of PRODUCTS) {
     await db.product.create({

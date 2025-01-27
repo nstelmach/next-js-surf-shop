@@ -7,13 +7,39 @@ export const email = z
 
 export const password = z
   .string()
-  .min(10)
-  .max(100)
+  .min(8, {
+    message: "Password must be at least 8 characters.",
+  })
+  .max(20, {
+    message: "Password must be below 20 characters.",
+  })
   .transform((str) => str.trim())
+
+export const name = z
+  .string()
+  .min(2, {
+    message: "First name must be at least 2 characters.",
+  })
+  .max(20, {
+    message: "First name must be below 20 characters.",
+  })
+
+export const terms = z.literal<boolean>(true, { message: "Terms and conditions must be accepted." })
+
+export const message = z
+  .string()
+  .min(2, {
+    message: "Message must be at least 2 characters.",
+  })
+  .max(50, {
+    message: "Message must be below 50 characters.",
+  })
 
 export const Signup = z.object({
   email,
   password,
+  name,
+  terms,
 })
 
 export const Login = z.object({
@@ -30,6 +56,7 @@ export const ResetPassword = z
     password: password,
     passwordConfirmation: password,
     token: z.string().optional(),
+    terms,
   })
   .refine((data) => data.password === data.passwordConfirmation, {
     message: "Passwords don't match",
@@ -39,4 +66,15 @@ export const ResetPassword = z
 export const ChangePassword = z.object({
   currentPassword: z.string(),
   newPassword: password,
+  terms,
+})
+
+export const Contact = z.object({
+  email,
+  name,
+  message,
+})
+
+export const Newsletter = z.object({
+  email,
 })

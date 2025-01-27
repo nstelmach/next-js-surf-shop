@@ -456,3 +456,10 @@ We create clothes that we love to wear ourselves.
 Snowboarding, surfing, road trip? Or maybe tea on the beach on a windy day, or a meeting in the city? SURF clothes 
 will provide you with mega comfort and super style everywhere.
 `
+export const FORM_ERROR = "FORM_ERROR"
+
+export const EMAIL_USED = "This email is already being used"
+
+export const INVALID_CREDENTIALS = "Sorry, those credentials are invalid"
+
+export const UNEXPECTED_ERROR = "Sorry, we had an unexpected error. Please try again."

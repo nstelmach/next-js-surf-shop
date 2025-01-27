@@ -1,14 +1,11 @@
 import AccountButtons from "@/src/components/my-account/account-buttons"
-import Link from "next/link"
-import { Button } from "@/src/components/ui/button"
+import { LogoutButton } from "@/src/app/(auth)/components/logout/logout-button"
 
 export default function AccountContent() {
   return (
     <>
       <AccountButtons />
-      <Link href="/login" className="min-w-52 md:min-w-64 xl:min-w-fit">
-        <Button type="button">SIGN OUT</Button>
-      </Link>
+      <LogoutButton />
     </>
   )
 }
