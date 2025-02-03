@@ -7,6 +7,8 @@ import Header from "@/src/components/header/header"
 import Footer from "@/src/components/footer/footer"
 import { Toaster } from "@/src/components/ui/toaster"
 import PageWrapper from "@/src/components/wrapper/page-wrapper"
+import { ErrorBoundary } from "@blitzjs/next"
+import Error from "@/src/app/error"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -34,9 +36,11 @@ function RootLayout({
         )}
       >
         <BlitzProvider>
-          <Header />
-          <PageWrapper>{children}</PageWrapper>
-          <Footer />
+          <ErrorBoundary FallbackComponent={Error}>
+            <Header />
+            <PageWrapper>{children}</PageWrapper>
+            <Footer />
+          </ErrorBoundary>
           <Toaster />
         </BlitzProvider>
       </body>
