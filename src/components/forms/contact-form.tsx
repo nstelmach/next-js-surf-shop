@@ -13,113 +13,100 @@ import {
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
 import { Textarea } from "@/src/components/ui/textarea"
-import ButtonWithToast from "@/src/components/toast/button-with-toast"
+import { Contact } from "@/src/app/(auth)/validations"
+import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
+import { useMutation } from "@blitzjs/rpc"
+import contact from "@/src/mutations/contact"
+import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
+import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Flex from "@/src/components/typohgraphy/flex"
+import Link from "next/link"
 
 export default function ContactForm() {
-  const formSchema = z.object({
-    firstname: z
-      .string()
-      .min(2, {
-        message: "First Name must be at least 2 characters.",
-      })
-      .max(20, {
-        message: "First Name must be below 20 characters.",
-      }),
-    lastname: z
-      .string()
-      .min(2, {
-        message: "Last Name must be at least 2 characters.",
-      })
-      .max(20, {
-        message: "Last Name must be below 20 characters.",
-      }),
-    email: z.string().email(),
-    message: z
-      .string()
-      .min(2, {
-        message: "Message must be at least 2 characters.",
-      })
-      .max(50, {
-        message: "Message must be below 50 characters.",
-      }),
-  })
+  const [contactMutation, { isLoading, isSuccess, isError }] = useMutation(contact)
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof Contact>>({
+    resolver: zodResolver(Contact),
     defaultValues: {
-      firstname: "",
-      lastname: "",
+      name: "",
       email: "",
       message: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  const onSubmit = async (values: z.infer<typeof Contact>) => {
+    try {
+      await contactMutation(values)
+    } catch (error: any) {
+      return { [FORM_ERROR]: UNEXPECTED_ERROR }
+    }
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:min-w-96 min-w-72">
-        <FormField
-          control={form.control}
-          name="firstname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>First Name *</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Last Name *</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>E-mail *</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message *</FormLabel>
-              <FormControl>
-                <Textarea className="resize-none" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <ButtonWithToast
-          type="submit"
-          description="Your message has been successfully sent!"
-          label="Submit"
-        />
-      </form>
-    </Form>
+    <>
+      {isError && (
+        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          {UNEXPECTED_ERROR}
+        </Paragraph>
+      )}
+      {isSuccess ? (
+        <Flex className="flex-col">
+          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+            Your message has been successfully sent!
+          </Paragraph>
+          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+            Go to the{" "}
+            <Link className="hover:underline" href="/">
+              homepage
+            </Link>
+          </Paragraph>
+        </Flex>
+      ) : (
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:min-w-96 min-w-72">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name *</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>E-mail *</FormLabel>
+                  <FormControl>
+                    <Input type="email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message *</FormLabel>
+                  <FormControl>
+                    <Textarea className="resize-none" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <ButtonWithLoader type="submit" label="Send" isLoading={isLoading} />
+          </form>
+        </Form>
+      )}
+    </>
   )
 }

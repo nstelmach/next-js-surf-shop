@@ -7,13 +7,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog"
-import { Input } from "@/src/components/ui/input"
 import Link from "next/link"
 import Image from "next/image"
 import newsletterImg from "@/src/assets/newsletter/newsletter.jpg"
-import ButtonWithToast from "@/src/components/toast/button-with-toast"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import Flex from "@/src/components/typohgraphy/flex"
+import NewsletterButton from "@/src/components/newsletter/newsletter-button"
 
 export default function Newsletter() {
   return (
@@ -32,17 +31,12 @@ export default function Newsletter() {
               <strong>get a 5% discount on your next purchase.*</strong>
             </DialogDescription>
           </DialogHeader>
-          <Input type="email" placeholder="Enter your email" />
+          <NewsletterButton />
           <DialogFooter>
-            <ButtonWithToast
-              type="submit"
-              description="You have been successfully signed up to the newsletter!"
-              label="SIGN UP!"
-            />
             <Paragraph className="xl:text-xs text-sm md:text-md text-center">
               <i>
                 By signing up you consent to the processing of personal data in accordance with the{" "}
-                <Link href="/privacy-policy">
+                <Link className="hover:underline" href="/privacy-policy">
                   <u>privacy policy.</u>
                 </Link>
               </i>
