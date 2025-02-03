@@ -3,7 +3,7 @@ import Paragraph from "@/src/components/typohgraphy/paragraph"
 
 interface CartSummarySectionProps {
   title: string
-  price: string
+  price: number
 }
 
 export default function CartSummarySection({ title, price }: CartSummarySectionProps) {

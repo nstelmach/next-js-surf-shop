@@ -1,28 +1,46 @@
 import { RadioGroup, RadioGroupItem } from "@/src/components/ui/radio-group"
-import { Label } from "@/src/components/ui/label"
-import { RadioGroupCartItem } from "@/types"
 import Flex from "@/src/components/typohgraphy/flex"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
 import { Separator } from "@/src/components/ui/separator"
+import { Payment, Shipping } from "@prisma/client"
+import { FormControl, FormField, FormItem, FormLabel } from "@/src/components/ui/form"
 
 interface CartRadioGroupProps {
   title: string
-  items: RadioGroupCartItem[]
+  items: Shipping[] | Payment[]
+  name: string
+  control: any
 }
 
-export default function CartRadioGroup({ title, items }: CartRadioGroupProps) {
+export default function CartRadioGroup({ title, items, name, control }: CartRadioGroupProps) {
   return (
     <Flex className="flex-col items-center justify-center gap-4 xl:m-2 w-full">
-      <Paragraph className="xl:text-xl md:text-3xl text-2xl font-bold m-2">{title}</Paragraph>
-      <Separator orientation="horizontal" />
-      <RadioGroup defaultValue={items[0].id}>
-        {items.map((item) => (
-          <Flex key={item.id} className="flex-row items-center justify-center gap-2">
-            <RadioGroupItem value={item.id} id={item.id} />
-            <Label htmlFor={item.id}>{item.label}</Label>
-          </Flex>
-        ))}
-      </RadioGroup>
+      <FormField
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <FormItem className="flex-col items-center justify-center gap-4 xl:m-2 w-full">
+            <FormLabel className="w-full text-center xl:text-xl md:text-3xl text-2xl font-bold m-2">
+              {title}
+            </FormLabel>
+            <Separator orientation="horizontal" />
+            <FormControl>
+              <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
+                {items.map((item) => (
+                  <FormItem
+                    key={item.id}
+                    className="flex flex-row items-center justify-center gap-2"
+                  >
+                    <FormControl>
+                      <RadioGroupItem value={item.name} />
+                    </FormControl>
+                    <FormLabel>{item.label}</FormLabel>
+                  </FormItem>
+                ))}
+              </RadioGroup>
+            </FormControl>
+          </FormItem>
+        )}
+      />
       <Separator orientation="horizontal" className="bg-muted" />
     </Flex>
   )
