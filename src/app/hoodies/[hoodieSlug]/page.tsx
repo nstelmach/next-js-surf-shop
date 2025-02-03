@@ -12,9 +12,10 @@ export default function HoodieDetailsPage() {
   //TODO auction price
   return (
     <ClothesDetails
+      productId={hoodie?.id}
       title={hoodie?.name}
       description={hoodie?.description}
-      price={hoodie?.price}
+      prices={hoodie?.prices}
       images={hoodie?.images}
       auctionPrice="50"
     />

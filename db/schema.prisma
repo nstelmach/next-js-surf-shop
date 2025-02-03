@@ -11,12 +11,15 @@ model User {
   id             Int       @id @default(autoincrement())
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-  name           String?
+  name           String
   email          String    @unique
-  hashedPassword String?
+  hashedPassword String
   role           String    @default("USER")
   tokens         Token[]
   sessions       Session[]
+  newsletter     Boolean   @default(false)
+  cart           Cart?
+  messages       Message[]
 }
 
 model Session {
@@ -29,8 +32,8 @@ model Session {
   antiCSRFToken      String?
   publicData         String?
   privateData        String?
-  user               User?     @relation(fields: [userId], references: [id])
-  userId             Int?
+  user               User      @relation(fields: [userId], references: [id])
+  userId             Int
 }
 
 model Token {
@@ -41,9 +44,8 @@ model Token {
   type        TokenType
   expiresAt   DateTime
   sentTo      String
-
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
+  user        User      @relation(fields: [userId], references: [id])
+  userId      Int
 
   @@unique([hashedToken, type])
 }
@@ -53,21 +55,22 @@ enum TokenType {
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String
-  price       Price[]
-  size        Size[]
-  images      Image[]
-  bestseller  Boolean
-  category    Category
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String
+  prices       Price[]
+  sizes        Size[]
+  images       Image[]
+  bestseller   Boolean
+  category     Category
+  cartProducts CartProduct[]
 }
 
 model Image {
-  id        Int      @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   src       String
-  product   Product? @relation(fields: [productId], references: [id])
-  productId Int?
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
 }
 
 enum Category {
@@ -89,4 +92,49 @@ model Price {
   price     Decimal @db.Money
   product   Product @relation(fields: [productId], references: [id])
   productId Int
+}
+
+model Message {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String
+  message String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
+}
+
+model Cart {
+  id           Int           @id @default(autoincrement())
+  cartProducts CartProduct[]
+  user         User          @relation(fields: [userId], references: [id])
+  userId       Int           @unique
+  shipping     Shipping      @relation(fields: [shippingName], references: [name])
+  shippingName String
+  payment      Payment       @relation(fields: [paymentName], references: [name])
+  paymentName  String
+}
+
+model CartProduct {
+  id         Int     @id @default(autoincrement())
+  product    Product @relation(fields: [productId], references: [id])
+  productId  Int
+  cart       Cart    @relation(fields: [cartId], references: [id])
+  cartId     Int
+  chosenSize String
+  quantity   Int
+}
+
+model Shipping {
+  id    Int    @id @default(autoincrement())
+  label String
+  price Int
+  name  String @unique
+  cart  Cart[]
+}
+
+model Payment {
+  id    Int    @id @default(autoincrement())
+  label String
+  name  String @unique
+  cart  Cart[]
 }

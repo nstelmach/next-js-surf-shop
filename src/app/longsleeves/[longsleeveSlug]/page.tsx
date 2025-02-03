@@ -12,9 +12,10 @@ export default function LongsleeveDetailsPage() {
   //TODO auction price
   return (
     <ClothesDetails
+      productId={longsleeve.id}
       title={longsleeve?.name}
       description={longsleeve?.description}
-      price={longsleeve?.price}
+      prices={longsleeve?.prices}
       images={longsleeve?.images}
       auctionPrice="50"
     />

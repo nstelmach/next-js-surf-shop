@@ -12,9 +12,10 @@ export default function TeeDetailsPage() {
   //TODO auction price
   return (
     <ClothesDetails
+      productId={tee?.id}
       title={tee?.name}
       description={tee?.description}
-      price={tee?.price}
+      prices={tee?.prices}
       images={tee?.images}
       auctionPrice="50"
     />

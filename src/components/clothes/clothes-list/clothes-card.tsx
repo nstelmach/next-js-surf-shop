@@ -8,7 +8,6 @@ interface ClothesCardProps {
 }
 
 //TODO price
-
 export default function ClothesCard({ item }: ClothesCardProps) {
   return (
     <Card>
@@ -30,7 +29,7 @@ export default function ClothesCard({ item }: ClothesCardProps) {
         </Link>
       </CardHeader>
       <CardContent>
-        <CardDescription>{item.price[0].price} €</CardDescription>
+        <CardDescription>{item.prices[0].price} €</CardDescription>
       </CardContent>
     </Card>
   )
