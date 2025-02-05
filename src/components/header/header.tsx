@@ -5,7 +5,7 @@ import HeaderNavigationMenu from "@/src/components/header/header-navigation-menu
 import Flex from "@/src/components/typohgraphy/flex"
 import cartIcon from "@/src/assets/svg/shopping-bag.svg"
 import SocialMediaIcons from "@/src/components/social-media/social-media-icons"
- 
+
 export default function Header() {
   return (
     <header className="flex flex-col justify-center items-center sticky top-0 bg-background z-10 p-2 md:p-4 md:px-8 gap-2">
@@ -26,6 +26,7 @@ export default function Header() {
             width={40}
             className="xl:w-[30px] md:w-[50px] w-[40px]"
           />
+          <div className="border rounded-[50%]">1</div>
         </Link>
       </Flex>
       <HeaderNavigationMenu />

@@ -18,7 +18,6 @@ import { ChangePassword } from "@/src/app/(auth)/validations"
 import { useMutation } from "@blitzjs/rpc"
 import changePassword from "@/src/app/(auth)/mutations/changePassword"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import { useRouter } from "next/navigation"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { Checkbox } from "@/src/components/ui/checkbox"
@@ -27,7 +26,6 @@ import { useCurrentUser } from "@/src/app/users/hooks/useCurrentUser"
 export default function ChangePasswordForm() {
   const [changePasswordMutation, { isLoading, isSuccess, isError, error }] =
     useMutation(changePassword)
-  const router = useRouter()
   const user = useCurrentUser()
 
   const ERROR = error?.message

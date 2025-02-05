@@ -5,19 +5,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select"
+import { Size } from "@prisma/client"
 
-export default function SizeSelect() {
+export default function SizeSelect({ setSize }) {
   return (
-    <Select>
+    <Select onValueChange={setSize}>
       <SelectTrigger>
         <SelectValue placeholder="Choose a size" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="xs">XS</SelectItem>
-        <SelectItem value="s">S</SelectItem>
-        <SelectItem value="m">M</SelectItem>
-        <SelectItem value="l">L</SelectItem>
-        <SelectItem value="xl">XL</SelectItem>
+        <SelectItem value="XS">{Size.XS}</SelectItem>
+        <SelectItem value="S">{Size.S}</SelectItem>
+        <SelectItem value="M">{Size.M}</SelectItem>
+        <SelectItem value="L">{Size.L}</SelectItem>
+        <SelectItem value="XL">{Size.XL}</SelectItem>
       </SelectContent>
     </Select>
   )

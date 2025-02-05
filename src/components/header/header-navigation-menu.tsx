@@ -6,6 +6,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/src/components/ui/navigation-menu"
+import HeaderLink from "@/src/components/header/header-link"
 
 export default function HeaderNavigationMenu() {
   return (
@@ -37,9 +38,7 @@ export default function HeaderNavigationMenu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/login" legacyBehavior passHref>
-            <NavigationMenuLink>SIGN IN</NavigationMenuLink>
-          </Link>
+          <HeaderLink />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

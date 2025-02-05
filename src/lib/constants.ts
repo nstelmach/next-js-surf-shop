@@ -1,33 +1,6 @@
 import sunburnHoodieAcidBlack from "../../public/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-1.webp"
 import waveTigerTeePinkKush from "../../public/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-1.webp"
-import { CartItem, RadioGroupCartItem } from "@/types"
-
-export const SHIPPING_ITEMS: RadioGroupCartItem[] = [
-  { label: "InPost", id: "inpost", price: 6 },
-  {
-    label: "Orlen Paczka",
-    id: "orlen",
-    price: 5,
-  },
-  {
-    label: "Poczta Polska",
-    id: "poczta",
-    price: 4,
-  },
-  { label: "Kurier DPD", id: "dpd", price: 7 },
-]
-
-export const DELIVERY_ITEMS: RadioGroupCartItem[] = [
-  { label: "BLIK", id: "blik" },
-  {
-    label: "Online Transfer",
-    id: "transfer",
-  },
-  {
-    label: "Payment Card",
-    id: "card",
-  },
-]
+import { CartItem } from "@/types"
 
 export const CART_ITEMS: CartItem[] = [
   {
@@ -463,3 +436,9 @@ export const EMAIL_USED = "This email is already being used"
 export const INVALID_CREDENTIALS = "Sorry, those credentials are invalid"
 
 export const UNEXPECTED_ERROR = "Sorry, we had an unexpected error. Please try again."
+
+export const USER_NOT_EXIST = "Sorry, this user doesn't exist."
+
+export const LOGGED_IN = "Sorry, you have to be logged in."
+
+export const ALREADY_SUBSCRIBED = "You already subscribed to our newsletter."
