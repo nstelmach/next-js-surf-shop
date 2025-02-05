@@ -2,20 +2,13 @@ import Flex from "@/src/components/typohgraphy/flex"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import { Separator } from "@/src/components/ui/separator"
 import CartSummarySection from "@/src/components/cart/cart-summary-section"
-import { useQuery } from "@blitzjs/rpc"
-import getCart from "@/src/queries/getCart"
 
 interface CartSummaryProps {
   shipping: number
+  totalPrice: number
 }
 
-export default function CartSummary({ shipping }: CartSummaryProps) {
-  const [cart] = useQuery(getCart)
-
-  const totalPrice = cart.cartProducts.reduce((total, cartProduct) => {
-    return total + cartProduct.quantity * cartProduct.product.prices[0].price
-  }, 0)
-
+export default function CartSummary({ shipping, totalPrice }: CartSummaryProps) {
   return (
     <Flex className="flex-col items-center justify-center w-full xl:m-2 gap-4">
       <Paragraph className="xl:text-xl md:text-3xl text-2xl font-bold">Summary</Paragraph>

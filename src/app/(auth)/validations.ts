@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { Category } from "@prisma/client"
 
 export const email = z
   .string()
@@ -75,6 +76,21 @@ export const Contact = z.object({
   message,
 })
 
-export const Newsletter = z.object({
-  email,
+export const GetProducts = z.object({
+  category: z.nativeEnum(Category).optional(),
+  bestseller: z.boolean().optional(),
+})
+
+export const GetProduct = z.object({
+  id: z.number(),
+})
+
+export const Order = z.object({
+  shipping: z.string(),
+  payment: z.string(),
+})
+
+export const UpdateCart = z.object({
+  shipping: z.string(),
+  payment: z.string(),
 })
