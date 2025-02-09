@@ -9,7 +9,6 @@ export default function TeeDetailsPage() {
 
   const [tee] = useQuery(getProduct, { id: +params.teeSlug })
 
-  //TODO auction price
   return (
     <ClothesDetails
       productId={tee?.id}
@@ -17,7 +16,6 @@ export default function TeeDetailsPage() {
       description={tee?.description}
       prices={tee?.prices}
       images={tee?.images}
-      auctionPrice="50"
     />
   )
 }

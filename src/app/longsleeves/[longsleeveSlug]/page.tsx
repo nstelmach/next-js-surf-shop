@@ -9,7 +9,6 @@ export default function LongsleeveDetailsPage() {
 
   const [longsleeve] = useQuery(getProduct, { id: +params.longsleeveSlug })
 
-  //TODO auction price
   return (
     <ClothesDetails
       productId={longsleeve.id}
@@ -17,7 +16,6 @@ export default function LongsleeveDetailsPage() {
       description={longsleeve?.description}
       prices={longsleeve?.prices}
       images={longsleeve?.images}
-      auctionPrice="50"
     />
   )
 }
