@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Category } from "@prisma/client"
+import { Category, Size } from "@prisma/client"
 
 export const email = z
   .string()
@@ -93,4 +93,10 @@ export const Order = z.object({
 export const UpdateCart = z.object({
   shipping: z.string(),
   payment: z.string(),
+})
+
+export const ChooseSize = z.object({
+  size: z.nativeEnum(Size, {
+    message: "You must choose a size.",
+  }),
 })
