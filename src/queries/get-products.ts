@@ -1,6 +1,6 @@
 import db from "db"
 import * as z from "zod"
-import { GetProducts } from "@/src/app/(auth)/validations"
+import { GetProducts } from "@/src/lib/validations"
 
 export default async function getProducts(input: z.infer<typeof GetProducts>) {
   const data = GetProducts.parse(input)

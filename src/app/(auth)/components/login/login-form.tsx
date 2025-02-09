@@ -18,7 +18,7 @@ import login from "@/src/app/(auth)/mutations/login"
 import { useRouter, useSearchParams } from "next/navigation"
 import type { Route } from "next"
 import { AuthenticationError } from "blitz"
-import { Login } from "@/src/app/(auth)/validations"
+import { Login } from "@/src/lib/validations"
 import { FORM_ERROR, INVALID_CREDENTIALS, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 

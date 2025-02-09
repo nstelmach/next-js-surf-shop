@@ -6,7 +6,7 @@ import {
   CarouselPrevious,
 } from "@/src/components/ui/carousel"
 import Image from "next/image"
-import { ItemImage } from "@/types"
+import { ItemImage } from "@/src/lib/types"
 
 interface ImageCarouselProps {
   title: string | undefined

@@ -14,14 +14,14 @@ import {
 import { Input } from "@/src/components/ui/input"
 import Link from "next/link"
 import Flex from "@/src/components/typohgraphy/flex"
-import { ChangePassword } from "@/src/app/(auth)/validations"
+import { ChangePassword } from "@/src/lib/validations"
 import { useMutation } from "@blitzjs/rpc"
 import changePassword from "@/src/app/(auth)/mutations/changePassword"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { Checkbox } from "@/src/components/ui/checkbox"
-import { useCurrentUser } from "@/src/app/users/hooks/useCurrentUser"
+import { useCurrentUser } from "@/src/hooks/useCurrentUser"
 
 export default function ChangePasswordForm() {
   const [changePasswordMutation, { isLoading, isSuccess, isError, error }] =

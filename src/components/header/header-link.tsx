@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { useCurrentUser } from "@/src/app/users/hooks/useCurrentUser"
+import { useCurrentUser } from "@/src/hooks/useCurrentUser"
 import { NavigationMenuLink } from "@/src/components/ui/navigation-menu"
 
 export default function HeaderLink() {

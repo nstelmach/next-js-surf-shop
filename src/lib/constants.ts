@@ -1,28 +1,3 @@
-import sunburnHoodieAcidBlack from "../../public/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-1.webp"
-import waveTigerTeePinkKush from "../../public/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-1.webp"
-import { CartItem } from "@/types"
-
-export const CART_ITEMS: CartItem[] = [
-  {
-    id: "H3",
-    name: "Power Flower Sweat - Pink Kush",
-    image: sunburnHoodieAcidBlack,
-    size: "S",
-    quantity: 1,
-    price: 80,
-    category: "hoodies",
-  },
-  {
-    id: "T2",
-    name: "Aqua Box Tee - Vintage White",
-    image: waveTigerTeePinkKush,
-    size: "S",
-    quantity: 1,
-    price: 50,
-    category: "tees",
-  },
-]
-
 export const TERMS_AND_CONDITIONS = `
 **SHOP RULES**
 \n

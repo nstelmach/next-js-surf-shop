@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { Clothes } from "@/types"
+import { Clothes } from "@/src/lib/types"
 
 interface ClothesCardProps {
   item: Clothes

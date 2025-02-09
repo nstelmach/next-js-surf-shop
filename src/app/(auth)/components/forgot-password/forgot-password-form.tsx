@@ -2,7 +2,7 @@
 import { useMutation } from "@blitzjs/rpc"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { ForgotPassword } from "@/src/app/(auth)/validations"
+import { ForgotPassword } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import {

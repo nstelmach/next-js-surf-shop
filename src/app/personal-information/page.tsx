@@ -1,7 +1,7 @@
 "use client"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import ChangePasswordForm from "@/src/app/(auth)/components/change-password/change-password-form"
-import { useCurrentUser } from "@/src/app/users/hooks/useCurrentUser"
+import { useCurrentUser } from "@/src/hooks/useCurrentUser"
 
 export default function PersonalInformationPage() {
   const user = useCurrentUser()

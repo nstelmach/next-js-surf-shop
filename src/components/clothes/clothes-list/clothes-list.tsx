@@ -1,4 +1,4 @@
-import { Clothes } from "@/types"
+import { Clothes } from "@/src/lib/types"
 import ClothesCard from "@/src/components/clothes/clothes-list/clothes-card"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 

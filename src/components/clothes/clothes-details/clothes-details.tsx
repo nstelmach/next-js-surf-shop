@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card"
-import { ItemImage } from "@/types"
+import { ItemImage } from "@/src/lib/types"
 import ImageCarousel from "@/src/components/clothes/clothes-details/image-carousel"
 import Flex from "@/src/components/typohgraphy/flex"
 import Paragraph from "@/src/components/typohgraphy/paragraph"

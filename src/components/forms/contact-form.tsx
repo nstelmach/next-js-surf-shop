@@ -13,7 +13,7 @@ import {
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
 import { Textarea } from "@/src/components/ui/textarea"
-import { Contact } from "@/src/app/(auth)/validations"
+import { Contact } from "@/src/lib/validations"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { useMutation } from "@blitzjs/rpc"
 import contact from "@/src/mutations/contact"
