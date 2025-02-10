@@ -3,12 +3,13 @@ import Flex from "@/src/components/typohgraphy/flex"
 import { Separator } from "@/src/components/ui/separator"
 import { Payment, Shipping } from "@prisma/client"
 import { FormControl, FormField, FormItem, FormLabel } from "@/src/components/ui/form"
+import { Control } from "react-hook-form"
 
 interface CartRadioGroupProps {
   title: string
   items: Shipping[] | Payment[]
   name: string
-  control: any
+  control: Control
 }
 
 export default function CartRadioGroup({ title, items, name, control }: CartRadioGroupProps) {

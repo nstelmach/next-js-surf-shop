@@ -21,6 +21,8 @@ export default resolver.pipe(
     },
     ctx
   ) => {
+    if (!cartId) throw new Error()
+
     const user = await db.user.findFirst({
       where: { id: ctx.session.userId },
       include: { cart: { include: { cartProducts: true } } },

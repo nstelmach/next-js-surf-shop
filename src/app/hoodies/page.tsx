@@ -1,7 +1,7 @@
 "use client"
 import ClothesList from "@/src/components/clothes/clothes-list/clothes-list"
 import { useQuery } from "@blitzjs/rpc"
-import getProducts from "@/src/queries/getProducts"
+import getProducts from "@/src/queries/get-products"
 import { Category } from "@prisma/client"
 import Loading from "@/src/app/loading"
 import { Suspense } from "react"

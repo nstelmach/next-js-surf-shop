@@ -19,10 +19,10 @@ export const password = z
 export const name = z
   .string()
   .min(2, {
-    message: "First name must be at least 2 characters.",
+    message: "Name must be at least 2 characters.",
   })
   .max(20, {
-    message: "First name must be below 20 characters.",
+    message: "Name must be below 20 characters.",
   })
 
 export const terms = z.literal<boolean>(true, { message: "Terms and conditions must be accepted." })
@@ -35,6 +35,10 @@ export const message = z
   .max(50, {
     message: "Message must be below 50 characters.",
   })
+
+export const shipping = z.string()
+
+export const payment = z.string()
 
 export const Signup = z.object({
   email,
@@ -61,7 +65,7 @@ export const ResetPassword = z
   })
   .refine((data) => data.password === data.passwordConfirmation, {
     message: "Passwords don't match",
-    path: ["passwordConfirmation"], // set the path of the error
+    path: ["passwordConfirmation"],
   })
 
 export const ChangePassword = z.object({
@@ -82,17 +86,17 @@ export const GetProducts = z.object({
 })
 
 export const GetProduct = z.object({
-  id: z.number(),
+  id: z.number().int(),
 })
 
 export const Order = z.object({
-  shipping: z.string(),
-  payment: z.string(),
+  shipping,
+  payment,
 })
 
 export const UpdateCart = z.object({
-  shipping: z.string(),
-  payment: z.string(),
+  shipping,
+  payment,
 })
 
 export const ChooseSize = z.object({

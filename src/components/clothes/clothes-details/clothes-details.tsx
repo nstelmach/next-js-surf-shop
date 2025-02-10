@@ -7,22 +7,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card"
-import { ItemImage } from "@/src/lib/types"
 import ImageCarousel from "@/src/components/clothes/clothes-details/image-carousel"
 import Flex from "@/src/components/typohgraphy/flex"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
-import { Price } from "@prisma/client"
+import { Image, Price } from "@prisma/client"
 import SizeSelectForm from "@/src/components/clothes/clothes-details/size-select-form"
 
 interface ClothesDetailsProps {
-  title: string | undefined
-  description: string | undefined
-  prices: Price[] | undefined
-  images: ItemImage[] | undefined
-  productId: number | undefined
+  title: string
+  description: string
+  prices: Price[]
+  images: Image[]
+  productId: number
 }
 
-//TODO price
 export default function ClothesDetails({
   title,
   description,

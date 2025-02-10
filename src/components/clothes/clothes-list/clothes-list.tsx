@@ -1,10 +1,10 @@
-import { Clothes } from "@/src/lib/types"
 import ClothesCard from "@/src/components/clothes/clothes-list/clothes-card"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
+import { Product } from "@prisma/client"
 
 interface ClothesListProps {
   title: string
-  items: Clothes[]
+  items: Product[]
 }
 
 export default function ClothesList({ title, items }: ClothesListProps) {

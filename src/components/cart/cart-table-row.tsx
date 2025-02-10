@@ -11,7 +11,7 @@ import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import deleteCartProduct from "@/src/mutations/delete-cart-product"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
-import getCart from "@/src/queries/getCart"
+import getCart from "@/src/queries/get-cart"
 
 interface CardTableRowProps {
   cartProduct: CartProduct

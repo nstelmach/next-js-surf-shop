@@ -1,13 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { Clothes } from "@/src/lib/types"
+import { Product } from "@prisma/client"
 
 interface ClothesCardProps {
-  item: Clothes
+  item: Product
 }
 
-//TODO price
 export default function ClothesCard({ item }: ClothesCardProps) {
   return (
     <Card>

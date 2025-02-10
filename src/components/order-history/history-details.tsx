@@ -1,4 +1,3 @@
-"use client"
 import Link from "next/link"
 import HistoryTable from "@/src/components/order-history/history-table"
 

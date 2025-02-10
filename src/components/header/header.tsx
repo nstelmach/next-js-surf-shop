@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image"
 import Link from "next/link"
 import logoImg from "@/src/assets/icons/logo.jpg"
@@ -6,18 +5,9 @@ import HeaderNavigationMenu from "@/src/components/header/header-navigation-menu
 import Flex from "@/src/components/typohgraphy/flex"
 import cartIcon from "@/src/assets/svg/shopping-bag.svg"
 import SocialMediaIcons from "@/src/components/social-media/social-media-icons"
-import getCart from "@/src/queries/getCart"
-import { useQuery } from "@blitzjs/rpc"
+import CartQuantity from "@/src/components/header/cart-quantity"
 
 export default function Header() {
-  const [cart] = useQuery(getCart)
-  const totalQuantity = cart?.cartProducts?.reduce(
-    (total, cartProduct) => total + cartProduct.quantity,
-    0
-  )
-
-  console.log(totalQuantity)
-
   return (
     <header className="flex flex-col justify-center items-center sticky top-0 bg-background z-10 p-2 md:p-4 md:px-8 gap-2">
       <Flex className="flex-row justify-between items-center w-full">
@@ -37,11 +27,7 @@ export default function Header() {
             width={40}
             className="xl:w-[30px] md:w-[50px] w-[40px]"
           />
-          {totalQuantity > 0 && (
-            <div className="absolute top-[-5px] right-[-5px] bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-              {totalQuantity}
-            </div>
-          )}
+          <CartQuantity />
         </Link>
       </Flex>
       <HeaderNavigationMenu />

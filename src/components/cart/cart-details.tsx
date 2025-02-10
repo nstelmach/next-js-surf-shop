@@ -16,13 +16,12 @@ import { Form } from "@/src/components/ui/form"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import updateCart from "@/src/mutations/update-cart"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
-import getCart from "@/src/queries/getCart"
+import getCart from "@/src/queries/get-cart"
 import createOrder from "@/src/mutations/create-order"
 
-//TODO toast and link new
 export default function CartDetails() {
-  const [shipping] = useQuery(getShipping)
-  const [payment] = useQuery(getPayment)
+  const [shippingArr] = useQuery(getShipping)
+  const [paymentArr] = useQuery(getPayment)
   const [cart] = useQuery(getCart)
 
   const form = useForm<z.infer<typeof Order>>({
@@ -33,23 +32,23 @@ export default function CartDetails() {
     },
   })
 
-  const chosenShipping = useWatch({
-    control: form.control,
-    name: "shipping",
-  })
-
-  const chosenPayment = useWatch({
-    control: form.control,
-    name: "payment",
-  })
-
   const [updateCartMutation, { isLoading, isSuccess, isError }] = useMutation(updateCart)
   const [
     createOrderMutation,
     { isLoading: isOrderLoading, isSuccess: isOrderSuccess, isError: isOrderError },
   ] = useMutation(createOrder)
 
-  const foundShipping = shipping.find((shippingItem) => shippingItem.name === chosenShipping)
+  const totalPrice =
+    cart?.cartProducts.reduce((total, cartProduct) => {
+      return total + cartProduct.quantity * cartProduct.product.prices[0].price
+    }, 0) ?? 0
+
+  const chosenShipping = useWatch({
+    control: form.control,
+    name: "shipping",
+  })
+
+  const foundShipping = shippingArr.find((shippingItem) => shippingItem.name === chosenShipping)
   const shippingPrice = foundShipping.price
 
   const onSubmit = async (values: z.infer<typeof UpdateCart>) => {
@@ -60,9 +59,8 @@ export default function CartDetails() {
     }
     try {
       await createOrderMutation({
+        ...values,
         price: totalPrice + shippingPrice,
-        shipping: chosenShipping,
-        payment: chosenPayment,
         products: cart.cartProducts,
         cartId: cart.id,
       })
@@ -72,11 +70,6 @@ export default function CartDetails() {
     }
   }
 
-  const totalPrice =
-    cart?.cartProducts.reduce((total, cartProduct) => {
-      return total + cartProduct.quantity * cartProduct.product.prices[0].price
-    }, 0) ?? 0
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -84,10 +77,15 @@ export default function CartDetails() {
           <CartRadioGroup
             name="shipping"
             control={form.control}
-            items={shipping}
+            items={shippingArr}
             title="Shipping"
           />
-          <CartRadioGroup name="payment" control={form.control} title="Payment" items={payment} />
+          <CartRadioGroup
+            name="payment"
+            control={form.control}
+            title="Payment"
+            items={paymentArr}
+          />
           <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
           {(isError || isOrderError) && (
             <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">

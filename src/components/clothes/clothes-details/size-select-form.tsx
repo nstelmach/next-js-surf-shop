@@ -1,11 +1,3 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/src/components/ui/select"
-import { Size } from "@prisma/client"
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, LOGGED_IN, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import { useForm } from "react-hook-form"
@@ -13,12 +5,13 @@ import { z } from "zod"
 import { ChooseSize } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { AuthenticationError } from "blitz"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/src/components/ui/form"
+import { Form, FormField, FormItem, FormMessage } from "@/src/components/ui/form"
 import addToCart from "@/src/mutations/add-to-cart"
-import getCart from "@/src/queries/getCart"
+import getCart from "@/src/queries/get-cart"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import Flex from "@/src/components/typohgraphy/flex"
+import SizeSelect from "@/src/components/clothes/clothes-details/size-select"
 
 interface SizeSelectFormProps {
   productId: number
@@ -61,21 +54,7 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
             name="size"
             render={({ field }) => (
               <FormItem>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choose a size" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="XS">{Size.XS}</SelectItem>
-                    <SelectItem value="S">{Size.S}</SelectItem>
-                    <SelectItem value="M">{Size.M}</SelectItem>
-                    <SelectItem value="L">{Size.L}</SelectItem>
-                    <SelectItem value="XL">{Size.XL}</SelectItem>
-                  </SelectContent>
-                </Select>
-
+                <SizeSelect onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}

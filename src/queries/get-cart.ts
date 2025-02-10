@@ -2,7 +2,7 @@ import db from "@/db"
 import { Ctx } from "blitz"
 
 export default async function getCart(_: any, ctx: Ctx) {
-  if (!ctx.session.userId) throw Error
+  if (!ctx.session.userId) throw new Error()
   const user = await db.user.findFirst({
     where: { id: ctx.session.userId },
     select: { id: true },

@@ -512,6 +512,7 @@ const PAYMENTS = [
 ]
 
 const seed = async () => {
+  //TODO delete
   await db.image.deleteMany()
   await db.price.deleteMany()
   await db.token.deleteMany()

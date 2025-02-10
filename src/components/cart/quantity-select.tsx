@@ -10,9 +10,14 @@ import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import updateQuantity from "@/src/mutations/update-quantity"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
-import getCart from "@/src/queries/getCart"
+import getCart from "@/src/queries/get-cart"
 
-export default function QuantitySelect({ quantity, cartProductId }) {
+interface QuantitySelectProps {
+  quantity: number
+  cartProductId: number
+}
+
+export default function QuantitySelect({ quantity, cartProductId }: QuantitySelectProps) {
   const [updateQuantityMutation, { isError }] = useMutation(updateQuantity)
 
   const onValueChangeHandler = async (quantity) => {

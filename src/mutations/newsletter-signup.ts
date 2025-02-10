@@ -11,7 +11,8 @@ export class AlreadySubscribedError extends Error {
 export default resolver.pipe(resolver.authorize(), async (_: any, ctx) => {
   const user = await db.user.findFirst({ where: { id: ctx.session.userId } })
   if (!user) throw new NotFoundError()
-  if (user.newsletter === true) throw new AlreadySubscribedError()
+
+  if (user.newsletter) throw new AlreadySubscribedError()
   await db.user.update({
     where: { id: user.id },
     data: { newsletter: true },

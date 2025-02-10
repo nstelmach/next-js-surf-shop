@@ -1,5 +1,4 @@
 "use client"
-
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -16,17 +15,16 @@ import Link from "next/link"
 import Flex from "@/src/components/typohgraphy/flex"
 import { ChangePassword } from "@/src/lib/validations"
 import { useMutation } from "@blitzjs/rpc"
-import changePassword from "@/src/app/(auth)/mutations/changePassword"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { Checkbox } from "@/src/components/ui/checkbox"
-import { useCurrentUser } from "@/src/hooks/useCurrentUser"
+import changePassword from "@/src/app/(auth)/mutations/change-password"
+import PersonalInformation from "@/src/app/(auth)/components/change-password/personal-information"
 
 export default function ChangePasswordForm() {
   const [changePasswordMutation, { isLoading, isSuccess, isError, error }] =
     useMutation(changePassword)
-  const user = useCurrentUser()
 
   const ERROR = error?.message
 
@@ -76,22 +74,7 @@ export default function ChangePasswordForm() {
         </Flex>
       ) : (
         <Flex className="flex-col gap-4">
-          <Flex>
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center ">
-              Name:
-            </Paragraph>
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center grow-2">
-              {user?.name}
-            </Paragraph>
-          </Flex>
-          <Flex className="justify-around">
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
-              E-mail:
-            </Paragraph>
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center grow-2">
-              {user?.email}
-            </Paragraph>
-          </Flex>
+          <PersonalInformation />
           <Paragraph className="m-2 xl:text-xl text-2xl md:text-3xl text-center font-bold self-center">
             CHANGE YOUR PASSWORD
           </Paragraph>

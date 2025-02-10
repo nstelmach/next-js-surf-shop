@@ -17,7 +17,7 @@ import {
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
-import resetPassword from "@/src/app/(auth)/mutations/resetPassword"
+import resetPassword from "@/src/app/(auth)/mutations/reset-password"
 import Link from "next/link"
 import Flex from "@/src/components/typohgraphy/flex"
 import { Checkbox } from "@/src/components/ui/checkbox"

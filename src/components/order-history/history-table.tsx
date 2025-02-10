@@ -1,3 +1,4 @@
+"use client"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import HistoryTableRow from "@/src/components/order-history/history-table-row"

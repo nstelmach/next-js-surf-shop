@@ -5,7 +5,6 @@ import { BlitzProvider } from "./blitz-client"
 import { cn } from "@/src/lib/utils"
 import Header from "@/src/components/header/header"
 import Footer from "@/src/components/footer/footer"
-import { Toaster } from "@/src/components/ui/toaster"
 import PageWrapper from "@/src/components/wrapper/page-wrapper"
 import { ErrorBoundary } from "@blitzjs/next"
 import Error from "@/src/app/error"
@@ -41,7 +40,6 @@ function RootLayout({
             <PageWrapper>{children}</PageWrapper>
             <Footer />
           </ErrorBoundary>
-          <Toaster />
         </BlitzProvider>
       </body>
     </html>

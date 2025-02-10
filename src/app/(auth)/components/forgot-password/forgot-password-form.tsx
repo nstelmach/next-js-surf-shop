@@ -14,15 +14,13 @@ import {
   FormMessage,
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
-import forgotPassword from "@/src/app/(auth)/mutations/forgotPassword"
+import forgotPassword from "@/src/app/(auth)/mutations/forgot-password"
 import Paragraph from "@/src/components/typohgraphy/paragraph"
 import Flex from "@/src/components/typohgraphy/flex"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
-import { useRouter } from "next/navigation"
 
 export default function ForgotPasswordForm() {
   const [forgotPasswordMutation, { isLoading, isError, isSuccess }] = useMutation(forgotPassword)
-  const router = useRouter()
 
   const form = useForm<z.infer<typeof ForgotPassword>>({
     resolver: zodResolver(ForgotPassword),
@@ -34,7 +32,6 @@ export default function ForgotPasswordForm() {
   const onSubmit = async (values: z.infer<typeof ForgotPassword>) => {
     try {
       const msg = await forgotPasswordMutation(values)
-
       const newWindow = window.open()
       newWindow.document.write(msg)
     } catch (error: any) {
