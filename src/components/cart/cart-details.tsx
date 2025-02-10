@@ -10,7 +10,7 @@ import getPayment from "@/src/queries/get-payment"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { useForm, useWatch } from "react-hook-form"
 import { z } from "zod"
-import { Order, UpdateCart } from "@/src/lib/validations"
+import { Order } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/src/components/ui/form"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
@@ -51,7 +51,7 @@ export default function CartDetails() {
   const foundShipping = shippingArr.find((shippingItem) => shippingItem.name === chosenShipping)
   const shippingPrice = foundShipping.price
 
-  const onSubmit = async (values: z.infer<typeof UpdateCart>) => {
+  const onSubmit = async (values: z.infer<typeof Order>) => {
     try {
       await updateCartMutation({ ...values, cartId: cart.id })
     } catch (error: any) {

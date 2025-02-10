@@ -94,11 +94,6 @@ export const Order = z.object({
   payment,
 })
 
-export const UpdateCart = z.object({
-  shipping,
-  payment,
-})
-
 export const ChooseSize = z.object({
   size: z.nativeEnum(Size, {
     message: "You must choose a size.",

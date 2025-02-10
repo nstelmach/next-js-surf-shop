@@ -1,3 +1,4 @@
+"use client"
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, LOGGED_IN, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import { useForm } from "react-hook-form"

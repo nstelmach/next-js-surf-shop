@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import CartTable from "@/src/components/cart/cart-table"
 import CartItems from "@/src/components/cart/cart-items"
 import { useQuery } from "@blitzjs/rpc"
-import getCart from "@/src/queries/getCart"
+import getCart from "@/src/queries/get-cart"
 
 export default function CartContainer() {
   const [cart] = useQuery(getCart)
