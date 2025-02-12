@@ -1,37 +1,22 @@
-import Link from "next/link"
 import Newsletter from "@/src/app/newsletter/components/newsletter"
-import Flex from "@/src/components/typography/flex"
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
+import InformationItem from "@/src/components/footer/information-item"
 
 export default function Information() {
   return (
-    <Flex className="flex-col justify-center items-center">
-      <Paragraph className="font-bold m-2 text-xl md:text-2xl xl:text-base">INFORMATION</Paragraph>
+    <div className="flex flex-col justify-center items-center">
+      <Typography as="h3" variant="heading">
+        INFORMATION
+      </Typography>
       <ul className="m-2 flex flex-col justify-center items-center xl:items-start">
-        <li className="m-2 hover:text-accent-foreground">
-          <Link href="/contact">
-            <span className="text-xl md:text-2xl xl:text-base">CONTACT US</span>
-          </Link>
-        </li>
-        <li className="m-2 hover:text-accent-foreground">
-          <Link href="/about">
-            <span className="text-xl md:text-2xl xl:text-base">ABOUT US</span>
-          </Link>
-        </li>
-        <li className="m-2 hover:text-accent-foreground">
-          <Link href="/terms-and-conditions">
-            <span className="text-xl md:text-2xl xl:text-base">TERMS AND CONDITIONS</span>
-          </Link>
-        </li>
-        <li className="m-2 hover:text-accent-foreground">
-          <Link href="/privacy-policy">
-            <span className="text-xl md:text-2xl xl:text-base">PRIVACY POLICY</span>
-          </Link>
-        </li>
+        <InformationItem href="/contact" name="CONTACT US" />
+        <InformationItem href="/about" name="ABOUT US" />
+        <InformationItem href="/terms-and-conditions" name="TERMS AND CONDITION" />
+        <InformationItem href="/privacy-policy" name="PRIVACY POLICY" />
         <li className="m-2 cursor-pointer hover:text-accent-foreground">
           <Newsletter />
         </li>
       </ul>
-    </Flex>
+    </div>
   )
 }

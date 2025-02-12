@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Paragraph from "@/src/components/typography/paragraph"
-import Flex from "@/src/components/typography/flex"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 
 interface LoginLinksProps {
@@ -16,14 +15,14 @@ export default function LoginLinks({ isLoading }: LoginLinksProps) {
         </Paragraph>
       </Link>
       <ButtonWithLoader isLoading={isLoading} type="submit" label="SIGN IN" />
-      <Flex className="flex-row justify-center items-center">
+      <div className="flex flex-row justify-center items-center">
         <Paragraph className="xl:text-base text-xl md:text-2xl text-center">
           No account?{" "}
           <Link href="/signup" className="hover:underline">
             Create one here
           </Link>
         </Paragraph>
-      </Flex>
+      </div>
     </>
   )
 }

@@ -7,20 +7,12 @@ import { ResetPassword } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Paragraph from "@/src/components/typography/paragraph"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/src/components/ui/form"
-import { Input } from "@/src/components/ui/input"
+import { Form } from "@/src/components/ui/form"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import resetPassword from "@/src/app/(auth)/mutations/reset-password"
 import Link from "next/link"
-import Flex from "@/src/components/typography/flex"
-import { Checkbox } from "@/src/components/ui/checkbox"
+import InputField from "@/src/components/fields/input-field"
+import CheckboxField from "@/src/components/fields/checkbox-field"
 
 export default function ResetPasswordForm() {
   const searchParams = useSearchParams()
@@ -64,7 +56,7 @@ export default function ResetPasswordForm() {
         </Paragraph>
       )}
       {isSuccess ? (
-        <Flex className="flex-col">
+        <div className="flex flex-col">
           <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
             Password Reset Successfully
           </Paragraph>
@@ -74,63 +66,26 @@ export default function ResetPasswordForm() {
               homepage
             </Link>
           </Paragraph>
-        </Flex>
+        </div>
       ) : (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 md:max-w-xl xl:max-w-3xl"
           >
-            <FormField
+            <InputField
               control={form.control}
               name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>New Password *</FormLabel>
-                  <FormControl>
-                    <Input type="password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label="New Password *"
+              type="password"
             />
-            <FormField
+            <InputField
               control={form.control}
               name="passwordConfirmation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Confirm New Password *</FormLabel>
-                  <FormControl>
-                    <Input type="password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label="Confirm New Password *"
+              type="password"
             />
-            <FormField
-              control={form.control}
-              name="terms"
-              render={({ field }) => (
-                <FormItem>
-                  <Flex className="flex xl:items-center md:items-baseline justify-center gap-2 m-2">
-                    <FormControl>
-                      <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
-                    </FormControl>
-                    <FormLabel>
-                      I have read the{" "}
-                      <Link href="/privacy-policy" className="hover:underline">
-                        privacy policy
-                      </Link>{" "}
-                      and accept the{" "}
-                      <Link href="/terms-and-conditions" className="hover:underline">
-                        terms and conditions
-                      </Link>
-                    </FormLabel>
-                  </Flex>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <CheckboxField control={form.control} name="terms" />
             <ButtonWithLoader isLoading={isLoading} type="submit" label="RESET" />
           </form>
         </Form>

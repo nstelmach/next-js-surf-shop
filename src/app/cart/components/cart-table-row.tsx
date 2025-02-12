@@ -1,6 +1,5 @@
 "use client"
 import { TableCell, TableRow } from "@/src/components/ui/table"
-import Flex from "@/src/components/typography/flex"
 import Link from "next/link"
 import Image from "next/image"
 import Paragraph from "@/src/components/typography/paragraph"
@@ -41,14 +40,14 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
   return (
     <TableRow>
       <TableCell>
-        <Flex className="flex-row justify-start items-center gap-4 m-2">
+        <div className="flex flex-row justify-start items-center gap-4 m-2">
           <Link href={`/${category}/${productId}`}>
             <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
           </Link>
           <Link href={`/${category}/${productId}`}>
             <Paragraph>{name}</Paragraph>
           </Link>
-        </Flex>
+        </div>
       </TableCell>
       <TableCell>{cartProduct.chosenSize}</TableCell>
       <TableCell>{price} €</TableCell>

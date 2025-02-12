@@ -1,18 +1,17 @@
 "use client"
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
-import { FORM_ERROR, LOGGED_IN, UNEXPECTED_ERROR } from "@/src/lib/constants"
+import { FORM_ERROR, LOGGED_IN, SIZE_ITEMS, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { ChooseSize } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { AuthenticationError } from "blitz"
-import { Form, FormField, FormItem, FormMessage } from "@/src/components/ui/form"
+import { Form } from "@/src/components/ui/form"
 import addToCart from "@/src/app/cart/mutations/add-to-cart"
 import getCart from "@/src/app/cart/queries/get-cart"
 import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
-import Flex from "@/src/components/typography/flex"
-import SizeSelect from "@/src/app/(products)/components/product-details/size-select"
+import SelectField from "@/src/components/fields/select-field"
 
 interface SizeSelectFormProps {
   productId: number
@@ -49,18 +48,14 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center"
       >
-        <Flex className="w-full p-2 xl:max-w-xs">
-          <FormField
+        <div className="flex w-full p-2 xl:max-w-xs">
+          <SelectField
             control={form.control}
             name="size"
-            render={({ field }) => (
-              <FormItem>
-                <SizeSelect onChange={field.onChange} value={field.value} />
-                <FormMessage />
-              </FormItem>
-            )}
+            items={SIZE_ITEMS}
+            placeholder="Choose a size"
           />
-        </Flex>
+        </div>
         {isError && (
           <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
             {error instanceof AuthenticationError ? LOGGED_IN : UNEXPECTED_ERROR}

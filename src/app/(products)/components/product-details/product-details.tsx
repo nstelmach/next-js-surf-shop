@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/src/components/ui/card"
 import ImageCarousel from "@/src/app/(products)/components/product-details/image-carousel"
-import Flex from "@/src/components/typography/flex"
 import Paragraph from "@/src/components/typography/paragraph"
 import { Image, Price } from "@prisma/client"
 import SizeSelectForm from "@/src/app/(products)/components/product-details/size-select-form"
@@ -32,12 +31,10 @@ export default function ProductDetails({
       <CardHeader>
         <ImageCarousel title={title} images={images} />
       </CardHeader>
-      <CardContent className="flex flex-col justify-center items-center">
-        <Flex className="m-4 flex-col justify-center items-center gap-4">
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-          <Paragraph className="xl:text-base text-xl md:text-2xl">{prices[0].price} €</Paragraph>
-        </Flex>
+      <CardContent className="flex flex-col justify-center items-center gap-4 m-4">
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+        <Paragraph className="xl:text-base text-xl md:text-2xl">{prices[0].price} €</Paragraph>
       </CardContent>
       <CardFooter className="w-full">
         <SizeSelectForm productId={productId} />

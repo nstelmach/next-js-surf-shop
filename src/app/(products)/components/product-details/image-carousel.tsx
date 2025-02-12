@@ -5,11 +5,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/src/components/ui/carousel"
-import { Image } from "@prisma/client"
+import { Image as PrismaImage } from "@prisma/client"
+import Image from "next/image"
 
 interface ImageCarouselProps {
   title: string
-  images: Image[]
+  images: PrismaImage[]
 }
 
 export default function ImageCarousel({ title, images }: ImageCarouselProps) {

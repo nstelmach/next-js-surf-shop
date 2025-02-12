@@ -22,12 +22,7 @@ export default resolver.pipe(
     ctx
   ) => {
     if (!cartId) throw new Error()
-
-    const user = await db.user.findFirst({
-      where: { id: ctx.session.userId },
-      include: { cart: { include: { cartProducts: true } } },
-    })
-    if (!user) throw new NotFoundError()
+    if (!ctx.session.userId) throw new NotFoundError()
 
     const orderProducts = products.map((product) => {
       return { productId: product.productId, size: product.chosenSize, quantity: product.quantity }
@@ -35,7 +30,7 @@ export default resolver.pipe(
 
     await db.order.create({
       data: {
-        user: { connect: { id: user.id } },
+        user: { connect: { id: ctx.session.userId } },
         price: price,
         shipping: { connect: { name: shipping } },
         payment: { connect: { name: payment } },

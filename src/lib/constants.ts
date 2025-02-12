@@ -1,3 +1,5 @@
+import { Size } from "@prisma/client"
+
 export const TERMS_AND_CONDITIONS = `
 **SHOP RULES**
 \n
@@ -417,3 +419,5 @@ export const USER_NOT_EXIST = "Sorry, this user doesn't exist."
 export const LOGGED_IN = "Sorry, you have to be logged in."
 
 export const ALREADY_SUBSCRIBED = "You already subscribed to our newsletter."
+
+export const SIZE_ITEMS: Size[] = [Size.XS, Size.S, Size.M, Size.L, Size.XL]

@@ -1,6 +1,5 @@
 "use client"
 import { CartProduct } from "@prisma/client"
-import Flex from "@/src/components/typography/flex"
 import { Card, CardContent, CardFooter } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
@@ -38,36 +37,34 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
 
   return (
     <Card className="p-2 gap-2">
-      <CardContent>
-        <Flex className="flex-row justify-center items-start gap-2">
+      <CardContent className="flex flex-row justify-center items-start gap-2">
+        <Link href={`/${category}/${productId}`}>
+          <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
+        </Link>
+        <div className="flex flex-col justify-center items-center gap-2">
           <Link href={`/${category}/${productId}`}>
-            <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
+            <Paragraph className="xl:text-base text-lg md:text-xl text-center font-bold">
+              {name}
+            </Paragraph>
           </Link>
-          <Flex className="flex-col justify-center items-center gap-2">
-            <Link href={`/${category}/${productId}`}>
-              <Paragraph className="xl:text-base text-lg md:text-xl text-center font-bold">
-                {name}
-              </Paragraph>
-            </Link>
-            <Paragraph className="xl:text-base text-lgl md:text-xl">
-              {cartProduct.chosenSize}
-            </Paragraph>
-          </Flex>
-          {isError && (
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
-              {UNEXPECTED_ERROR}
-            </Paragraph>
-          )}
-          <ButtonWithLoader
-            onClick={onClickHandler}
-            type="button"
-            isLoading={isLoading}
-            size="icon"
-            variant="ghost"
-            className="items-start !w-8 !h-8"
-            icon={<XIcon className="h-4 w-4" />}
-          />
-        </Flex>
+          <Paragraph className="xl:text-base text-lgl md:text-xl">
+            {cartProduct.chosenSize}
+          </Paragraph>
+        </div>
+        {isError && (
+          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+            {UNEXPECTED_ERROR}
+          </Paragraph>
+        )}
+        <ButtonWithLoader
+          onClick={onClickHandler}
+          type="button"
+          isLoading={isLoading}
+          size="icon"
+          variant="ghost"
+          className="items-start !w-8 !h-8"
+          icon={<XIcon className="h-4 w-4" />}
+        />
       </CardContent>
       <CardFooter className="w-full gap-4">
         <Paragraph>{price} €</Paragraph>

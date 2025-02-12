@@ -1,45 +1,20 @@
-import Link from "next/link"
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/src/components/ui/navigation-menu"
-import HeaderLink from "@/src/components/header/header-link"
+"use client"
+import { NavigationMenu, NavigationMenuList } from "@/src/components/ui/navigation-menu"
+import HeaderItem from "@/src/components/header/header-item"
+import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 
 export default function HeaderNavigationMenu() {
+  const user = useCurrentUser()
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/bestsellers" legacyBehavior passHref>
-            <NavigationMenuLink>BESTSELLERS</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/tees" legacyBehavior passHref>
-            <NavigationMenuLink>TEES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/longsleeves" legacyBehavior passHref>
-            <NavigationMenuLink>LONGSLEEVES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/hoodies" legacyBehavior passHref>
-            <NavigationMenuLink>HOODIES</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink>ABOUT</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-          <HeaderLink />
-        </NavigationMenuItem>
+        <HeaderItem href="/bestsellers" name="BESTSELLERS" />
+        <HeaderItem href="/tees" name="TEES" />
+        <HeaderItem href="/hoodies" name="HOODIES" />
+        <HeaderItem href="/about" name="ABOUT" />
+        <HeaderItem href="/bestsellers" name="BESTSELLERS" />
+        <HeaderItem href={user ? "/my-account" : "/login"} name={user ? "MY ACCOUNT" : "SIGN IN"} />
       </NavigationMenuList>
     </NavigationMenu>
   )

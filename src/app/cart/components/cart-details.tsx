@@ -1,5 +1,4 @@
 "use client"
-import Flex from "@/src/components/typography/flex"
 import CartRadioGroup from "@/src/app/cart/components/cart-radio-group"
 import CartSummary from "@/src/app/cart/components/cart-summary"
 import Link from "next/link"
@@ -14,7 +13,6 @@ import { Order } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/src/components/ui/form"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import updateCart from "@/src/app/cart/mutations/update-cart"
 import Paragraph from "@/src/components/typography/paragraph"
 import getCart from "@/src/app/cart/queries/get-cart"
 import createOrder from "@/src/app/(order)/mutations/create-order"
@@ -32,11 +30,7 @@ export default function CartDetails() {
     },
   })
 
-  const [updateCartMutation, { isLoading, isSuccess, isError }] = useMutation(updateCart)
-  const [
-    createOrderMutation,
-    { isLoading: isOrderLoading, isSuccess: isOrderSuccess, isError: isOrderError },
-  ] = useMutation(createOrder)
+  const [createOrderMutation, { isLoading, isSuccess, isError }] = useMutation(createOrder)
 
   const totalPrice =
     cart?.cartProducts.reduce((total, cartProduct) => {
@@ -52,12 +46,6 @@ export default function CartDetails() {
   const shippingPrice = foundShipping.price
 
   const onSubmit = async (values: z.infer<typeof Order>) => {
-    // TODO this steps seems unnecessary
-    try {
-      await updateCartMutation({ ...values, cartId: cart.id })
-    } catch (error: any) {
-      return { [FORM_ERROR]: UNEXPECTED_ERROR }
-    }
     try {
       await createOrderMutation({
         ...values,
@@ -73,45 +61,36 @@ export default function CartDetails() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Flex className="flex-col items-center justify-center gap-2 xl:gap-4 xl:grow w-full xl:w-fit max-w-full">
-          <CartRadioGroup
-            name="shipping"
-            control={form.control}
-            items={shippingArr}
-            title="Shipping"
-          />
-          <CartRadioGroup
-            name="payment"
-            control={form.control}
-            title="Payment"
-            items={paymentArr}
-          />
-          <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
-          {(isError || isOrderError) && (
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
-              {UNEXPECTED_ERROR}
-            </Paragraph>
-          )}
-          {isSuccess && isOrderSuccess && (
-            <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
-              Your order has been successfully placed!
-            </Paragraph>
-          )}
-          <Flex className="xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
-            <ButtonWithLoader
-              isLoading={isLoading || isOrderLoading}
-              type="submit"
-              label="Order"
-              className="flex-1"
-            />
-            <Link href="/public" className="w-full flex-1">
-              <Button className="!w-full" type="button">
-                Continue shopping
-              </Button>
-            </Link>
-          </Flex>
-        </Flex>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col items-center justify-center gap-2 xl:gap-4 xl:grow w-full xl:w-fit max-w-full"
+      >
+        <CartRadioGroup
+          name="shipping"
+          control={form.control}
+          items={shippingArr}
+          title="Shipping"
+        />
+        <CartRadioGroup name="payment" control={form.control} title="Payment" items={paymentArr} />
+        <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
+        {isError && (
+          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+            {UNEXPECTED_ERROR}
+          </Paragraph>
+        )}
+        {isSuccess && (
+          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+            Your order has been successfully placed!
+          </Paragraph>
+        )}
+        <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
+          <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />
+          <Link href="/public" className="w-full flex-1">
+            <Button className="!w-full" type="button">
+              Continue shopping
+            </Button>
+          </Link>
+        </div>
       </form>
     </Form>
   )

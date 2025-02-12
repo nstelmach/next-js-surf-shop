@@ -1,14 +1,13 @@
 import Link from "next/link"
-import Flex from "@/src/components/typography/flex"
 
 export default function NotFound() {
   return (
-    <Flex className="flex-col justify-center items-center gap-2">
+    <div className="flex flex-col justify-center items-center gap-2">
       <h2>Not Found</h2>
       <p>Could not find requested resource</p>
-      <Link className=" hover:underline" href="/">
+      <Link className="hover:underline" href="/">
         Return Home
       </Link>
-    </Flex>
+    </div>
   )
 }

@@ -2,15 +2,7 @@
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/src/components/ui/form"
-import { Input } from "@/src/components/ui/input"
+import { Form } from "@/src/components/ui/form"
 import LoginLinks from "@/src/app/(auth)/components/login/login-links"
 import { useMutation } from "@blitzjs/rpc"
 import login from "@/src/app/(auth)/mutations/login"
@@ -20,6 +12,7 @@ import { AuthenticationError } from "blitz"
 import { Login } from "@/src/lib/validations"
 import { FORM_ERROR, INVALID_CREDENTIALS, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Paragraph from "@/src/components/typography/paragraph"
+import InputField from "@/src/components/fields/input-field"
 
 export default function LoginForm() {
   const [loginMutation, { isLoading, isError, error }] = useMutation(login)
@@ -65,33 +58,8 @@ export default function LoginForm() {
       )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xl xl:max-w-3xl">
-          {/* todo as separate component InputField */}
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email *</FormLabel>
-                <FormControl>
-                  <Input type="email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password *</FormLabel>
-                <FormControl>
-                  <Input type="password" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <InputField control={form.control} name="email" label="Email *" type="email" />
+          <InputField control={form.control} name="password" label="Password *" type="password" />
           <LoginLinks isLoading={isLoading} />
         </form>
       </Form>

@@ -1,7 +1,6 @@
 import { TableCell, TableRow } from "@/src/components/ui/table"
 import { OrderProduct } from "@prisma/client"
 import Paragraph from "@/src/components/typography/paragraph"
-import Flex from "@/src/components/typography/flex"
 import Image from "next/image"
 
 interface HistoryProductTableRowProps {
@@ -15,10 +14,10 @@ export default function HistoryProductTableRow({ product }: HistoryProductTableR
   return (
     <TableRow>
       <TableCell>
-        <Flex className="flex-row justify-start items-center gap-4 m-2">
+        <div className="flex flex-row justify-start items-center gap-4 m-2">
           <Image src={orderProduct.images[0].src} alt={name} width={100} height={200} />
           <Paragraph>{name}</Paragraph>
-        </Flex>
+        </div>
       </TableCell>
       <TableCell>{product.size}</TableCell>
       <TableCell>{product.quantity}</TableCell>

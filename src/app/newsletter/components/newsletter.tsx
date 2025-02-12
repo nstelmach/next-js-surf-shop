@@ -11,7 +11,6 @@ import Link from "next/link"
 import Image from "next/image"
 import newsletterImg from "@/src/assets/newsletter/newsletter.jpg"
 import Paragraph from "@/src/components/typography/paragraph"
-import Flex from "@/src/components/typography/flex"
 import NewsletterButton from "@/src/app/newsletter/components/newsletter-button"
 
 export default function Newsletter() {
@@ -22,7 +21,7 @@ export default function Newsletter() {
       </DialogTrigger>
       <DialogContent>
         <Image className="basis-full" src={newsletterImg} alt="Surf Shop Newsletter" width={200} />
-        <Flex className="flex-col justify-center items-center gap-4 basis-full">
+        <div className="flex flex-col justify-center items-center gap-4 basis-full">
           <DialogHeader>
             <DialogTitle>VERY SURF GOODS</DialogTitle>
             <DialogDescription>
@@ -42,7 +41,7 @@ export default function Newsletter() {
               </i>
             </Paragraph>
           </DialogFooter>
-        </Flex>
+        </div>
       </DialogContent>
     </Dialog>
   )

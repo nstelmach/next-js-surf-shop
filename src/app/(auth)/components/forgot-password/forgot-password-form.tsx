@@ -5,19 +5,11 @@ import { z } from "zod"
 import { ForgotPassword } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/src/components/ui/form"
-import { Input } from "@/src/components/ui/input"
+import { Form } from "@/src/components/ui/form"
 import forgotPassword from "@/src/app/(auth)/mutations/forgot-password"
 import Paragraph from "@/src/components/typography/paragraph"
-import Flex from "@/src/components/typography/flex"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
+import InputField from "@/src/components/fields/input-field"
 
 export default function ForgotPasswordForm() {
   const [forgotPasswordMutation, { isLoading, isError, isSuccess }] = useMutation(forgotPassword)
@@ -49,7 +41,7 @@ export default function ForgotPasswordForm() {
         </Paragraph>
       )}
       {isSuccess ? (
-        <Flex className="flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <Paragraph className="text-center text-3xl md:text-4xl xl:text-2xl font-bold m-4">
             Request Submitted
           </Paragraph>
@@ -57,7 +49,7 @@ export default function ForgotPasswordForm() {
             If your email is in our system, you will receive instructions to reset your password
             shortly.
           </Paragraph>
-        </Flex>
+        </div>
       ) : (
         <>
           <Paragraph className="m-4 text-center xl:text-base text-xl md:text-2xl">
@@ -69,19 +61,7 @@ export default function ForgotPasswordForm() {
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-8 md:max-w-xl xl:max-w-3xl"
             >
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email *</FormLabel>
-                    <FormControl>
-                      <Input type="email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <InputField control={form.control} name="email" label="Email *" type="email" />
               <ButtonWithLoader isLoading={isLoading} type="submit" label="SEND" />
             </form>
           </Form>
