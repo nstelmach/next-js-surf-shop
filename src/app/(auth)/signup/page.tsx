@@ -1,4 +1,4 @@
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 import SignupContent from "@/src/app/(auth)/components/signup/signup-content"
 
 export default function SignUpPage() {

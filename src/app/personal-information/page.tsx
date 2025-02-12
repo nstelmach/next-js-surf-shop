@@ -1,4 +1,4 @@
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 import ChangePasswordForm from "@/src/app/(auth)/components/change-password/change-password-form"
 
 export default function PersonalInformationPage() {

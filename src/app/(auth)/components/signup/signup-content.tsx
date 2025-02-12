@@ -1,4 +1,4 @@
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 import Link from "next/link"
 import SignupForm from "@/src/app/(auth)/components/signup/signup-form"
 

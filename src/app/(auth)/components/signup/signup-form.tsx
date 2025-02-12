@@ -18,8 +18,8 @@ import { useRouter } from "next/navigation"
 import { Signup } from "@/src/lib/validations"
 import { EMAIL_USED, FORM_ERROR } from "@/src/lib/constants"
 import { Checkbox } from "@/src/components/ui/checkbox"
-import Flex from "@/src/components/typohgraphy/flex"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Flex from "@/src/components/typography/flex"
+import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 
 export default function SignupForm() {

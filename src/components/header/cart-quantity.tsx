@@ -1,6 +1,6 @@
 "use client"
 import { useQuery } from "@blitzjs/rpc"
-import getCart from "@/src/queries/get-cart"
+import getCart from "@/src/app/cart/queries/get-cart"
 
 export default function CartQuantity() {
   const [cart] = useQuery(getCart)

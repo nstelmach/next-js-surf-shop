@@ -1,6 +1,6 @@
 import Link from "next/link"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
-import Flex from "@/src/components/typohgraphy/flex"
+import Paragraph from "@/src/components/typography/paragraph"
+import Flex from "@/src/components/typography/flex"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 
 interface LoginLinksProps {

@@ -15,8 +15,8 @@ import {
 } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
 import forgotPassword from "@/src/app/(auth)/mutations/forgot-password"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
-import Flex from "@/src/components/typohgraphy/flex"
+import Paragraph from "@/src/components/typography/paragraph"
+import Flex from "@/src/components/typography/flex"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 
 export default function ForgotPasswordForm() {

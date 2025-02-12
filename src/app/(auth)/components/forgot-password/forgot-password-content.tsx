@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Flex from "@/src/components/typohgraphy/flex"
+import Flex from "@/src/components/typography/flex"
 import ForgotPasswordForm from "@/src/app/(auth)/components/forgot-password/forgot-password-form"
 
 export default function ForgotPasswordContent() {

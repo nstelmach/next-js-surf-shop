@@ -1,5 +1,5 @@
-import ContactForm from "@/src/components/contact/contact-form"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import ContactForm from "@/src/app/contact/components/contact-form"
+import Paragraph from "@/src/components/typography/paragraph"
 
 export default function ContactPage() {
   return (

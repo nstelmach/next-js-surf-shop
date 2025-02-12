@@ -1,4 +1,4 @@
-import Flex from "@/src/components/typohgraphy/flex"
+import Flex from "@/src/components/typography/flex"
 import Link from "next/link"
 import Image from "next/image"
 import instagramIcon from "@/src/assets/svg/instagram.svg"

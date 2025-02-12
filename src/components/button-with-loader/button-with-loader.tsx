@@ -11,6 +11,7 @@ interface ButtonWithLoaderProps {
   onClick?: () => void
   size?: "default" | "icon" | "lg" | "sm"
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
+  icon?: JSX.Element
 }
 
 export default function ButtonWithLoader({
@@ -22,6 +23,7 @@ export default function ButtonWithLoader({
   children,
   size,
   variant,
+  icon,
 }: PropsWithChildren<ButtonWithLoaderProps>) {
   return (
     <Button
@@ -31,7 +33,14 @@ export default function ButtonWithLoader({
       size={size}
       variant={variant}
     >
-      {isLoading ? <Loader2 className="animate-spin" /> : label}
+      {isLoading ? (
+        <Loader2 className="animate-spin" />
+      ) : (
+        <>
+          {icon}
+          {label}
+        </>
+      )}
       {children}
     </Button>
   )

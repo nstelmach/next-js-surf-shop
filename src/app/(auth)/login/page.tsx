@@ -1,5 +1,5 @@
 import LoginForm from "@/src/app/(auth)/components/login/login-form"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 
 export default function LoginPage() {
   return (

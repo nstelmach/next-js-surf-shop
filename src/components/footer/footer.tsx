@@ -1,8 +1,8 @@
 import Information from "@/src/components/footer/information"
 import SocialMedia from "@/src/components/footer/social-media"
-import Flex from "@/src/components/typohgraphy/flex"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
- 
+import Flex from "@/src/components/typography/flex"
+import Paragraph from "@/src/components/typography/paragraph"
+
 export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-center xl:mt-16 mt-10 z-50">

@@ -1,5 +1,5 @@
-import Paragraph from "@/src/components/typohgraphy/paragraph"
-import AccountContent from "@/src/components/my-account/account-content"
+import Paragraph from "@/src/components/typography/paragraph"
+import AccountContent from "@/src/app/my-account/components/account-content"
 import { useAuthenticatedBlitzContext } from "@/src/app/blitz-server"
 
 export default async function MyAccountPage() {

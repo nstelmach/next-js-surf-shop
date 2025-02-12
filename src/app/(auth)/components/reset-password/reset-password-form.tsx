@@ -6,7 +6,7 @@ import { z } from "zod"
 import { ResetPassword } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 import {
   Form,
   FormControl,
@@ -19,7 +19,7 @@ import { Input } from "@/src/components/ui/input"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import resetPassword from "@/src/app/(auth)/mutations/reset-password"
 import Link from "next/link"
-import Flex from "@/src/components/typohgraphy/flex"
+import Flex from "@/src/components/typography/flex"
 import { Checkbox } from "@/src/components/ui/checkbox"
 
 export default function ResetPasswordForm() {

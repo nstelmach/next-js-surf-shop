@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Flex from "@/src/components/typohgraphy/flex"
+import Flex from "@/src/components/typography/flex"
 
 export default function NotFound() {
   return (

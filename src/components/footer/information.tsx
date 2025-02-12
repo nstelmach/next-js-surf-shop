@@ -1,8 +1,8 @@
 import Link from "next/link"
-import Newsletter from "@/src/components/newsletter/newsletter"
-import Flex from "@/src/components/typohgraphy/flex"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
- 
+import Newsletter from "@/src/app/newsletter/components/newsletter"
+import Flex from "@/src/components/typography/flex"
+import Paragraph from "@/src/components/typography/paragraph"
+
 export default function Information() {
   return (
     <Flex className="flex-col justify-center items-center">

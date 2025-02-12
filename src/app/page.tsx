@@ -1,4 +1,4 @@
-import Bestsellers from "./bestsellers/page"
+import Bestsellers from "@/src/app/(products)/bestsellers/page"
 
 export default function Home() {
   return (

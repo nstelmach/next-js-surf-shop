@@ -1,7 +1,7 @@
 "use client"
-import Flex from "@/src/components/typohgraphy/flex"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
-import { useCurrentUser } from "@/src/hooks/use-current-user"
+import Flex from "@/src/components/typography/flex"
+import Paragraph from "@/src/components/typography/paragraph"
+import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 import { Suspense } from "react"
 import Loading from "@/src/app/loading"
 

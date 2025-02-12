@@ -19,7 +19,7 @@ import type { Route } from "next"
 import { AuthenticationError } from "blitz"
 import { Login } from "@/src/lib/validations"
 import { FORM_ERROR, INVALID_CREDENTIALS, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 
 export default function LoginForm() {
   const [loginMutation, { isLoading, isError, error }] = useMutation(login)
@@ -65,6 +65,7 @@ export default function LoginForm() {
       )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xl xl:max-w-3xl">
+          {/* todo as separate component InputField */}
           <FormField
             control={form.control}
             name="email"

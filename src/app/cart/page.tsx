@@ -1,6 +1,6 @@
-import Flex from "@/src/components/typohgraphy/flex"
-import CartDetails from "@/src/components/cart/cart-details"
-import CartContainer from "@/src/components/cart/cart-container"
+import Flex from "@/src/components/typography/flex"
+import CartDetails from "@/src/app/cart/components/cart-details"
+import CartContainer from "@/src/app/cart/components/cart-container"
 
 export default function CartPage() {
   return (

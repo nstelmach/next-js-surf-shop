@@ -1,4 +1,4 @@
-import Paragraph from "@/src/components/typohgraphy/paragraph"
+import Paragraph from "@/src/components/typography/paragraph"
 import ForgotPasswordContent from "@/src/app/(auth)/components/forgot-password/forgot-password-content"
 
 export default function ForgotPasswordPage() {
