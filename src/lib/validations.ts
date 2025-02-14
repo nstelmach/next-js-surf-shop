@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { CartProduct, Category, Size } from "@prisma/client"
+import { Category, Size } from "@prisma/client"
 
 export const email = z
   .string()
@@ -9,31 +9,31 @@ export const email = z
 export const password = z
   .string()
   .min(8, {
-    message: "Password must be at least 8 characters.",
+    message: "Password must be at least 8 characters",
   })
   .max(20, {
-    message: "Password must be below 20 characters.",
+    message: "Password must be below 20 characters",
   })
   .transform((str) => str.trim())
 
 export const name = z
   .string()
   .min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Name must be at least 2 characters",
   })
   .max(20, {
-    message: "Name must be below 20 characters.",
+    message: "Name must be below 20 characters",
   })
 
-export const terms = z.literal<boolean>(true, { message: "Terms and conditions must be accepted." })
+export const terms = z.literal<boolean>(true, { message: "Terms and conditions must be accepted" })
 
 export const message = z
   .string()
   .min(2, {
-    message: "Message must be at least 2 characters.",
+    message: "Message must be at least 2 characters",
   })
   .max(50, {
-    message: "Message must be below 50 characters.",
+    message: "Message must be below 50 characters",
   })
 
 export const shipping = z.string()
@@ -41,6 +41,8 @@ export const shipping = z.string()
 export const payment = z.string()
 
 export const id = z.number().int()
+
+export const quantity = z.number().int().min(1)
 
 export const Signup = z.object({
   email,
@@ -98,20 +100,25 @@ export const Order = z.object({
 
 export const ChooseSize = z.object({
   size: z.nativeEnum(Size, {
-    message: "You must choose a size.",
+    message: "You must choose a size",
   }),
 })
 
 export const Quantity = z.object({
-  quantity: z.number().int().min(1),
+  quantity,
 })
 
 export const ProductId = z.object({
   productId: id,
 })
 
+export const Product = z.object({
+  chosenSize: z.nativeEnum(Size),
+  productId: id,
+  quantity,
+})
 export const OrderDetails = z.object({
   price: z.number().nonnegative(),
-  products: z.array(CartProduct),
+  products: z.array(Product),
   cartId: id,
 })

@@ -14,7 +14,7 @@ export default function PersonalInformation() {
           Name:{" "}
         </Typography>
         <Typography as="p" variant="base" className="m-2 text-center grow-2">
-          {user?.name}
+          {user.name}
         </Typography>
       </div>
       <div className="flex justify-around">
@@ -22,7 +22,7 @@ export default function PersonalInformation() {
           E-mail:{" "}
         </Typography>
         <Typography as="p" variant="base" className="m-2 text-center grow-2">
-          {user?.email}
+          {user.email}
         </Typography>
       </div>
     </Suspense>

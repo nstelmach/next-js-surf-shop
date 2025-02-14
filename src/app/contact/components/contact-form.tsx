@@ -47,7 +47,7 @@ export default function ContactForm() {
           </Typography>
           <Typography as="p" variant="base" className="m-2 text-center">
             Go to the{" "}
-            <Link className="hover:underline" href="/public">
+            <Link className="hover:underline" href="/">
               homepage
             </Link>
           </Typography>

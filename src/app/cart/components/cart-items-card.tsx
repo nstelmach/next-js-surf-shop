@@ -10,6 +10,7 @@ import { useMutation } from "@blitzjs/rpc"
 import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Typography from "@/src/components/typography/typography"
+import { getLink } from "@/src/lib/utils"
 
 interface CartItemsCardProps {
   cartProduct: CartProduct
@@ -35,14 +36,16 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
     }
   }
 
+  const href = getLink(category, productId)
+
   return (
     <Card className="p-2 gap-2">
       <CardContent className="flex flex-row justify-center items-start gap-2">
-        <Link href={`/${category}/${productId}`}>
+        <Link href={href}>
           <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
         </Link>
         <div className="flex flex-col justify-center items-center gap-2">
-          <Link href={`/${category}/${productId}`}>
+          <Link href={href}>
             <Typography as="p" variant="base" weight="bold" className="text-center">
               {name}
             </Typography>

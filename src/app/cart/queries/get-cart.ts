@@ -2,7 +2,7 @@ import db from "@/db"
 import { Ctx } from "blitz"
 
 export default async function getCart(_: any, ctx: Ctx) {
-  if (!ctx.session.userId) throw new Error()
+  if (!ctx.session.userId) return null
 
   return db.cart.findUnique({
     where: { userId: ctx.session.userId },

@@ -12,8 +12,8 @@ export default function HeaderNavigationMenu() {
         <HeaderItem href="/bestsellers" name="BESTSELLERS" />
         <HeaderItem href="/tees" name="TEES" />
         <HeaderItem href="/hoodies" name="HOODIES" />
+        <HeaderItem href="/longsleeves" name="LONGSLEEVES" />
         <HeaderItem href="/about" name="ABOUT" />
-        <HeaderItem href="/bestsellers" name="BESTSELLERS" />
         <HeaderItem href={user ? "/my-account" : "/login"} name={user ? "MY ACCOUNT" : "SIGN IN"} />
       </NavigationMenuList>
     </NavigationMenu>

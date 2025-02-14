@@ -85,7 +85,7 @@ export default function CartDetails() {
         )}
         <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
           <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />
-          <Link href="/public" className="w-full flex-1">
+          <Link href="/" className="w-full flex-1">
             <Button className="!w-full" type="button">
               Continue shopping
             </Button>

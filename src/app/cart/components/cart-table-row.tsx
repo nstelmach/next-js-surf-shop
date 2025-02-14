@@ -11,6 +11,7 @@ import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import getCart from "@/src/app/cart/queries/get-cart"
 import Typography from "@/src/components/typography/typography"
+import { getLink } from "@/src/lib/utils"
 
 interface CardTableRowProps {
   cartProduct: CartProduct
@@ -37,14 +38,16 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
     }
   }
 
+  const href = getLink(category, productId)
+
   return (
     <TableRow>
       <TableCell>
         <div className="flex flex-row justify-start items-center gap-4 m-2">
-          <Link href={`/${category}/${productId}`}>
+          <Link href={href}>
             <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
           </Link>
-          <Link href={`/${category}/${productId}`}>
+          <Link href={href}>
             <Typography as="p">{name}</Typography>
           </Link>
         </div>

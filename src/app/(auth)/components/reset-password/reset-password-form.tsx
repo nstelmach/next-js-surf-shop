@@ -86,7 +86,7 @@ export default function ResetPasswordForm() {
               label="Confirm New Password *"
               type="password"
             />
-            <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
+            <CheckboxField control={form.control} name="terms" label={<Terms />} />
             <ButtonWithLoader isLoading={isLoading} type="submit" label="RESET" />
           </form>
         </Form>

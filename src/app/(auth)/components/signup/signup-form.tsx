@@ -57,7 +57,7 @@ export default function SignupForm() {
           <InputField control={form.control} name="name" label="Name *" type="text" />
           <InputField control={form.control} name="email" label="Email *" type="email" />
           <InputField control={form.control} name="password" label="Password *" type="password" />
-          <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
+          <CheckboxField control={form.control} name="terms" label={<Terms />} />
           <ButtonWithLoader isLoading={isLoading} type="submit" label="SIGN UP" />
         </form>
       </Form>

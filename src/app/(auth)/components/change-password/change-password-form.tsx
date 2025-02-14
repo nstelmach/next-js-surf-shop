@@ -93,7 +93,7 @@ export default function ChangePasswordForm() {
                 label="New password *"
                 type="password"
               />
-              <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
+              <CheckboxField control={form.control} name="terms" label={<Terms />} />
               <ButtonWithLoader type="submit" label="CHANGE" isLoading={isLoading} />
             </form>
           </Form>

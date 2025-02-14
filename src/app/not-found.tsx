@@ -11,7 +11,7 @@ export default function NotFound() {
         Could not find requested resource
       </Typography>
       <Link className="hover:underline" href="/">
-        Return Home
+        Return home
       </Link>
     </div>
   )

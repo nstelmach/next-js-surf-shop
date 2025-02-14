@@ -24,7 +24,7 @@ export default function QuantitySelect({ quantity, cartProductId }: QuantitySele
 
   const onValueChangeHandler = async (quantity: z.infer<typeof Quantity>) => {
     try {
-      await updateQuantityMutation({ quantity, productId: cartProductId })
+      await updateQuantityMutation({ quantity: +quantity, productId: cartProductId })
       await invalidateQuery(getCart)
     } catch (error: any) {
       return {

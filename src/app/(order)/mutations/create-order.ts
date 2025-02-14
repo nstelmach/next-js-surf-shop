@@ -7,7 +7,7 @@ export default resolver.pipe(
   resolver.zod(Order.and(OrderDetails)),
   resolver.authorize(),
   async ({ price, shipping, payment, products, cartId }, ctx) => {
-    if (!cartId) throw new Error()
+    if (!cartId || !products || !price) throw new Error()
     if (!ctx.session.userId) throw new NotFoundError()
 
     const orderProducts = products.map((product) => {

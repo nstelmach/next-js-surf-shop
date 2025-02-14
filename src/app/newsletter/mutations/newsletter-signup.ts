@@ -1,12 +1,7 @@
 import db from "@/db"
 import { resolver } from "@blitzjs/rpc"
 import { NotFoundError } from "blitz"
-import { ALREADY_SUBSCRIBED } from "@/src/lib/constants"
-
-export class AlreadySubscribedError extends Error {
-  name = "AlreadySubscribedError"
-  message = ALREADY_SUBSCRIBED
-}
+import { AlreadySubscribedError } from "@/src/lib/types"
 
 export default resolver.pipe(resolver.authorize(), async (_: any, ctx) => {
   const user = await db.user.findFirst({ where: { id: ctx.session.userId } })

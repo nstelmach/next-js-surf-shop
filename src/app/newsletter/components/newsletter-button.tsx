@@ -1,9 +1,7 @@
 "use client"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { useMutation } from "@blitzjs/rpc"
-import newsletterSignup, {
-  AlreadySubscribedError,
-} from "@/src/app/newsletter/mutations/newsletter-signup"
+import newsletterSignup from "@/src/app/newsletter/mutations/newsletter-signup"
 import {
   ALREADY_SUBSCRIBED,
   FORM_ERROR,
@@ -13,6 +11,7 @@ import {
 } from "@/src/lib/constants"
 import { AuthenticationError, NotFoundError } from "blitz"
 import Typography from "@/src/components/typography/typography"
+import { AlreadySubscribedError } from "@/src/lib/types"
 
 export default function NewsletterButton() {
   const [newsletterSignupMutation, { isLoading, isSuccess, isError, error }] =
@@ -26,7 +25,7 @@ export default function NewsletterButton() {
         return { [FORM_ERROR]: LOGGED_IN }
       } else if (error instanceof NotFoundError) {
         return { [FORM_ERROR]: USER_NOT_EXIST }
-      } else if (error instanceof AlreadySubscribedError) {
+      } else if (error.name === "AlreadySubscribedError") {
         return { [FORM_ERROR]: ALREADY_SUBSCRIBED }
       } else {
         return {
@@ -44,7 +43,7 @@ export default function NewsletterButton() {
             ? LOGGED_IN
             : error instanceof NotFoundError
             ? USER_NOT_EXIST
-            : error instanceof AlreadySubscribedError
+            : error.name === "AlreadySubscribedError"
             ? ALREADY_SUBSCRIBED
             : UNEXPECTED_ERROR}
         </Typography>

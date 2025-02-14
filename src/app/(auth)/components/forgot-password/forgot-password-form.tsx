@@ -24,8 +24,10 @@ export default function ForgotPasswordForm() {
   const onSubmit = async (values: z.infer<typeof ForgotPassword>) => {
     try {
       const msg = await forgotPasswordMutation(values)
-      const newWindow = window.open()
-      newWindow.document.write(msg)
+      if (msg) {
+        const newWindow = window.open()
+        newWindow.document.write(msg)
+      }
     } catch (error: any) {
       return {
         [FORM_ERROR]: UNEXPECTED_ERROR,

@@ -5,11 +5,10 @@ import { Control } from "react-hook-form"
 interface CheckboxFieldProps {
   control: Control
   name: string
-  id: string
   label: JSX.Element | string
 }
 
-export default function CheckboxField({ control, name, id, label }: CheckboxFieldProps) {
+export default function CheckboxField({ control, name, label }: CheckboxFieldProps) {
   return (
     <FormField
       control={control}
@@ -18,7 +17,7 @@ export default function CheckboxField({ control, name, id, label }: CheckboxFiel
         <FormItem>
           <div className="flex xl:items-center md:items-baseline justify-center gap-2 m-2">
             <FormControl>
-              <Checkbox id={id} checked={field.value} onCheckedChange={field.onChange} />
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
             </FormControl>
             <FormLabel>{label}</FormLabel>
           </div>
