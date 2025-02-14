@@ -7,12 +7,13 @@ import Link from "next/link"
 import { ChangePassword } from "@/src/lib/validations"
 import { useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import changePassword from "@/src/app/(auth)/mutations/change-password"
 import PersonalInformation from "@/src/app/(auth)/components/change-password/personal-information"
 import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
+import Terms from "@/src/app/(auth)/components/terms"
+import Typography from "@/src/components/typography/typography"
 
 export default function ChangePasswordForm() {
   const [changePasswordMutation, { isLoading, isSuccess, isError, error }] =
@@ -48,28 +49,33 @@ export default function ChangePasswordForm() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {error.name === "ChangePasswordError" ? ERROR : UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       {isSuccess ? (
         <div className="flex flex-col">
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             Your password has been successfully changed!
-          </Paragraph>
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          </Typography>
+          <Typography as="p" variant="base" className="m-2 text-center">
             Go to the{" "}
             <Link className="hover:underline" href="/my-account">
               my account
             </Link>
-          </Paragraph>
+          </Typography>
         </div>
       ) : (
         <div className="flex flex-col gap-4">
           <PersonalInformation />
-          <Paragraph className="m-2 xl:text-xl text-2xl md:text-3xl text-center font-bold self-center">
+          <Typography
+            as="h2"
+            variant="2xlarge"
+            weight="bold"
+            className="m-2 text-center self-center"
+          >
             CHANGE YOUR PASSWORD
-          </Paragraph>
+          </Typography>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -87,7 +93,7 @@ export default function ChangePasswordForm() {
                 label="New password *"
                 type="password"
               />
-              <CheckboxField control={form.control} name="terms" />
+              <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
               <ButtonWithLoader type="submit" label="CHANGE" isLoading={isLoading} />
             </form>
           </Form>

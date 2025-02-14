@@ -8,10 +8,11 @@ import signup from "@/src/app/(auth)/mutations/signup"
 import { useRouter } from "next/navigation"
 import { Signup } from "@/src/lib/validations"
 import { EMAIL_USED, FORM_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
+import Terms from "@/src/app/(auth)/components/terms"
+import Typography from "@/src/components/typography/typography"
 
 export default function SignupForm() {
   const [signupMutation, { isLoading, isError, error }] = useMutation(signup)
@@ -47,16 +48,16 @@ export default function SignupForm() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {error.code === "P2002" && error.meta?.target?.includes("email") ? EMAIL_USED : ERROR}
-        </Paragraph>
+        </Typography>
       )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xl xl:max-w-3xl">
           <InputField control={form.control} name="name" label="Name *" type="text" />
           <InputField control={form.control} name="email" label="Email *" type="email" />
           <InputField control={form.control} name="password" label="Password *" type="password" />
-          <CheckboxField control={form.control} name="terms" />
+          <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
           <ButtonWithLoader isLoading={isLoading} type="submit" label="SIGN UP" />
         </form>
       </Form>

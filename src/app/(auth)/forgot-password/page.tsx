@@ -1,12 +1,12 @@
-import Paragraph from "@/src/components/typography/paragraph"
 import ForgotPasswordContent from "@/src/app/(auth)/components/forgot-password/forgot-password-content"
+import Typography from "@/src/components/typography/typography"
 
 export default function ForgotPasswordPage() {
   return (
     <>
-      <Paragraph className="text-center text-3xl md:text-4xl xl:text-2xl font-bold m-4">
+      <Typography as="h1" variant="2xlarge" weight="bold" className="m-4 text-center">
         FORGOT YOUR PASSWORD?
-      </Paragraph>
+      </Typography>
       <ForgotPasswordContent />
     </>
   )

@@ -2,7 +2,6 @@
 import { TableCell, TableRow } from "@/src/components/ui/table"
 import Link from "next/link"
 import Image from "next/image"
-import Paragraph from "@/src/components/typography/paragraph"
 import QuantitySelect from "@/src/app/cart/components/quantity-select"
 import { XIcon } from "lucide-react"
 import { CartProduct } from "@prisma/client"
@@ -11,6 +10,7 @@ import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import getCart from "@/src/app/cart/queries/get-cart"
+import Typography from "@/src/components/typography/typography"
 
 interface CardTableRowProps {
   cartProduct: CartProduct
@@ -28,7 +28,7 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
 
   const onClickHandler = async () => {
     try {
-      await deleteCartProductMutation({ cartProductId: productId })
+      await deleteCartProductMutation({ productId })
       await invalidateQuery(getCart)
     } catch (error: any) {
       return {
@@ -45,7 +45,7 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
             <Image src={cartProduct.product.images[0].src} alt={name} width={100} height={200} />
           </Link>
           <Link href={`/${category}/${productId}`}>
-            <Paragraph>{name}</Paragraph>
+            <Typography as="p">{name}</Typography>
           </Link>
         </div>
       </TableCell>
@@ -57,9 +57,9 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
       <TableCell>{quantity * price} €</TableCell>
       <TableCell>
         {isError && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             {UNEXPECTED_ERROR}
-          </Paragraph>
+          </Typography>
         )}
         <ButtonWithLoader
           variant="ghost"

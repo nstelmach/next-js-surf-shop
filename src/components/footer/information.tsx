@@ -5,7 +5,7 @@ import InformationItem from "@/src/components/footer/information-item"
 export default function Information() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <Typography as="h3" variant="heading">
+      <Typography as="h3" variant="base" weight="bold" className="m-2">
         INFORMATION
       </Typography>
       <ul className="m-2 flex flex-col justify-center items-center xl:items-start">

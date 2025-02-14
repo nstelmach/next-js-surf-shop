@@ -7,9 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import { Form } from "@/src/components/ui/form"
 import forgotPassword from "@/src/app/(auth)/mutations/forgot-password"
-import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import InputField from "@/src/components/fields/input-field"
+import Typography from "@/src/components/typography/typography"
 
 export default function ForgotPasswordForm() {
   const [forgotPasswordMutation, { isLoading, isError, isSuccess }] = useMutation(forgotPassword)
@@ -36,26 +36,26 @@ export default function ForgotPasswordForm() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       {isSuccess ? (
         <div className="flex flex-col justify-center items-center">
-          <Paragraph className="text-center text-3xl md:text-4xl xl:text-2xl font-bold m-4">
+          <Typography as="p" variant="base" className="m-2 text-center">
             Request Submitted
-          </Paragraph>
-          <Paragraph className="m-2 text-center xl:text-base text-xl md:text-2xl">
+          </Typography>
+          <Typography as="p" variant="base" className="m-2 text-center">
             If your email is in our system, you will receive instructions to reset your password
             shortly.
-          </Paragraph>
+          </Typography>
         </div>
       ) : (
         <>
-          <Paragraph className="m-4 text-center xl:text-base text-xl md:text-2xl">
+          <Typography as="p" variant="base" className="m-4 text-center">
             Please enter the email address you used to register. You will receive a temporary link
             to reset your password.
-          </Paragraph>
+          </Typography>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

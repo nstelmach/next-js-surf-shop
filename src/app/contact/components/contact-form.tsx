@@ -8,10 +8,10 @@ import ButtonWithLoader from "@/src/components/button-with-loader/button-with-lo
 import { useMutation } from "@blitzjs/rpc"
 import contact from "@/src/app/contact/mutations/contact"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import Link from "next/link"
 import InputField from "@/src/components/fields/input-field"
 import TextAreaField from "@/src/components/fields/text-area-field"
+import Typography from "@/src/components/typography/typography"
 
 export default function ContactForm() {
   const [contactMutation, { isLoading, isSuccess, isError }] = useMutation(contact)
@@ -36,21 +36,21 @@ export default function ContactForm() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       {isSuccess ? (
         <div className="flex flex-col">
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             Your message has been successfully sent!
-          </Paragraph>
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          </Typography>
+          <Typography as="p" variant="base" className="m-2 text-center">
             Go to the{" "}
             <Link className="hover:underline" href="/public">
               homepage
             </Link>
-          </Paragraph>
+          </Typography>
         </div>
       ) : (
         <Form {...form}>

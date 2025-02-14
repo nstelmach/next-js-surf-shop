@@ -1,6 +1,6 @@
 import { Cart } from "@prisma/client"
 import CartItemsCard from "@/src/app/cart/components/cart-items-card"
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
 
 interface CardItemsProps {
   cart: Cart
@@ -14,9 +14,9 @@ export default function CartItems({ cart }: CardItemsProps) {
           <CartItemsCard key={cartProduct.id} cartProduct={cartProduct} />
         ))
       ) : (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           Your cart is empty.
-        </Paragraph>
+        </Typography>
       )}
     </div>
   )

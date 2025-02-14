@@ -13,9 +13,9 @@ import { Order } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/src/components/ui/form"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import getCart from "@/src/app/cart/queries/get-cart"
 import createOrder from "@/src/app/(order)/mutations/create-order"
+import Typography from "@/src/components/typography/typography"
 
 export default function CartDetails() {
   const [shippingArr] = useQuery(getShipping)
@@ -74,14 +74,14 @@ export default function CartDetails() {
         <CartRadioGroup name="payment" control={form.control} title="Payment" items={paymentArr} />
         <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
         {isError && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             {UNEXPECTED_ERROR}
-          </Paragraph>
+          </Typography>
         )}
         {isSuccess && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             Your order has been successfully placed!
-          </Paragraph>
+          </Typography>
         )}
         <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
           <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />

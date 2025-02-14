@@ -1,6 +1,6 @@
 import Information from "@/src/components/footer/information"
 import SocialMedia from "@/src/components/footer/social-media"
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
 
 export default function Footer() {
   return (
@@ -9,9 +9,9 @@ export default function Footer() {
         <Information />
         <SocialMedia />
       </div>
-      <Paragraph className="text-center w-full m-4 text-lg md:text-xl xl:text-sm">
+      <Typography as="p" variant="small" className="text-center w-full m-4">
         COPYRIGHT © 2024 SURF SHOP
-      </Paragraph>
+      </Typography>
     </footer>
   )
 }

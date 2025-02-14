@@ -1,7 +1,7 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
 import { Cart } from "@prisma/client"
 import CartTableRow from "@/src/app/cart/components/cart-table-row"
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
 
 interface CardDetailsProps {
   cart: Cart
@@ -29,9 +29,9 @@ export default function CartTable({ cart }: CardDetailsProps) {
           </TableBody>
         </Table>
       ) : (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center w-full">
+        <Typography as="p" variant="base" className="m-2 text-center w-full">
           Your cart is empty.
-        </Paragraph>
+        </Typography>
       )}
     </>
   )

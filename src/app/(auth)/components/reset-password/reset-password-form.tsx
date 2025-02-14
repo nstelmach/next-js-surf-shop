@@ -6,13 +6,14 @@ import { z } from "zod"
 import { ResetPassword } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import { Form } from "@/src/components/ui/form"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import resetPassword from "@/src/app/(auth)/mutations/reset-password"
 import Link from "next/link"
 import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
+import Terms from "@/src/app/(auth)/components/terms"
+import Typography from "@/src/components/typography/typography"
 
 export default function ResetPasswordForm() {
   const searchParams = useSearchParams()
@@ -51,21 +52,21 @@ export default function ResetPasswordForm() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {error.name === "ResetPasswordError" ? ERROR : UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       {isSuccess ? (
         <div className="flex flex-col">
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             Password Reset Successfully
-          </Paragraph>
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          </Typography>
+          <Typography as="p" variant="base" className="m-2 text-center">
             Go to the{" "}
             <Link className="hover:underline" href="/">
               homepage
             </Link>
-          </Paragraph>
+          </Typography>
         </div>
       ) : (
         <Form {...form}>
@@ -85,7 +86,7 @@ export default function ResetPasswordForm() {
               label="Confirm New Password *"
               type="password"
             />
-            <CheckboxField control={form.control} name="terms" />
+            <CheckboxField control={form.control} name="terms" id="terms" label={<Terms />} />
             <ButtonWithLoader isLoading={isLoading} type="submit" label="RESET" />
           </form>
         </Form>

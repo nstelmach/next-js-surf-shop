@@ -1,20 +1,12 @@
 import { resolver } from "@blitzjs/rpc"
 import db from "@/db"
 import { NotFoundError } from "blitz"
-import { Size } from "@prisma/client"
+import { ChooseSize, ProductId } from "@/src/lib/validations"
 
 export default resolver.pipe(
+  resolver.zod(ChooseSize.and(ProductId)),
   resolver.authorize(),
-  async (
-    {
-      productId,
-      size,
-    }: {
-      productId: number
-      size: Size
-    },
-    ctx
-  ) => {
+  async ({ productId, size }, ctx) => {
     if (!productId) throw new Error()
 
     const user = await db.user.findFirst({

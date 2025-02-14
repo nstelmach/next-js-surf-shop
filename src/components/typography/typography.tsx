@@ -1,26 +1,33 @@
-//TODO finish
 import { PropsWithChildren } from "react"
+import { cn } from "@/src/lib/utils"
 
 type TypographyProps = {
-  variant?: "heading" | "text"
+  variant?: "base" | "small" | "2xlarge" | "xsmall" | "xlarge"
   as?: "p" | "h1" | "h2" | "h3"
+  weight?: "bold"
+  className?: string
 }
 
 export const variantMap = {
-  body: "text-lg",
-  big: "",
-  small: "",
-  normal: "",
-  heading: "font-bold m-2 text-xl md:text-2xl xl:text-base",
-  text: "text-xl md:text-2xl xl:text-base",
+  base: "text-xl md:text-2xl xl:text-base",
+  small: "text-lg md:text-xl xl:text-sm",
+  "2xlarge": "text-3xl md:text-4xl xl:text-2xl",
+  xsmall: "text-sm md:text-md xl:text-xs ",
+  xlarge: "text-2xl md:text-3xl xl:text-xl",
+}
+
+export const weightMap = {
+  bold: "font-bold",
 }
 
 export default function Typography({
-  variant = "body",
-  as,
+  variant = "base",
+  as = "p",
+  weight,
   children,
+  className,
 }: PropsWithChildren<TypographyProps>) {
-  const Comp = as ?? "p"
+  const Comp = as
 
-  return <Comp className={variantMap[variant]}>{children}</Comp>
+  return <Comp className={cn(variantMap[variant], weightMap[weight], className)}>{children}</Comp>
 }

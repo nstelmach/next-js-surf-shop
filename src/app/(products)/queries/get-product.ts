@@ -1,13 +1,10 @@
 import db from "@/db"
-import * as z from "zod"
 import { GetProduct } from "@/src/lib/validations"
+import { resolver } from "@blitzjs/rpc"
 
-export default async function getProduct(input: z.infer<typeof GetProduct>) {
-  // TODO put this into resolver.zod
-  const data = GetProduct.parse(input)
-
+export default resolver.pipe(resolver.zod(GetProduct), async ({ id }) => {
   return db.product.findUnique({
-    where: { id: data.id },
+    where: { id },
     include: { images: true, prices: true },
   })
-}
+})

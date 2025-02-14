@@ -3,13 +3,13 @@ import { CartProduct } from "@prisma/client"
 import { Card, CardContent, CardFooter } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import Paragraph from "@/src/components/typography/paragraph"
 import { XIcon } from "lucide-react"
 import QuantitySelect from "@/src/app/cart/components/quantity-select"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import { useMutation } from "@blitzjs/rpc"
 import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
+import Typography from "@/src/components/typography/typography"
 
 interface CartItemsCardProps {
   cartProduct: CartProduct
@@ -27,7 +27,7 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
 
   const onClickHandler = async () => {
     try {
-      await deleteCartProductMutation({ cartProductId: productId })
+      await deleteCartProductMutation({ productId })
     } catch (error: any) {
       return {
         [FORM_ERROR]: UNEXPECTED_ERROR,
@@ -43,18 +43,18 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
         </Link>
         <div className="flex flex-col justify-center items-center gap-2">
           <Link href={`/${category}/${productId}`}>
-            <Paragraph className="xl:text-base text-lg md:text-xl text-center font-bold">
+            <Typography as="p" variant="base" weight="bold" className="text-center">
               {name}
-            </Paragraph>
+            </Typography>
           </Link>
-          <Paragraph className="xl:text-base text-lgl md:text-xl">
+          <Typography as="p" variant="base">
             {cartProduct.chosenSize}
-          </Paragraph>
+          </Typography>
         </div>
         {isError && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             {UNEXPECTED_ERROR}
-          </Paragraph>
+          </Typography>
         )}
         <ButtonWithLoader
           onClick={onClickHandler}
@@ -67,9 +67,9 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
         />
       </CardContent>
       <CardFooter className="w-full gap-4">
-        <Paragraph>{price} €</Paragraph>
+        <Typography as="p">{price} €</Typography>
         <QuantitySelect quantity={quantity} cartProductId={productId} />
-        <Paragraph>{quantity * price} €</Paragraph>
+        <Typography as="p">{quantity * price} €</Typography>
       </CardFooter>
     </Card>
   )

@@ -1,11 +1,11 @@
 "use client"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
-import Paragraph from "@/src/components/typography/paragraph"
 import HistoryTableRow from "@/src/app/(order)/components/history-table-row"
 import Loading from "@/src/app/loading"
 import { Suspense } from "react"
 import { useQuery } from "@blitzjs/rpc"
 import getOrders from "@/src/app/(order)/queries/get-orders"
+import Typography from "@/src/components/typography/typography"
 
 export default function HistoryTable() {
   const [orders] = useQuery(getOrders)
@@ -31,9 +31,9 @@ export default function HistoryTable() {
           </TableBody>
         </Table>
       ) : (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center w-full">
+        <Typography as="p" variant="base" className="m-2 text-center w-full">
           You have not placed any orders.
-        </Paragraph>
+        </Typography>
       )}
     </Suspense>
   )

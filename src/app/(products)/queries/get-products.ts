@@ -1,12 +1,10 @@
 import db from "@/db"
-import * as z from "zod"
 import { GetProducts } from "@/src/lib/validations"
+import { resolver } from "@blitzjs/rpc"
 
-export default async function getProducts(input: z.infer<typeof GetProducts>) {
-  const data = GetProducts.parse(input)
-
+export default resolver.pipe(resolver.zod(GetProducts), async ({ category, bestseller }) => {
   return db.product.findMany({
-    where: { category: data.category, bestseller: data.bestseller },
+    where: { category, bestseller },
     include: { images: true, prices: true },
   })
-}
+})

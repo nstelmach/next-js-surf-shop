@@ -1,4 +1,4 @@
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
 
 interface CartSummarySectionProps {
   title: string
@@ -8,8 +8,12 @@ interface CartSummarySectionProps {
 export default function CartSummarySection({ title, price }: CartSummarySectionProps) {
   return (
     <div className="flex flex-row items-start justify-between gap-4 p-2 max-w-xs xl:max-w-full w-full">
-      <Paragraph className="xl:text-base text-xl md:text-2xl">{title}:</Paragraph>
-      <Paragraph className="xl:text-base text-xl md:text-2xl">{price} €</Paragraph>
+      <Typography as="p" variant="base">
+        {title}:
+      </Typography>
+      <Typography as="p" variant="base">
+        {price} €
+      </Typography>
     </div>
   )
 }

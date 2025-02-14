@@ -1,8 +1,8 @@
 "use client"
-import Paragraph from "@/src/components/typography/paragraph"
 import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 import { Suspense } from "react"
 import Loading from "@/src/app/loading"
+import Typography from "@/src/components/typography/typography"
 
 export default function PersonalInformation() {
   const user = useCurrentUser()
@@ -10,16 +10,20 @@ export default function PersonalInformation() {
   return (
     <Suspense fallback={<Loading />}>
       <div className="flex">
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center ">Name:</Paragraph>
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center grow-2">
+        <Typography as="p" variant="base" className="m-2 text-center">
+          Name:{" "}
+        </Typography>
+        <Typography as="p" variant="base" className="m-2 text-center grow-2">
           {user?.name}
-        </Paragraph>
+        </Typography>
       </div>
       <div className="flex justify-around">
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">E-mail:</Paragraph>
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center grow-2">
+        <Typography as="p" variant="base" className="m-2 text-center">
+          E-mail:{" "}
+        </Typography>
+        <Typography as="p" variant="base" className="m-2 text-center grow-2">
           {user?.email}
-        </Paragraph>
+        </Typography>
       </div>
     </Suspense>
   )

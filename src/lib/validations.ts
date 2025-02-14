@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Category, Size } from "@prisma/client"
+import { CartProduct, Category, Size } from "@prisma/client"
 
 export const email = z
   .string()
@@ -39,6 +39,8 @@ export const message = z
 export const shipping = z.string()
 
 export const payment = z.string()
+
+export const id = z.number().int()
 
 export const Signup = z.object({
   email,
@@ -86,7 +88,7 @@ export const GetProducts = z.object({
 })
 
 export const GetProduct = z.object({
-  id: z.number().int(),
+  id,
 })
 
 export const Order = z.object({
@@ -98,4 +100,18 @@ export const ChooseSize = z.object({
   size: z.nativeEnum(Size, {
     message: "You must choose a size.",
   }),
+})
+
+export const Quantity = z.object({
+  quantity: z.number().int().min(1),
+})
+
+export const ProductId = z.object({
+  productId: id,
+})
+
+export const OrderDetails = z.object({
+  price: z.number().nonnegative(),
+  products: z.array(CartProduct),
+  cartId: id,
 })

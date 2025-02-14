@@ -11,8 +11,8 @@ import {
   UNEXPECTED_ERROR,
   USER_NOT_EXIST,
 } from "@/src/lib/constants"
-import Paragraph from "@/src/components/typography/paragraph"
 import { AuthenticationError, NotFoundError } from "blitz"
+import Typography from "@/src/components/typography/typography"
 
 export default function NewsletterButton() {
   const [newsletterSignupMutation, { isLoading, isSuccess, isError, error }] =
@@ -39,7 +39,7 @@ export default function NewsletterButton() {
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {error instanceof AuthenticationError
             ? LOGGED_IN
             : error instanceof NotFoundError
@@ -47,12 +47,12 @@ export default function NewsletterButton() {
             : error instanceof AlreadySubscribedError
             ? ALREADY_SUBSCRIBED
             : UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       {isSuccess ? (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           You have successfully subscribed to our newsletter!
-        </Paragraph>
+        </Typography>
       ) : (
         <ButtonWithLoader
           onClick={onSubscribeHandler}

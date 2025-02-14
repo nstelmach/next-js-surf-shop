@@ -9,8 +9,10 @@ import {
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import updateQuantity from "@/src/app/cart/mutations/update-quantity"
-import Paragraph from "@/src/components/typography/paragraph"
 import getCart from "@/src/app/cart/queries/get-cart"
+import Typography from "@/src/components/typography/typography"
+import { z } from "zod"
+import { Quantity } from "@/src/lib/validations"
 
 interface QuantitySelectProps {
   quantity: number
@@ -20,9 +22,9 @@ interface QuantitySelectProps {
 export default function QuantitySelect({ quantity, cartProductId }: QuantitySelectProps) {
   const [updateQuantityMutation, { isError }] = useMutation(updateQuantity)
 
-  const onValueChangeHandler = async (quantity) => {
+  const onValueChangeHandler = async (quantity: z.infer<typeof Quantity>) => {
     try {
-      await updateQuantityMutation({ quantity, cartProductId })
+      await updateQuantityMutation({ quantity, productId: cartProductId })
       await invalidateQuery(getCart)
     } catch (error: any) {
       return {
@@ -34,9 +36,9 @@ export default function QuantitySelect({ quantity, cartProductId }: QuantitySele
   return (
     <>
       {isError && (
-        <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+        <Typography as="p" variant="base" className="m-2 text-center">
           {UNEXPECTED_ERROR}
-        </Paragraph>
+        </Typography>
       )}
       <Select onValueChange={onValueChangeHandler}>
         <SelectTrigger>

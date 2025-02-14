@@ -10,14 +10,16 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import newsletterImg from "@/src/assets/newsletter/newsletter.jpg"
-import Paragraph from "@/src/components/typography/paragraph"
 import NewsletterButton from "@/src/app/newsletter/components/newsletter-button"
+import Typography from "@/src/components/typography/typography"
 
 export default function Newsletter() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Paragraph className="text-xl md:text-2xl xl:text-base">NEWSLETTER</Paragraph>
+        <Typography as="h2" variant="base">
+          NEWSLETTER
+        </Typography>
       </DialogTrigger>
       <DialogContent>
         <Image className="basis-full" src={newsletterImg} alt="Surf Shop Newsletter" width={200} />
@@ -32,14 +34,14 @@ export default function Newsletter() {
           </DialogHeader>
           <NewsletterButton />
           <DialogFooter>
-            <Paragraph className="xl:text-xs text-sm md:text-md text-center">
+            <Typography as="p" variant="xsmall" className="text-center">
               <i>
                 By signing up you consent to the processing of personal data in accordance with the{" "}
                 <Link className="hover:underline" href="/privacy-policy">
                   <u>privacy policy.</u>
                 </Link>
               </i>
-            </Paragraph>
+            </Typography>
           </DialogFooter>
         </div>
       </DialogContent>

@@ -1,12 +1,12 @@
 import ContactForm from "@/src/app/contact/components/contact-form"
-import Paragraph from "@/src/components/typography/paragraph"
+import Typography from "@/src/components/typography/typography"
 
 export default function ContactPage() {
   return (
     <>
-      <Paragraph className="text-center xl:text-2xl md:text-4xl text-3xl font-bold m-4">
+      <Typography as="h1" variant="2xlarge" weight="bold" className="m-4 text-center">
         CONTACT US!
-      </Paragraph>
+      </Typography>
       <ContactForm />
     </>
   )

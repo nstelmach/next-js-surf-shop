@@ -9,9 +9,9 @@ import { AuthenticationError } from "blitz"
 import { Form } from "@/src/components/ui/form"
 import addToCart from "@/src/app/cart/mutations/add-to-cart"
 import getCart from "@/src/app/cart/queries/get-cart"
-import Paragraph from "@/src/components/typography/paragraph"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
 import SelectField from "@/src/components/fields/select-field"
+import Typography from "@/src/components/typography/typography"
 
 interface SizeSelectFormProps {
   productId: number
@@ -29,7 +29,7 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
 
   const onSubmit = async (values: z.infer<typeof ChooseSize>) => {
     try {
-      await addToCartMutation({ ...values, productId: productId })
+      await addToCartMutation({ ...values, productId })
       await invalidateQuery(getCart)
     } catch (error: any) {
       if (error instanceof AuthenticationError) {
@@ -57,14 +57,14 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
           />
         </div>
         {isError && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             {error instanceof AuthenticationError ? LOGGED_IN : UNEXPECTED_ERROR}
-          </Paragraph>
+          </Typography>
         )}
         {isSuccess && (
-          <Paragraph className="m-2 xl:text-base text-xl md:text-2xl text-center">
+          <Typography as="p" variant="base" className="m-2 text-center">
             You have successfully added this item to the cart!
-          </Paragraph>
+          </Typography>
         )}
         <ButtonWithLoader type="submit" label="Add to cart" isLoading={isLoading} />
       </form>

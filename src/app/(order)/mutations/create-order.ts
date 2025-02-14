@@ -1,26 +1,12 @@
 import { resolver } from "@blitzjs/rpc"
 import db from "@/db"
 import { NotFoundError } from "blitz"
-import { CartProduct } from "@prisma/client"
+import { Order, OrderDetails } from "@/src/lib/validations"
 
 export default resolver.pipe(
+  resolver.zod(Order.and(OrderDetails)),
   resolver.authorize(),
-  async (
-    {
-      price,
-      shipping,
-      payment,
-      products,
-      cartId,
-    }: {
-      price: number
-      shipping: string
-      payment: string
-      products: CartProduct[]
-      cartId: number
-    },
-    ctx
-  ) => {
+  async ({ price, shipping, payment, products, cartId }, ctx) => {
     if (!cartId) throw new Error()
     if (!ctx.session.userId) throw new NotFoundError()
 
