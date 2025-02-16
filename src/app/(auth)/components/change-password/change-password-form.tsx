@@ -11,8 +11,6 @@ import ButtonWithLoader from "@/src/components/button-with-loader/button-with-lo
 import changePassword from "@/src/app/(auth)/mutations/change-password"
 import PersonalInformation from "@/src/app/(auth)/components/change-password/personal-information"
 import InputField from "@/src/components/fields/input-field"
-import CheckboxField from "@/src/components/fields/checkbox-field"
-import Terms from "@/src/app/(auth)/components/terms"
 import Typography from "@/src/components/typography/typography"
 
 export default function ChangePasswordForm() {
@@ -48,22 +46,16 @@ export default function ChangePasswordForm() {
 
   return (
     <>
-      {isError && (
-        <Typography as="p" variant="base" className="m-2 text-center">
-          {error.name === "ChangePasswordError" ? ERROR : UNEXPECTED_ERROR}
-        </Typography>
-      )}
       {isSuccess ? (
         <div className="flex flex-col">
           <Typography as="p" variant="base" className="m-2 text-center">
             Your password has been successfully changed!
           </Typography>
-          <Typography as="p" variant="base" className="m-2 text-center">
-            Go to the{" "}
-            <Link className="hover:underline" href="/my-account">
-              my account
-            </Link>
-          </Typography>
+          <Link className="hover:underline" href="/my-account">
+            <Typography as="p" variant="base" className="m-2 text-center">
+              Go to the my account
+            </Typography>
+          </Link>
         </div>
       ) : (
         <div className="flex flex-col gap-4">
@@ -93,7 +85,11 @@ export default function ChangePasswordForm() {
                 label="New password *"
                 type="password"
               />
-              <CheckboxField control={form.control} name="terms" label={<Terms />} />
+              {isError && (
+                <Typography as="p" variant="base" className="m-2 text-center">
+                  {error.name === "ChangePasswordError" ? ERROR : UNEXPECTED_ERROR}
+                </Typography>
+              )}
               <ButtonWithLoader type="submit" label="CHANGE" isLoading={isLoading} />
             </form>
           </Form>

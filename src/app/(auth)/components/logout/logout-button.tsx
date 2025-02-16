@@ -23,7 +23,7 @@ export function LogoutButton() {
 
   return (
     <ButtonWithLoader
-      className="min-w-52 md:min-w-64 xl:min-w-fit"
+      className="md:min-w-64 xl:min-w-fit"
       onClick={onLogoutHandler}
       type="button"
       isLoading={isLoading}

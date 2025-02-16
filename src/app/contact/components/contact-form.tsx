@@ -45,12 +45,11 @@ export default function ContactForm() {
           <Typography as="p" variant="base" className="m-2 text-center">
             Your message has been successfully sent!
           </Typography>
-          <Typography as="p" variant="base" className="m-2 text-center">
-            Go to the{" "}
-            <Link className="hover:underline" href="/">
-              homepage
-            </Link>
-          </Typography>
+          <Link className="hover:underline" href="/">
+            <Typography as="p" variant="base" className="m-2 text-center">
+              Go to the homepage
+            </Typography>
+          </Link>
         </div>
       ) : (
         <Form {...form}>

@@ -48,13 +48,14 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center w-full"
       >
-        <div className="flex justify-center items-center w-full p-2 ">
+        <div className="flex flex-col justify-center items-center w-full p-2 gap-2">
           <SelectField
             control={form.control}
             name="size"
             items={SIZE_ITEMS}
             placeholder="Choose a size"
           />
+          <ButtonWithLoader type="submit" label="Add to cart" isLoading={isLoading} />
         </div>
         {isError && (
           <Typography as="p" variant="base" className="m-2 text-center">
@@ -66,7 +67,6 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
             You have successfully added this item to the cart!
           </Typography>
         )}
-        <ButtonWithLoader type="submit" label="Add to cart" isLoading={isLoading} />
       </form>
     </Form>
   )

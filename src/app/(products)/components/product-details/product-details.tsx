@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card"
+import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/card"
 import ImageCarousel from "@/src/app/(products)/components/product-details/image-carousel"
 import { Image, Price } from "@prisma/client"
 import SizeSelectForm from "@/src/app/(products)/components/product-details/size-select-form"
@@ -27,20 +20,16 @@ export default function ProductDetails({
   productId,
 }: ClothesDetailsProps) {
   return (
-    <Card className="max-w-xs md:max-w-lg xl:max-w-xl">
-      <CardHeader>
-        <ImageCarousel title={title} images={images} />
-      </CardHeader>
-      <CardContent className="flex flex-col justify-center items-center gap-4 m-4">
+    <Card className="flex flex-col md:flex-row gap-16">
+      <ImageCarousel title={title} images={images} />
+      <CardContent className="flex flex-col justify-center items-center gap-2 px-4">
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="m-2">{description}</CardDescription>
         <Typography as="p" variant="base">
           {prices[0].price} €
         </Typography>
-      </CardContent>
-      <CardFooter className="w-full">
         <SizeSelectForm productId={productId} />
-      </CardFooter>
+      </CardContent>
     </Card>
   )
 }

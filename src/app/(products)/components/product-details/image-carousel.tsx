@@ -22,8 +22,8 @@ export default function ImageCarousel({ title, images }: ImageCarouselProps) {
             <Image
               src={image.src}
               alt={title ?? "Image"}
-              width={500}
-              height={1200}
+              height={600}
+              width={400}
               className="w-full"
             />
           </CarouselItem>

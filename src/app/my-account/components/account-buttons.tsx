@@ -11,7 +11,7 @@ export default function AccountButtons() {
       />
       <AccountButton
         href="/order-history"
-        label="Order history and details"
+        label="Order history"
         Icon={<ShoppingBag className="mr-2" />}
       />
     </div>

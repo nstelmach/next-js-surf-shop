@@ -7,7 +7,12 @@ export default async function getCart(_: any, ctx: Ctx) {
   return db.cart.findUnique({
     where: { userId: ctx.session.userId },
     include: {
-      cartProducts: { include: { product: { include: { images: true, prices: true } } } },
+      cartProducts: {
+        orderBy: {
+          id: "asc",
+        },
+        include: { product: { include: { images: true, prices: true } } },
+      },
       shipping: true,
       payment: true,
     },

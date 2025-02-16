@@ -11,8 +11,6 @@ import ButtonWithLoader from "@/src/components/button-with-loader/button-with-lo
 import resetPassword from "@/src/app/(auth)/mutations/reset-password"
 import Link from "next/link"
 import InputField from "@/src/components/fields/input-field"
-import CheckboxField from "@/src/components/fields/checkbox-field"
-import Terms from "@/src/app/(auth)/components/terms"
 import Typography from "@/src/components/typography/typography"
 
 export default function ResetPasswordForm() {
@@ -61,12 +59,11 @@ export default function ResetPasswordForm() {
           <Typography as="p" variant="base" className="m-2 text-center">
             Password Reset Successfully
           </Typography>
-          <Typography as="p" variant="base" className="m-2 text-center">
-            Go to the{" "}
-            <Link className="hover:underline" href="/">
-              homepage
-            </Link>
-          </Typography>
+          <Link className="hover:underline" href="/">
+            <Typography as="p" variant="base" className="m-2 text-center">
+              Go to the homepage
+            </Typography>
+          </Link>
         </div>
       ) : (
         <Form {...form}>
@@ -86,7 +83,6 @@ export default function ResetPasswordForm() {
               label="Confirm New Password *"
               type="password"
             />
-            <CheckboxField control={form.control} name="terms" label={<Terms />} />
             <ButtonWithLoader isLoading={isLoading} type="submit" label="RESET" />
           </form>
         </Form>

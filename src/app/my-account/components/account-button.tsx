@@ -10,7 +10,7 @@ interface AccountButtonProps {
 export default function AccountButton({ href, label, Icon }: AccountButtonProps) {
   return (
     <Link href={href} className="w-full">
-      <Button type="button" className="xl:min-w-72 md:min-w-96">
+      <Button variant="secondary" type="button" className="xl:min-w-72 md:min-w-96">
         {Icon} {label}
       </Button>
     </Link>
