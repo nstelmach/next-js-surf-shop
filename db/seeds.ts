@@ -11,13 +11,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-1.webp",
+          src: "/products/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-1.webp",
         },
         {
-          src: "/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-2.webp",
+          src: "/products/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-2.webp",
         },
         {
-          src: "/clothes/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-3.webp",
+          src: "/products/tees/wave-tiger-tee-pink-kush/wave-tiger-tee-pink-kush-3.webp",
         },
       ],
     },
@@ -33,13 +33,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-1.jpg",
+          src: "/products/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-1.jpg",
         },
         {
-          src: "/clothes/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-2.webp",
+          src: "/products/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-2.webp",
         },
         {
-          src: "/clothes/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-3.webp",
+          src: "/products/tees/aqua-box-tee-vintage-white/aqua-box-tee-vintage-white-3.webp",
         },
       ],
     },
@@ -55,13 +55,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-1.jpg",
+          src: "/products/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-1.jpg",
         },
         {
-          src: "/clothes/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-2.webp",
+          src: "/products/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-2.webp",
         },
         {
-          src: "/clothes/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-3.webp",
+          src: "/products/tees/sunburn-tee-super-natural/sunburn-tee-super-natural-3.webp",
         },
       ],
     },
@@ -77,13 +77,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-1.jpg",
+          src: "/products/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-1.jpg",
         },
         {
-          src: "/clothes/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-2.webp",
+          src: "/products/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-2.webp",
         },
         {
-          src: "/clothes/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-3.webp",
+          src: "/products/tees/no-rules-tee-paper-white/no-rules-tee-paper-white-3.webp",
         },
       ],
     },
@@ -99,13 +99,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/own-business-tee-super-natural/own-business-tee-super-natural-1.webp",
+          src: "/products/tees/own-business-tee-super-natural/own-business-tee-super-natural-1.webp",
         },
         {
-          src: "/clothes/tees/own-business-tee-super-natural/own-business-tee-super-natural-2.webp",
+          src: "/products/tees/own-business-tee-super-natural/own-business-tee-super-natural-2.webp",
         },
         {
-          src: "/clothes/tees/own-business-tee-super-natural/own-business-tee-super-natural-3.webp",
+          src: "/products/tees/own-business-tee-super-natural/own-business-tee-super-natural-3.webp",
         },
       ],
     },
@@ -121,13 +121,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-1.jpg",
+          src: "/products/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-1.jpg",
         },
         {
-          src: "/clothes/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-2.webp",
+          src: "/products/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-2.webp",
         },
         {
-          src: "/clothes/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-3.webp",
+          src: "/products/tees/power-flower-tee-dirty-white/power-flower-tee-dirty-white-3.webp",
         },
       ],
     },
@@ -145,13 +145,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-1.jpg",
+          src: "/products/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-1.jpg",
         },
         {
-          src: "/clothes/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-2.webp",
+          src: "/products/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-2.webp",
         },
         {
-          src: "/clothes/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-3.webp",
+          src: "/products/tees/cowboy-feel-tee-paper-white/cowboy-feel-tee-paper-white-3.webp",
         },
       ],
     },
@@ -167,13 +167,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-1.jpg",
+          src: "/products/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-1.jpg",
         },
         {
-          src: "/clothes/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-2.webp",
+          src: "/products/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-2.webp",
         },
         {
-          src: "/clothes/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-3.webp",
+          src: "/products/hoodies/power-flower-sweat-pink-kush/power-flower-sweat-pink-kush-3.webp",
         },
       ],
     },
@@ -189,13 +189,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-1.webp",
+          src: "/products/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-1.webp",
         },
         {
-          src: "/clothes/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-2.webp",
+          src: "/products/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-2.webp",
         },
         {
-          src: "/clothes/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-3.webp",
+          src: "/products/hoodies/organic-wave-sweat-vintage-white/organic-wave-sweat-vintage-white-3.webp",
         },
       ],
     },
@@ -215,13 +215,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-1.jpg",
+          src: "/products/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-1.jpg",
         },
         {
-          src: "/clothes/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-2.webp",
+          src: "/products/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-2.webp",
         },
         {
-          src: "/clothes/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-3.webp",
+          src: "/products/hoodies/feel-amazing-sweat-vintage-white/feel-amazing-sweat-vintage-white-3.webp",
         },
       ],
     },
@@ -241,13 +241,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-1.jpg",
+          src: "/products/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-1.jpg",
         },
         {
-          src: "/clothes/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-2.webp",
+          src: "/products/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-2.webp",
         },
         {
-          src: "/clothes/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-3.webp",
+          src: "/products/hoodies/stamp-cats-hoodie-acid-black/stamp-cats-hoodie-acid-black-3.webp",
         },
       ],
     },
@@ -263,13 +263,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-1.webp",
+          src: "/products/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-1.webp",
         },
         {
-          src: "/clothes/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-2.webp",
+          src: "/products/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-2.webp",
         },
         {
-          src: "/clothes/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-3.webp",
+          src: "/products/hoodies/wine-and-surf-sweat-vintage-white/wine-and-surf-sweat-vintage-white-3.webp",
         },
       ],
     },
@@ -285,13 +285,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-1.webp",
+          src: "/products/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-1.webp",
         },
         {
-          src: "/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-2.webp",
+          src: "/products/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-2.webp",
         },
         {
-          src: "/clothes/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-3.webp",
+          src: "/products/hoodies/sunburn-hoodie-acid-black/sunburn-hoodie-acid-black-3.webp",
         },
       ],
     },
@@ -307,13 +307,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-1.webp",
+          src: "/products/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-1.webp",
         },
         {
-          src: "/clothes/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-2.webp",
+          src: "/products/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-2.webp",
         },
         {
-          src: "/clothes/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-3.webp",
+          src: "/products/hoodies/aqua-sweat-vintage-white/aqua-sweat-vintage-white-3.webp",
         },
       ],
     },
@@ -329,13 +329,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-1.jpg",
+          src: "/products/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-2.webp",
+          src: "/products/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-2.webp",
         },
         {
-          src: "/clothes/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-3.webp",
+          src: "/products/longsleeves/no-rules-ls-brownie/no-rules-ls-brownie-3.webp",
         },
       ],
     },
@@ -351,13 +351,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-1.jpg",
+          src: "/products/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-2.webp",
+          src: "/products/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-2.webp",
         },
         {
-          src: "/clothes/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-3.webp",
+          src: "/products/longsleeves/sea-lions-ls-dirty-white/sea-lions-ls-dirty-white-3.webp",
         },
       ],
     },
@@ -377,13 +377,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-1.jpg",
+          src: "/products/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-2.webp",
+          src: "/products/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-2.webp",
         },
         {
-          src: "/clothes/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-3.webp",
+          src: "/products/longsleeves/feel-amazing-ls-paper-white/feel-amazing-ls-paper-white-3.webp",
         },
       ],
     },
@@ -403,13 +403,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-1.jpg",
+          src: "/products/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-2.webp",
+          src: "/products/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-2.webp",
         },
         {
-          src: "/clothes/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-3.webp",
+          src: "/products/longsleeves/face-shine-ls-raspberry-punch/face-shine-ls-raspberry-punch-3.webp",
         },
       ],
     },
@@ -429,13 +429,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-1.jpg",
+          src: "/products/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-2.webp",
+          src: "/products/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-2.webp",
         },
         {
-          src: "/clothes/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-3.webp",
+          src: "/products/longsleeves/only-for-flippers-ls-vintage-white/only-for-flippers-ls-vintage-white-3.webp",
         },
       ],
     },
@@ -451,13 +451,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-1.jpg",
+          src: "/products/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-2.webp",
+          src: "/products/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-2.webp",
         },
         {
-          src: "/clothes/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-3.webp",
+          src: "/products/longsleeves/sunburn-ls-optic-white/sunburn-ls-optic-white-3.webp",
         },
       ],
     },
@@ -473,13 +473,13 @@ const PRODUCTS = [
     images: {
       create: [
         {
-          src: "/clothes/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-1.jpg",
+          src: "/products/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-1.jpg",
         },
         {
-          src: "/clothes/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-2.webp",
+          src: "/products/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-2.webp",
         },
         {
-          src: "/clothes/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-3.webp",
+          src: "/products/longsleeves/starfish-ls-dirty-white/starfish-ls-dirty-white-3.webp",
         },
       ],
     },
