@@ -14,7 +14,13 @@ export default function ProductCard({ item }: ClothesCardProps) {
   return (
     <Card>
       <Link href={href} className="flex justify-center items-center w-full">
-        <Image src={item.images[0].src} alt={item.name} height={600} width={400} />
+        <Image
+          src={item.images[0].src}
+          alt={item.name}
+          height={600}
+          width={400}
+          className="w-full"
+        />
       </Link>
       <CardHeader>
         <Link href={href}>

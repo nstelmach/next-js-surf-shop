@@ -20,7 +20,7 @@ export default function ProductDetails({
   productId,
 }: ClothesDetailsProps) {
   return (
-    <Card className="flex flex-col md:flex-row gap-16">
+    <Card className="flex flex-col max-w-xl lg:flex-row gap-16">
       <ImageCarousel title={title} images={images} />
       <CardContent className="flex flex-col justify-center items-center gap-2 px-4">
         <CardTitle>{title}</CardTitle>

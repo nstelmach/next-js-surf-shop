@@ -4,14 +4,14 @@ import { useQuery } from "@blitzjs/rpc"
 import getProduct from "@/src/app/(products)/queries/get-product"
 import { useParams } from "next/navigation"
 import { Suspense } from "react"
-import ProductSkeleton from "@/src/components/skeletons/product-skeleton"
+import Loading from "@/src/app/loading"
 
 export default function LongsleeveDetailsPage() {
   const params = useParams<{ longsleeveSlug: string }>()
   const [longsleeve] = useQuery(getProduct, { id: +params.longsleeveSlug })
 
   return (
-    <Suspense fallback={<ProductSkeleton />}>
+    <Suspense fallback={<Loading />}>
       <ProductDetails
         productId={longsleeve.id}
         title={longsleeve.name}

@@ -4,13 +4,13 @@ import { useQuery } from "@blitzjs/rpc"
 import getProducts from "@/src/app/(products)/queries/get-products"
 import { Category } from "@prisma/client"
 import { Suspense } from "react"
-import GridSkeleton from "@/src/components/skeletons/grid-skeleton"
+import Loading from "@/src/app/loading"
 
 export default function TeesPage() {
   const [tees] = useQuery(getProducts, { category: Category.tees })
 
   return (
-    <Suspense fallback={<GridSkeleton />}>
+    <Suspense fallback={<Loading />}>
       <ProductList title="TEES" items={tees} />
     </Suspense>
   )

@@ -73,6 +73,14 @@ export default function CartDetails() {
         />
         <CartRadioGroup name="payment" control={form.control} title="Payment" items={paymentArr} />
         <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
+        <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
+          <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />
+          <Link href="/" className="w-full flex-1">
+            <Button className="!w-full" type="button">
+              Continue shopping
+            </Button>
+          </Link>
+        </div>
         {isError && (
           <Typography as="p" variant="base" className="m-2 text-center">
             {UNEXPECTED_ERROR}
@@ -83,14 +91,6 @@ export default function CartDetails() {
             Your order has been successfully placed!
           </Typography>
         )}
-        <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
-          <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />
-          <Link href="/" className="w-full flex-1">
-            <Button className="!w-full" type="button">
-              Continue shopping
-            </Button>
-          </Link>
-        </div>
       </form>
     </Form>
   )

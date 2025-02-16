@@ -4,13 +4,13 @@ import { Category } from "@prisma/client"
 import getProducts from "@/src/app/(products)/queries/get-products"
 import { useQuery } from "@blitzjs/rpc"
 import { Suspense } from "react"
-import GridSkeleton from "@/src/components/skeletons/grid-skeleton"
+import Loading from "@/src/app/loading"
 
 export default function LongSleevesPage() {
   const [longsleeves] = useQuery(getProducts, { category: Category.longsleeves })
 
   return (
-    <Suspense fallback={<GridSkeleton />}>
+    <Suspense fallback={<Loading />}>
       <ProductList title="LONGSLEEVES" items={longsleeves} />
     </Suspense>
   )
