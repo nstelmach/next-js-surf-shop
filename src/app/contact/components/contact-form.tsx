@@ -53,7 +53,10 @@ export default function ContactForm() {
         </div>
       ) : (
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:min-w-96 min-w-72">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 md:min-w-96 min-w-72 md:max-w-xs xl:max-w-sm"
+          >
             <InputField control={form.control} name="name" label="Name *" type="text" />
             <InputField control={form.control} name="email" label="E-mail *" type="email" />
             <TextAreaField control={form.control} name="message" label="Message *" />

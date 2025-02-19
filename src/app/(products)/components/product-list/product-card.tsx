@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card"
+import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
 import { Product } from "@prisma/client"
@@ -12,7 +12,7 @@ export default function ProductCard({ item }: ClothesCardProps) {
   const href = getLink(item.category, item.id)
 
   return (
-    <Card>
+    <Card className="lg:w-[400px]">
       <Link href={href} className="flex justify-center items-center w-full">
         <Image
           src={item.images[0].src}
@@ -22,12 +22,10 @@ export default function ProductCard({ item }: ClothesCardProps) {
           className="w-full"
         />
       </Link>
-      <CardHeader>
+      <CardContent>
         <Link href={href}>
           <CardTitle>{item.name}</CardTitle>
         </Link>
-      </CardHeader>
-      <CardContent>
         <CardDescription>{item.prices[0].price} €</CardDescription>
       </CardContent>
     </Card>

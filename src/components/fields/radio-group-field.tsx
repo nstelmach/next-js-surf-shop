@@ -17,7 +17,7 @@ export default function RadioGroupField({ title, items, name, control }: RadioGr
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className="flex-col items-center justify-center gap-4 xl:m-2 w-full">
+        <FormItem className="flex flex-col items-start lg:items-center justify-center gap-4 space-y-0">
           <FormLabel className="w-full text-center xl:text-xl md:text-3xl text-2xl font-bold m-2">
             {title}
           </FormLabel>
@@ -25,7 +25,10 @@ export default function RadioGroupField({ title, items, name, control }: RadioGr
           <FormControl>
             <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
               {items.map((item) => (
-                <FormItem key={item.id} className="flex flex-row items-center justify-center gap-2">
+                <FormItem
+                  key={item.id}
+                  className="flex flex-row items-center justify-start lg:justify-center gap-2 mx-2 my-1 space-y-0"
+                >
                   <FormControl>
                     <RadioGroupItem value={item.name} />
                   </FormControl>

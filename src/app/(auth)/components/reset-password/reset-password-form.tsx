@@ -69,7 +69,7 @@ export default function ResetPasswordForm() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 md:max-w-xl xl:max-w-3xl"
+            className="space-y-8 md:max-w-xs xl:max-w-sm"
           >
             <InputField
               control={form.control}

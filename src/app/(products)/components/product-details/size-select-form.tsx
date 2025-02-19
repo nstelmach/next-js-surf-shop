@@ -48,7 +48,7 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center w-full"
       >
-        <div className="flex flex-col justify-center items-center w-full md:max-w-[250px] p-2 gap-2">
+        <div className="flex flex-col justify-center items-center w-full md:max-w-[250px] p-4 gap-4">
           <SelectField
             control={form.control}
             name="size"

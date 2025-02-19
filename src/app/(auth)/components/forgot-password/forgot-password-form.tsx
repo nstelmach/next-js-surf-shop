@@ -61,7 +61,7 @@ export default function ForgotPasswordForm() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8 w-full md:max-w-sm xl:max-w-xs"
+              className="space-y-8 w-full md:max-w-xs xl:max-w-sm"
             >
               <InputField control={form.control} name="email" label="Email *" type="email" />
               <ButtonWithLoader isLoading={isLoading} type="submit" label="SEND" />

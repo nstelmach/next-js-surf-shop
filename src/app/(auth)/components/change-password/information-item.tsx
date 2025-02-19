@@ -7,11 +7,11 @@ interface InformationItemProps {
 
 export default function InformationItem({ title, name }: InformationItemProps) {
   return (
-    <div className="flex md:justify-between md:flex-row flex-col">
-      <Typography as="p" variant="base" className="m-2 text-center">
+    <div className="flex justify-between md:flex-row flex-col w-full">
+      <Typography as="p" variant="base" className="m-2" weight="bold">
         {title}
       </Typography>
-      <Typography as="p" variant="base" className="m-2 text-center grow-2">
+      <Typography as="p" variant="base" className="m-2">
         {name}
       </Typography>
     </div>
