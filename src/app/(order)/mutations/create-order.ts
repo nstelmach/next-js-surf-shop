@@ -2,19 +2,22 @@ import { resolver } from "@blitzjs/rpc"
 import db from "@/db"
 import { NotFoundError } from "blitz"
 import { Order, OrderDetails } from "@/src/lib/validations"
+import { EmptyCartError } from "@/src/lib/types"
 
 export default resolver.pipe(
   resolver.zod(Order.and(OrderDetails)),
   resolver.authorize(),
   async ({ price, shipping, payment, products, cartId }, ctx) => {
-    if (!cartId || !products || !price) throw new Error()
+    if (!products) throw new EmptyCartError()
+    if (!cartId || !price) throw new Error()
+
     if (!ctx.session.userId) throw new NotFoundError()
 
     const orderProducts = products.map((product) => {
       return { productId: product.productId, size: product.chosenSize, quantity: product.quantity }
     })
 
-    await db.order.create({
+    const order = await db.order.create({
       data: {
         user: { connect: { id: ctx.session.userId } },
         price: price,
@@ -36,6 +39,6 @@ export default resolver.pipe(
       where: { id: cartId },
     })
 
-    return true
+    return order
   }
 )

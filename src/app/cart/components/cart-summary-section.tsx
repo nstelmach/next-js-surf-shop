@@ -7,7 +7,7 @@ interface CartSummarySectionProps {
 
 export default function CartSummarySection({ title, price }: CartSummarySectionProps) {
   return (
-    <div className="flex flex-row items-start justify-between gap-4 p-2 max-w-xs xl:max-w-full w-full">
+    <div className="flex flex-row items-start justify-between gap-4 p-2 xl:max-w-full w-full">
       <Typography as="p" variant="base">
         {title}:
       </Typography>

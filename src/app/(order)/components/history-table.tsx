@@ -16,10 +16,15 @@ export default function HistoryTable({ orders }: HistoryTableProps) {
             <TableRow>
               <TableHead>Order No.</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Products</TableHead>
               <TableHead>Shipping</TableHead>
               <TableHead>Payment</TableHead>
               <TableHead>Total Price</TableHead>
+              <TableHead className="flex flex-row justify-between items-center">
+                <div className="px-4 flex-grow">Products</div>
+                <div className="px-4">Size</div>
+                <div className="px-4">Quantity</div>
+                <div className="px-4">Price</div>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

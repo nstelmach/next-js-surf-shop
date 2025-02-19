@@ -19,9 +19,9 @@ export default function HistoryProductTableRow({ product }: HistoryProductTableR
           <Typography as="p">{name}</Typography>
         </div>
       </TableCell>
-      <TableCell>{product.size}</TableCell>
-      <TableCell>{product.quantity}</TableCell>
-      <TableCell>{orderProduct.prices[0].price} €</TableCell>
+      <TableCell className="w-[65px]">{product.size}</TableCell>
+      <TableCell className="w-[105px]">{product.quantity}</TableCell>
+      <TableCell className="w-[75px]">{orderProduct.prices[0].price} €</TableCell>
     </TableRow>
   )
 }

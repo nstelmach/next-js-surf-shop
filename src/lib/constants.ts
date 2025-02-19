@@ -412,12 +412,14 @@ export const EMAIL_USED = "This email is already being used"
 
 export const INVALID_CREDENTIALS = "Sorry, those credentials are invalid"
 
-export const UNEXPECTED_ERROR = "Sorry, we had an unexpected error. Please try again."
+export const UNEXPECTED_ERROR = "Sorry, we had an unexpected error. Please try again"
 
-export const USER_NOT_EXIST = "Sorry, this user doesn't exist."
+export const USER_NOT_EXIST = "Sorry, this user doesn't exist"
 
-export const LOGGED_IN = "Sorry, you have to be logged in."
+export const LOGGED_IN = "Sorry, you have to be logged in"
 
-export const ALREADY_SUBSCRIBED = "You already subscribed to our newsletter."
+export const ALREADY_SUBSCRIBED = "You already subscribed to our newsletter"
+
+export const EMPTY_CART = "Sorry, your cart is empty"
 
 export const SIZE_ITEMS: Size[] = [Size.XS, Size.S, Size.M, Size.L, Size.XL]

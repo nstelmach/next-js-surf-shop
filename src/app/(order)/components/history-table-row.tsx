@@ -11,12 +11,12 @@ export default function HistoryTableRow({ order }: HistoryTableRowProps) {
     <TableRow>
       <TableCell>{order.id}</TableCell>
       <TableCell>{order.createdAt.toLocaleDateString()}</TableCell>
-      <TableCell>
-        <HistoryProductTable products={order.products} />
-      </TableCell>
       <TableCell>{order.shipping.label}</TableCell>
       <TableCell>{order.payment.label}</TableCell>
       <TableCell>{order.price} €</TableCell>
+      <TableCell>
+        <HistoryProductTable products={order.products} />
+      </TableCell>
     </TableRow>
   )
 }

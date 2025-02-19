@@ -29,9 +29,11 @@ export default function CartTable({ cart }: CardDetailsProps) {
           </TableBody>
         </Table>
       ) : (
-        <Typography as="p" variant="base" className="m-2 text-center w-full">
-          Your cart is empty.
-        </Typography>
+        <div className="hidden xl:block xl:grow-2">
+          <Typography as="p" variant="base" className="m-2 text-center w-full">
+            Your cart is empty.
+          </Typography>
+        </div>
       )}
     </>
   )

@@ -12,9 +12,9 @@ interface CartRadioGroupProps {
 
 export default function CartRadioGroup({ title, items, name, control }: CartRadioGroupProps) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 xl:m-2 w-full">
+    <div className="flex flex-col items-center justify-center gap-4 w-full">
       <RadioGroupField title={title} items={items} name={name} control={control} />
-      <Separator orientation="horizontal" className="bg-muted" />
+      <Separator orientation="horizontal" className="bg-muted mb-4" />
     </div>
   )
 }

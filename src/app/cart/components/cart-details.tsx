@@ -12,15 +12,18 @@ import { z } from "zod"
 import { Order } from "@/src/lib/validations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/src/components/ui/form"
-import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
+import { EMPTY_CART, FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import getCart from "@/src/app/cart/queries/get-cart"
 import createOrder from "@/src/app/(order)/mutations/create-order"
 import Typography from "@/src/components/typography/typography"
+import { useRouter } from "next/navigation"
+import { getLink } from "@/src/lib/utils"
 
 export default function CartDetails() {
   const [shippingArr] = useQuery(getShipping)
   const [paymentArr] = useQuery(getPayment)
   const [cart] = useQuery(getCart)
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof Order>>({
     resolver: zodResolver(Order),
@@ -30,7 +33,7 @@ export default function CartDetails() {
     },
   })
 
-  const [createOrderMutation, { isLoading, isSuccess, isError }] = useMutation(createOrder)
+  const [createOrderMutation, { isLoading, isSuccess, isError, error }] = useMutation(createOrder)
 
   const totalPrice =
     cart?.cartProducts.reduce((total, cartProduct) => {
@@ -47,15 +50,22 @@ export default function CartDetails() {
 
   const onSubmit = async (values: z.infer<typeof Order>) => {
     try {
-      await createOrderMutation({
+      const order = await createOrderMutation({
         ...values,
         price: totalPrice + shippingPrice,
-        products: cart.cartProducts,
-        cartId: cart.id,
+        products: cart?.cartProducts,
+        cartId: cart?.id,
       })
       await invalidateQuery(getCart)
+      const href = getLink("order", order.id)
+      router.refresh()
+      router.push(href)
     } catch (error: any) {
-      return { [FORM_ERROR]: UNEXPECTED_ERROR }
+      if (error.name === "EmptyCartError") {
+        return { [FORM_ERROR]: EMPTY_CART }
+      } else {
+        return { [FORM_ERROR]: UNEXPECTED_ERROR }
+      }
     }
   }
 
@@ -63,7 +73,7 @@ export default function CartDetails() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center gap-2 xl:gap-4 xl:grow w-full xl:w-fit max-w-full"
+        className="flex flex-col items-center justify-center xl:grow w-full max-w-md"
       >
         <CartRadioGroup
           name="shipping"
@@ -73,17 +83,21 @@ export default function CartDetails() {
         />
         <CartRadioGroup name="payment" control={form.control} title="Payment" items={paymentArr} />
         <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
-        <div className="flex xl:flex-row flex-col items-center justify-center gap-4 m-2 max-w-xs xl:max-w-full w-full">
-          <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" className="flex-1" />
-          <Link href="/" className="w-full flex-1">
-            <Button className="!w-full" type="button">
-              Continue shopping
-            </Button>
-          </Link>
+        <div className="flex xl:flex-row flex-col items-center justify-between gap-4 m-6 lg:m-2 xl:max-w-full w-full">
+          <div className="w-full flex-1">
+            <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" />
+          </div>
+          <div className="w-full flex-1">
+            <Link href="/">
+              <Button className="!w-full" type="button">
+                Continue shopping
+              </Button>
+            </Link>
+          </div>
         </div>
         {isError && (
           <Typography as="p" variant="base" className="m-2 text-center">
-            {UNEXPECTED_ERROR}
+            {error.name === "EmptyCartError" ? EMPTY_CART : UNEXPECTED_ERROR}
           </Typography>
         )}
         {isSuccess && (

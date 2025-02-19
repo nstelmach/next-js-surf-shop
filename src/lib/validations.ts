@@ -91,6 +91,10 @@ export const GetProduct = z.object({
   id,
 })
 
+export const GetOrder = z.object({
+  id,
+})
+
 export const Order = z.object({
   shipping,
   payment,
@@ -117,6 +121,6 @@ export const Product = z.object({
 })
 export const OrderDetails = z.object({
   price: z.number().nonnegative(),
-  products: z.array(Product),
-  cartId: id,
+  products: z.array(Product).optional(),
+  cartId: id.optional(),
 })
