@@ -34,7 +34,7 @@ export default function SignupForm() {
     try {
       await signupMutation(values)
       router.refresh()
-      router.push("/my-account")
+      router.push("/profile")
     } catch (error: any) {
       if (error.code === "P2002" && error.meta?.target?.includes("email")) {
         // This error comes from Prisma
@@ -53,7 +53,7 @@ export default function SignupForm() {
         </Typography>
       )}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xl xl:max-w-3xl">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xs xl:max-w-sm">
           <InputField control={form.control} name="name" label="Name *" type="text" />
           <InputField control={form.control} name="email" label="Email *" type="email" />
           <InputField control={form.control} name="password" label="Password *" type="password" />

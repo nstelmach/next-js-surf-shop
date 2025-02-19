@@ -36,7 +36,7 @@ export default function LoginForm() {
       if (next) {
         router.push(next as Route)
       } else {
-        router.push("/my-account")
+        router.push("/profile")
       }
     } catch (error: any) {
       if (error instanceof AuthenticationError) {
@@ -57,7 +57,7 @@ export default function LoginForm() {
         </Typography>
       )}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xl xl:max-w-3xl">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xs xl:max-w-sm">
           <InputField control={form.control} name="email" label="Email *" type="email" />
           <InputField control={form.control} name="password" label="Password *" type="password" />
           <LoginLinks isLoading={isLoading} />
