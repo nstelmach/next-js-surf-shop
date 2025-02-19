@@ -1,17 +1,11 @@
-"use client"
-import ProductList from "@/src/app/(products)/components/product-list/product-list"
-import { useQuery } from "@blitzjs/rpc"
-import getProducts from "@/src/app/(products)/queries/get-products"
-import { Category } from "@prisma/client"
 import { Suspense } from "react"
-import Loading from "@/src/app/loading"
+import TeeListWrapper from "@/src/app/(products)/components/product-details/tee-list-wrapper"
+import ListSkeleton from "@/src/components/skeletons/list-skeleton"
 
 export default function TeesPage() {
-  const [tees] = useQuery(getProducts, { category: Category.tees })
-
   return (
-    <Suspense fallback={<Loading />}>
-      <ProductList title="TEES" items={tees} />
+    <Suspense fallback={<ListSkeleton />}>
+      <TeeListWrapper />
     </Suspense>
   )
 }

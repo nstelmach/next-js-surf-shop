@@ -1,17 +1,11 @@
-"use client"
-import ProductList from "@/src/app/(products)/components/product-list/product-list"
-import { Category } from "@prisma/client"
-import getProducts from "@/src/app/(products)/queries/get-products"
-import { useQuery } from "@blitzjs/rpc"
 import { Suspense } from "react"
-import Loading from "@/src/app/loading"
+import LongsleeveListWrapper from "@/src/app/(products)/components/product-details/longsleeve-list-wrapper"
+import ListSkeleton from "@/src/components/skeletons/list-skeleton"
 
 export default function LongSleevesPage() {
-  const [longsleeves] = useQuery(getProducts, { category: Category.longsleeves })
-
   return (
-    <Suspense fallback={<Loading />}>
-      <ProductList title="LONGSLEEVES" items={longsleeves} />
+    <Suspense fallback={<ListSkeleton />}>
+      <LongsleeveListWrapper />
     </Suspense>
   )
 }
