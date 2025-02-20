@@ -7,5 +7,5 @@ import { Category } from "@prisma/client"
 export default function HoodieListWrapper() {
   const [hoodies] = useQuery(getProducts, { category: Category.hoodies })
 
-  return <ProductList title="HOODIES" items={hoodies} />
+  return <ProductList items={hoodies} />
 }

@@ -24,7 +24,7 @@ export default function OrderCard({ order }: OrderCardProps) {
           </Typography>
           <div className="flex flex-col justify-center items-center gap-2">
             {order.products.map((product, index) => (
-              <div key={product.id} className="w-full p-4">
+              <div key={product.id} className="w-full p-2">
                 <ProductCard product={product} />
                 {index < order.products.length - 1 && (
                   <Separator orientation="horizontal" className="bg-muted mt-4" />

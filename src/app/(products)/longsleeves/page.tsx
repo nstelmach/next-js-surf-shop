@@ -1,11 +1,17 @@
 import { Suspense } from "react"
 import LongsleeveListWrapper from "@/src/app/(products)/components/product-details/longsleeve-list-wrapper"
 import ListSkeleton from "@/src/components/skeletons/list-skeleton"
+import Typography from "@/src/components/typography/typography"
 
 export default function LongSleevesPage() {
   return (
-    <Suspense fallback={<ListSkeleton />}>
-      <LongsleeveListWrapper />
-    </Suspense>
+    <>
+      <Typography as="h1" variant="2xlarge" weight="bold" className="m-4">
+        LONGSLEEVES
+      </Typography>
+      <Suspense fallback={<ListSkeleton />}>
+        <LongsleeveListWrapper />
+      </Suspense>
+    </>
   )
 }

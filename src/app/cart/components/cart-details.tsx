@@ -85,7 +85,12 @@ export default function CartDetails() {
         <CartSummary shipping={shippingPrice} totalPrice={totalPrice} />
         <div className="flex xl:flex-row flex-col items-center justify-between gap-4 m-6 lg:m-2 xl:max-w-full w-full">
           <div className="w-full flex-1">
-            <ButtonWithLoader isLoading={isLoading} type="submit" label="Order" />
+            <ButtonWithLoader
+              isLoading={isLoading}
+              type="submit"
+              label="Order"
+              className="!w-full"
+            />
           </div>
           <div className="w-full flex-1">
             <Link href="/">

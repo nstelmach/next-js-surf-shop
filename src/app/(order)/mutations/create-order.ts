@@ -8,7 +8,7 @@ export default resolver.pipe(
   resolver.zod(Order.and(OrderDetails)),
   resolver.authorize(),
   async ({ price, shipping, payment, products, cartId }, ctx) => {
-    if (!products) throw new EmptyCartError()
+    if (!products || products.length <= 0) throw new EmptyCartError()
     if (!cartId || !price) throw new Error()
 
     if (!ctx.session.userId) throw new NotFoundError()

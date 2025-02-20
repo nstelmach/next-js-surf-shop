@@ -4,7 +4,6 @@ import { useAuthenticatedBlitzContext } from "@/src/app/blitz-server"
 import { Suspense } from "react"
 import InfoSkeleton from "@/src/components/skeletons/info-skeleton"
 import PersonalInformation from "@/src/app/(auth)/components/change-password/personal-information"
-import { LogoutButton } from "@/src/app/(auth)/components/logout/logout-button"
 
 export default async function ProfilePage() {
   await useAuthenticatedBlitzContext({
@@ -21,7 +20,6 @@ export default async function ProfilePage() {
           <PersonalInformation />
         </Suspense>
         <ChangePasswordForm />
-        <LogoutButton type="button" />
       </div>
     </>
   )

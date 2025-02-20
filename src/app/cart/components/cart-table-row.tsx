@@ -41,7 +41,7 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
   const href = getLink(category, productId)
 
   return (
-    <TableRow>
+    <TableRow className="hover:bg-muted/50">
       <TableCell>
         <div className="flex flex-row justify-start items-center gap-4 m-2">
           <Link href={href}>

@@ -57,7 +57,7 @@ export default function ChangePasswordForm() {
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col justify-center items-center gap-4 w-full">
           <Typography
             as="h2"
             variant="2xlarge"

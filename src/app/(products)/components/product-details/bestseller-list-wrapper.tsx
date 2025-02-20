@@ -6,5 +6,5 @@ import ProductList from "@/src/app/(products)/components/product-list/product-li
 export default function BestsellerListWrapper() {
   const [bestsellers] = useQuery(getProducts, { bestseller: true })
 
-  return <ProductList title="BESTSELLERS" items={bestsellers} />
+  return <ProductList items={bestsellers} />
 }

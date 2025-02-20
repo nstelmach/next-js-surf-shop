@@ -4,8 +4,11 @@ import CardSkeleton from "@/src/components/skeletons/card-skeleton"
 
 export default function HoodieDetailsPage() {
   return (
-    <Suspense fallback={<CardSkeleton />}>
-      <HoodieWrapper />
-    </Suspense>
+    <>
+      <Suspense fallback={<CardSkeleton />}>
+        <HoodieWrapper />
+      </Suspense>
+      <CardSkeleton />
+    </>
   )
 }

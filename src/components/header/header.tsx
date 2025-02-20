@@ -12,7 +12,9 @@ export default function Header() {
   return (
     <header className="flex flex-col justify-center items-center sticky top-0 bg-background z-10 p-2 md:p-4 md:px-8 gap-2">
       <div className="flex flex-row justify-between items-center w-full">
-        <SocialMediaIcons />
+        <div className="hidden lg:flex">
+          <SocialMediaIcons />
+        </div>
         <HeaderMenu />
         <Link href="/" className="m-2">
           <Image

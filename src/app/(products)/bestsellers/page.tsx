@@ -1,11 +1,17 @@
 import { Suspense } from "react"
 import BestsellerListWrapper from "@/src/app/(products)/components/product-details/bestseller-list-wrapper"
 import ListSkeleton from "@/src/components/skeletons/list-skeleton"
+import Typography from "@/src/components/typography/typography"
 
 export default function BestsellersPage() {
   return (
-    <Suspense fallback={<ListSkeleton />}>
-      <BestsellerListWrapper />
-    </Suspense>
+    <>
+      <Typography as="h1" variant="2xlarge" weight="bold" className="m-4">
+        BESTSELLERS
+      </Typography>
+      <Suspense fallback={<ListSkeleton />}>
+        <BestsellerListWrapper />
+      </Suspense>
+    </>
   )
 }

@@ -34,7 +34,7 @@ export default function HistoryTable({ orders }: HistoryTableProps) {
           </TableBody>
         </Table>
       ) : (
-        <Typography as="p" variant="base" className="m-2 text-center w-full">
+        <Typography as="p" variant="base" className="m-2 text-center w-full hidden xl:block">
           You have not placed any orders.
         </Typography>
       )}

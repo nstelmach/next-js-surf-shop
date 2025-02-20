@@ -8,7 +8,7 @@ interface HistoryTableRowProps {
 
 export default function HistoryTableRow({ order }: HistoryTableRowProps) {
   return (
-    <TableRow>
+    <TableRow className="hover:bg-muted/50">
       <TableCell>{order.id}</TableCell>
       <TableCell>{order.createdAt.toLocaleDateString()}</TableCell>
       <TableCell>{order.shipping.label}</TableCell>

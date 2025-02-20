@@ -2,6 +2,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -9,6 +10,7 @@ import Image from "next/image"
 import menuIcon from "@/src/assets/svg/menu.svg"
 import HeaderProfile from "@/src/components/header/header-profile"
 import Link from "next/link"
+import LogoutMenu from "@/src/components/header/logout-menu"
 
 export default function HeaderMenu() {
   return (
@@ -19,6 +21,8 @@ export default function HeaderMenu() {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <HeaderProfile />
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Products</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <Link href={"/bestsellers"}>
             <DropdownMenuItem>Bestsellers</DropdownMenuItem>
@@ -32,6 +36,7 @@ export default function HeaderMenu() {
           <Link href={"/longsleeves"}>
             <DropdownMenuItem>Longsleeves</DropdownMenuItem>
           </Link>
+          <LogoutMenu />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

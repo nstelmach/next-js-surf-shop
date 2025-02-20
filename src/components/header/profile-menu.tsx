@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import profileIcon from "@/src/assets/svg/profile.svg"
 import HeaderProfile from "@/src/components/header/header-profile"
+import LogoutMenu from "@/src/components/header/logout-menu"
 
 export default function ProfileMenu() {
   return (
@@ -21,6 +22,7 @@ export default function ProfileMenu() {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <HeaderProfile />
+          <LogoutMenu />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
