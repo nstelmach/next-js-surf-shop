@@ -5,7 +5,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/src/components/ui/dropdown-menu"
 import Image from "next/image"
 import menuIcon from "@/src/assets/svg/menu.svg"
 import HeaderProfile from "@/src/components/header/header-profile"
