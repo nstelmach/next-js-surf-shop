@@ -19,7 +19,7 @@ export default function ResetPasswordForm() {
   const [resetPasswordMutation, { isLoading, isSuccess, isError, error }] =
     useMutation(resetPassword)
 
-  const ERROR = error?.message
+  const ERROR = error?.toString()
 
   const form = useForm<z.infer<typeof ResetPassword>>({
     resolver: zodResolver(ResetPassword),

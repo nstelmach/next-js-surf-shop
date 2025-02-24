@@ -16,7 +16,7 @@ export default function ChangePasswordForm() {
   const [changePasswordMutation, { isLoading, isSuccess, isError, error }] =
     useMutation(changePassword)
 
-  const ERROR = error?.message
+  const ERROR = error?.toString()
 
   const form = useForm<z.infer<typeof ChangePassword>>({
     resolver: zodResolver(ChangePassword),
