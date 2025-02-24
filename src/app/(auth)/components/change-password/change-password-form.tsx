@@ -23,7 +23,6 @@ export default function ChangePasswordForm() {
     defaultValues: {
       currentPassword: "",
       newPassword: "",
-      terms: false,
     },
   })
 

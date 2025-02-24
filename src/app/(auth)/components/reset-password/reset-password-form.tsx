@@ -26,7 +26,6 @@ export default function ResetPasswordForm() {
     defaultValues: {
       password: "",
       passwordConfirmation: "",
-      terms: false,
       token,
     },
   })
