@@ -14,7 +14,7 @@ import LogoutMenu from "@/src/components/header/logout-menu"
 
 export default function HeaderMenu() {
   return (
-    <div className="lg:hidden m-2">
+    <div className="lg:hidden m-2 ">
       <DropdownMenu>
         <DropdownMenuTrigger className="focus:outline-none">
           <Image src={menuIcon} alt="Menu" width={40} className="md:w-[50px] w-[40px]" />

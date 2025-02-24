@@ -1,6 +1,6 @@
 import Typography from "@/src/components/typography/typography"
 import OrderDetails from "@/src/app/(order)/components/order-details"
-import OrderSkeleton from "@/src/components/skeletons/order-skeleton"
+import OrderSkeleton from "@/src/app/(order)/components/order-skeleton"
 import { Suspense } from "react"
 
 export default async function OrderPage() {

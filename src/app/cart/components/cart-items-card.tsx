@@ -6,12 +6,13 @@ import Image from "next/image"
 import { XIcon } from "lucide-react"
 import QuantitySelect from "@/src/app/cart/components/quantity-select"
 import ButtonWithLoader from "@/src/components/button-with-loader/button-with-loader"
-import { useMutation } from "@blitzjs/rpc"
+import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import Typography from "@/src/components/typography/typography"
 import { getLink } from "@/src/lib/utils"
 import ParagraphSection from "@/src/components/section/paragraph-section"
+import getCart from "@/src/app/cart/queries/get-cart"
 
 interface CartItemsCardProps {
   cartProduct: CartProduct
@@ -30,6 +31,7 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
   const onClickHandler = async () => {
     try {
       await deleteCartProductMutation({ productId })
+      await invalidateQuery(getCart)
     } catch (error: any) {
       return {
         [FORM_ERROR]: UNEXPECTED_ERROR,

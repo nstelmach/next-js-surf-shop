@@ -11,6 +11,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const orderProduct = product.product
   const name = orderProduct.name
+
   return (
     <Card className="drop-shadow-none">
       <CardContent className="flex flex-col gap-2 p-2">

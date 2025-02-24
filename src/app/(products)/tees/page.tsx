@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import TeeListWrapper from "@/src/app/(products)/components/product-details/tee-list-wrapper"
-import ListSkeleton from "@/src/components/skeletons/list-skeleton"
+import ListSkeleton from "@/src/app/(products)/components/product-list/list-skeleton"
 import Typography from "@/src/components/typography/typography"
 
 export default function TeesPage() {

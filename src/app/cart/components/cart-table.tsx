@@ -1,13 +1,17 @@
+"use client"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
 import { Cart } from "@prisma/client"
 import CartTableRow from "@/src/app/cart/components/cart-table-row"
 import Typography from "@/src/components/typography/typography"
+import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 
 interface CardDetailsProps {
   cart: Cart
 }
 
 export default function CartTable({ cart }: CardDetailsProps) {
+  const user = useCurrentUser()
+
   return (
     <>
       {cart && cart.cartProducts.length > 0 ? (
@@ -31,7 +35,7 @@ export default function CartTable({ cart }: CardDetailsProps) {
       ) : (
         <div className="hidden xl:block xl:grow-2">
           <Typography as="p" variant="base" className="m-2 text-center w-full">
-            Your cart is empty.
+            {user ? "Your cart is empty." : "Log in to add items to your cart!"}
           </Typography>
         </div>
       )}

@@ -4,12 +4,16 @@ import Typography from "@/src/components/typography/typography"
 import ProductCard from "@/src/app/(order)/components/product-card"
 import ParagraphSection from "@/src/components/section/paragraph-section"
 import { Separator } from "@/src/components/ui/separator"
+import { getLink } from "@/src/lib/utils"
+import Link from "next/link"
 
 interface OrderCardProps {
   order: Order
 }
 
 export default function OrderCard({ order }: OrderCardProps) {
+  const href = getLink("order", order.id)
+
   return (
     <Card className="p-2">
       <CardContent className="w-full flex flex-col gap-2 p-2">
@@ -25,7 +29,9 @@ export default function OrderCard({ order }: OrderCardProps) {
           <div className="flex flex-col justify-center items-center gap-2">
             {order.products.map((product, index) => (
               <div key={product.id} className="w-full p-2">
-                <ProductCard product={product} />
+                <Link href={href}>
+                  <ProductCard product={product} />
+                </Link>
                 {index < order.products.length - 1 && (
                   <Separator orientation="horizontal" className="bg-muted mt-4" />
                 )}

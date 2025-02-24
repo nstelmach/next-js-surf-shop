@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import HoodieWrapper from "@/src/app/(products)/components/product-details/hoodie-wrapper"
-import CardSkeleton from "@/src/components/skeletons/card-skeleton"
+import CardSkeleton from "@/src/app/(products)/components/product-details/card-skeleton"
 
 export default function HoodieDetailsPage() {
   return (
@@ -8,7 +8,6 @@ export default function HoodieDetailsPage() {
       <Suspense fallback={<CardSkeleton />}>
         <HoodieWrapper />
       </Suspense>
-      <CardSkeleton />
     </>
   )
 }

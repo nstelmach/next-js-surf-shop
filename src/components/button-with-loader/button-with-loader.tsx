@@ -12,6 +12,7 @@ interface ButtonWithLoaderProps {
   size?: "default" | "icon" | "lg" | "sm"
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
   icon?: JSX.Element
+  disabled?: boolean
 }
 
 export default function ButtonWithLoader({
@@ -24,6 +25,7 @@ export default function ButtonWithLoader({
   size,
   variant,
   icon,
+  disabled,
 }: PropsWithChildren<ButtonWithLoaderProps>) {
   return (
     <Button
@@ -32,6 +34,7 @@ export default function ButtonWithLoader({
       className={cn("xl:my-2", className)}
       size={size}
       variant={variant}
+      disabled={disabled}
     >
       {isLoading ? (
         <Loader2 className="animate-spin" />

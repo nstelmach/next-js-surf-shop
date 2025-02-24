@@ -2,7 +2,7 @@ import Link from "next/link"
 import Typography from "@/src/components/typography/typography"
 import HistoryContainer from "@/src/app/(order)/components/history-container"
 import { Suspense } from "react"
-import HistorySkeleton from "@/src/components/skeletons/history-skeleton"
+import HistorySkeleton from "@/src/app/(order)/components/history-skeleton"
 
 export default function HistoryDetails() {
   return (

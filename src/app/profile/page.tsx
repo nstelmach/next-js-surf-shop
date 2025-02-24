@@ -2,7 +2,7 @@ import ChangePasswordForm from "@/src/app/(auth)/components/change-password/chan
 import Typography from "@/src/components/typography/typography"
 import { useAuthenticatedBlitzContext } from "@/src/app/blitz-server"
 import { Suspense } from "react"
-import InfoSkeleton from "@/src/components/skeletons/info-skeleton"
+import InfoSkeleton from "@/src/app/profile/components/info-skeleton"
 import PersonalInformation from "@/src/app/(auth)/components/change-password/personal-information"
 
 export default async function ProfilePage() {

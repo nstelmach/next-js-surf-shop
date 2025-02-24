@@ -18,12 +18,14 @@ import createOrder from "@/src/app/(order)/mutations/create-order"
 import Typography from "@/src/components/typography/typography"
 import { useRouter } from "next/navigation"
 import { getLink } from "@/src/lib/utils"
+import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 
 export default function CartDetails() {
   const [shippingArr] = useQuery(getShipping)
   const [paymentArr] = useQuery(getPayment)
   const [cart] = useQuery(getCart)
   const router = useRouter()
+  const user = useCurrentUser()
 
   const form = useForm<z.infer<typeof Order>>({
     resolver: zodResolver(Order),
@@ -90,6 +92,7 @@ export default function CartDetails() {
               type="submit"
               label="Order"
               className="!w-full"
+              disabled={!user || !cart?.cartProducts || cart?.cartProducts.length <= 0}
             />
           </div>
           <div className="w-full flex-1">

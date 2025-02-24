@@ -1,7 +1,7 @@
 import CartContainer from "@/src/app/cart/components/cart-container"
 import CartDetails from "@/src/app/cart/components/cart-details"
 import { Suspense } from "react"
-import CartSkeleton from "@/src/components/skeletons/cart-skeleton"
+import CartSkeleton from "@/src/app/cart/components/cart-skeleton"
 import Typography from "@/src/components/typography/typography"
 
 export default function CartPage() {
