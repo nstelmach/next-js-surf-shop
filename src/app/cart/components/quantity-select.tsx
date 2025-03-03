@@ -11,8 +11,6 @@ import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import updateQuantity from "@/src/app/cart/mutations/update-quantity"
 import getCart from "@/src/app/cart/queries/get-cart"
 import Typography from "@/src/components/typography/typography"
-import { z } from "zod"
-import { Quantity } from "@/src/lib/validations"
 
 interface QuantitySelectProps {
   quantity: number
@@ -22,9 +20,9 @@ interface QuantitySelectProps {
 export default function QuantitySelect({ quantity, cartProductId }: QuantitySelectProps) {
   const [updateQuantityMutation, { isError }] = useMutation(updateQuantity)
 
-  const onValueChangeHandler = async (quantity: z.infer<typeof Quantity>) => {
+  const onValueChangeHandler = async (value: string) => {
     try {
-      await updateQuantityMutation({ quantity: +quantity, productId: cartProductId })
+      await updateQuantityMutation({ quantity: +value, productId: cartProductId })
       await invalidateQuery(getCart)
     } catch (error: any) {
       return {

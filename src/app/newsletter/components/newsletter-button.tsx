@@ -43,7 +43,7 @@ export default function NewsletterButton() {
             ? LOGGED_IN
             : error instanceof NotFoundError
             ? USER_NOT_EXIST
-            : error.name === "AlreadySubscribedError"
+            : error instanceof Error && error.name === "AlreadySubscribedError"
             ? ALREADY_SUBSCRIBED
             : UNEXPECTED_ERROR}
         </Typography>

@@ -1,8 +1,8 @@
 import ProductCard from "@/src/app/(products)/components/product-list/product-card"
-import { Product } from "@prisma/client"
+import { ProductDetails } from "@/src/lib/types"
 
 interface ClothesListProps {
-  items: Product[]
+  items: ProductDetails[]
 }
 
 export default function ProductList({ items }: ClothesListProps) {

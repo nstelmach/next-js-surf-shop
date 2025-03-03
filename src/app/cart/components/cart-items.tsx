@@ -1,14 +1,14 @@
 "use client"
-import { Cart } from "@prisma/client"
 import CartItemsCard from "@/src/app/cart/components/cart-items-card"
 import Typography from "@/src/components/typography/typography"
 import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
+import { CartDetails } from "@/src/lib/types"
 
-interface CardItemsProps {
-  cart: Cart
+interface CartItemsProps {
+  cart: CartDetails | null
 }
 
-export default function CartItems({ cart }: CardItemsProps) {
+export default function CartItems({ cart }: CartItemsProps) {
   const user = useCurrentUser()
 
   return (

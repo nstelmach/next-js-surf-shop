@@ -1,12 +1,11 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/src/components/ui/form"
 import { Input } from "@/src/components/ui/input"
-import { Control } from "react-hook-form"
 
 interface InputFieldProps {
-  control: Control
+  control: any
   name: string
   label: string
-  type: "text" | "email"
+  type: "text" | "email" | "password"
 }
 
 export default function InputField({ control, name, label, type }: InputFieldProps) {

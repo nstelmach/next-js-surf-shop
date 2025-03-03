@@ -9,12 +9,16 @@ export default function TeeWrapper() {
   const [tee] = useQuery(getProduct, { id: +params.teeSlug })
 
   return (
-    <ProductDetails
-      productId={tee?.id}
-      title={tee?.name}
-      description={tee?.description}
-      prices={tee?.prices}
-      images={tee?.images}
-    />
+    <>
+      {tee && (
+        <ProductDetails
+          productId={tee.id}
+          title={tee.name}
+          description={tee.description}
+          prices={tee.prices}
+          images={tee.images}
+        />
+      )}
+    </>
   )
 }

@@ -1,9 +1,9 @@
 import { Table, TableBody } from "@/src/components/ui/table"
-import { OrderProduct } from "@prisma/client"
 import HistoryProductTableRow from "@/src/app/(order)/components/history-product-table-row"
+import { OrderProductDetails } from "@/src/lib/types"
 
 interface HistoryProductTableProps {
-  products: OrderProduct[]
+  products: OrderProductDetails[]
 }
 
 export default function HistoryProductTable({ products }: HistoryProductTableProps) {

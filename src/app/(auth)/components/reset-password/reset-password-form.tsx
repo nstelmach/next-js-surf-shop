@@ -50,7 +50,7 @@ export default function ResetPasswordForm() {
     <>
       {isError && (
         <Typography as="p" variant="base" className="m-2 text-center">
-          {error.name === "ResetPasswordError" ? ERROR : UNEXPECTED_ERROR}
+          {error instanceof Error && error.name === "ResetPasswordError" ? ERROR : UNEXPECTED_ERROR}
         </Typography>
       )}
       {isSuccess ? (

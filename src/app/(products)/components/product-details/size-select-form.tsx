@@ -23,7 +23,7 @@ export default function SizeSelectForm({ productId }: SizeSelectFormProps) {
   const form = useForm<z.infer<typeof ChooseSize>>({
     resolver: zodResolver(ChooseSize),
     defaultValues: {
-      size: "",
+      size: "S",
     },
   })
 

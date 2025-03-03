@@ -1,12 +1,12 @@
 "use client"
-import { Order } from "@prisma/client"
 import { TableCell, TableRow } from "@/src/components/ui/table"
 import HistoryProductTable from "@/src/app/(order)/components/history-product-table"
 import { getLink } from "@/src/lib/utils"
 import { useRouter } from "next/navigation"
+import { OrderDetails } from "@/src/lib/types"
 
 interface HistoryTableRowProps {
-  order: Order
+  order: OrderDetails
 }
 
 export default function HistoryTableRow({ order }: HistoryTableRowProps) {

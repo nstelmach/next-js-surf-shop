@@ -6,11 +6,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select"
-import { Control } from "react-hook-form"
 import { Size } from "@prisma/client"
 
 interface SelectFieldProps {
-  control: Control
+  control: any
   name: string
   items: Size[]
   placeholder: string

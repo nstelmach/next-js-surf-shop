@@ -9,12 +9,16 @@ export default function HoodieWrapper() {
   const [hoodie] = useQuery(getProduct, { id: +params.hoodieSlug })
 
   return (
-    <ProductDetails
-      productId={hoodie?.id}
-      title={hoodie?.name}
-      description={hoodie?.description}
-      prices={hoodie?.prices}
-      images={hoodie?.images}
-    />
+    <>
+      {hoodie && (
+        <ProductDetails
+          productId={hoodie.id}
+          title={hoodie.name}
+          description={hoodie.description}
+          prices={hoodie.prices}
+          images={hoodie.images}
+        />
+      )}
+    </>
   )
 }

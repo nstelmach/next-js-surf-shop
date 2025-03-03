@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { Product } from "@prisma/client"
 import { getLink } from "@/src/lib/utils"
+import { ProductDetails } from "@/src/lib/types"
 
 interface ClothesCardProps {
-  item: Product
+  item: ProductDetails
 }
 
 export default function ProductCard({ item }: ClothesCardProps) {
@@ -26,7 +26,7 @@ export default function ProductCard({ item }: ClothesCardProps) {
         <Link href={href}>
           <CardTitle>{item.name}</CardTitle>
         </Link>
-        <CardDescription>{item.prices[0].price} €</CardDescription>
+        <CardDescription>{+item.prices[0].price} €</CardDescription>
       </CardContent>
     </Card>
   )

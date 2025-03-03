@@ -26,7 +26,7 @@ export default function ForgotPasswordForm() {
       const msg = await forgotPasswordMutation(values)
       if (msg) {
         const newWindow = window.open()
-        newWindow.document.write(msg)
+        newWindow?.document.write(msg)
       }
     } catch (error: any) {
       return {

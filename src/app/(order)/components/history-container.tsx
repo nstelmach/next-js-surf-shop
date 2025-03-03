@@ -5,7 +5,7 @@ import HistoryTable from "@/src/app/(order)/components/history-table"
 import HistoryCard from "@/src/app/(order)/components/history-card"
 
 export default function HistoryContainer() {
-  const [orders] = useQuery(getOrders)
+  const [orders] = useQuery(getOrders, {})
 
   return (
     <>

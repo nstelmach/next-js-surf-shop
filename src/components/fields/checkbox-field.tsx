@@ -1,9 +1,8 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/src/components/ui/form"
 import { Checkbox } from "@/src/components/ui/checkbox"
-import { Control } from "react-hook-form"
 
 interface CheckboxFieldProps {
-  control: Control
+  control: any
   name: string
   label: JSX.Element | string
 }

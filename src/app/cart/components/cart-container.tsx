@@ -5,7 +5,7 @@ import { useQuery } from "@blitzjs/rpc"
 import getCart from "@/src/app/cart/queries/get-cart"
 
 export default function CartContainer() {
-  const [cart] = useQuery(getCart)
+  const [cart] = useQuery(getCart, {})
 
   return (
     <div className="flex flex-col w-full">

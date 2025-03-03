@@ -1,13 +1,12 @@
 import { Separator } from "@/src/components/ui/separator"
 import { Payment, Shipping } from "@prisma/client"
-import { Control } from "react-hook-form"
 import RadioGroupField from "@/src/components/fields/radio-group-field"
 
 interface CartRadioGroupProps {
   title: string
   items: Shipping[] | Payment[]
   name: string
-  control: Control
+  control: any
 }
 
 export default function CartRadioGroup({ title, items, name, control }: CartRadioGroupProps) {

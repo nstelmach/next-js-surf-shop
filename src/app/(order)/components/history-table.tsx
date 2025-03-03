@@ -1,10 +1,10 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
 import HistoryTableRow from "@/src/app/(order)/components/history-table-row"
 import Typography from "@/src/components/typography/typography"
-import { Order } from "@prisma/client"
+import { OrderDetails } from "@/src/lib/types"
 
 interface HistoryTableProps {
-  orders: Order[]
+  orders: OrderDetails[]
 }
 
 export default function HistoryTable({ orders }: HistoryTableProps) {

@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import QuantitySelect from "@/src/app/cart/components/quantity-select"
 import { XIcon } from "lucide-react"
-import { CartProduct } from "@prisma/client"
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { FORM_ERROR, UNEXPECTED_ERROR } from "@/src/lib/constants"
 import deleteCartProduct from "@/src/app/cart/mutations/delete-cart-product"
@@ -12,9 +11,10 @@ import ButtonWithLoader from "@/src/components/button-with-loader/button-with-lo
 import getCart from "@/src/app/cart/queries/get-cart"
 import Typography from "@/src/components/typography/typography"
 import { getLink } from "@/src/lib/utils"
+import { CartProductDetails } from "@/src/lib/types"
 
 interface CardTableRowProps {
-  cartProduct: CartProduct
+  cartProduct: CartProductDetails
 }
 
 export default function CartTableRow({ cartProduct }: CardTableRowProps) {
@@ -23,7 +23,7 @@ export default function CartTableRow({ cartProduct }: CardTableRowProps) {
   const category = product.category
   const name = product.name
   const quantity = cartProduct.quantity
-  const price = product.prices[0].price
+  const price = +product.prices[0].price
 
   const [deleteCartProductMutation, { isError, isLoading }] = useMutation(deleteCartProduct)
 

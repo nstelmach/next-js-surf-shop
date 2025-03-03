@@ -26,7 +26,7 @@ export default function ProductDetails({
         <CardTitle>{title}</CardTitle>
         <CardDescription className="m-2">{description}</CardDescription>
         <Typography as="p" variant="base">
-          {prices[0].price} €
+          {+prices[0].price} €
         </Typography>
         <SizeSelectForm productId={productId} />
       </CardContent>

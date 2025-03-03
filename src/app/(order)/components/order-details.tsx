@@ -12,7 +12,7 @@ export default function OrderDetails() {
 
   return (
     <>
-      <OrderCard order={order} />
+      {order && <OrderCard order={order} />}
       <Link href="/profile" className="hover:underline">
         <Typography as="p" variant="base" className="text-center m-2">
           Back to your account

@@ -1,11 +1,11 @@
-import { OrderProduct } from "@prisma/client"
 import { Card, CardContent } from "@/src/components/ui/card"
 import Typography from "@/src/components/typography/typography"
 import Image from "next/image"
 import ParagraphSection from "@/src/components/section/paragraph-section"
+import { OrderProductDetails } from "@/src/lib/types"
 
 interface ProductCardProps {
-  product: OrderProduct
+  product: OrderProductDetails
 }
 
 export default function ProductCard({ product }: ProductCardProps) {

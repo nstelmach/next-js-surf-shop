@@ -7,5 +7,5 @@ import ProductList from "@/src/app/(products)/components/product-list/product-li
 export default function TeeListWrapper() {
   const [tees] = useQuery(getProducts, { category: Category.tees })
 
-  return <ProductList title="TEES" items={tees} />
+  return <ProductList items={tees} />
 }

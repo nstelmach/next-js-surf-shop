@@ -1,9 +1,9 @@
 import Typography from "@/src/components/typography/typography"
-import { Order } from "@prisma/client"
 import OrderCard from "@/src/app/(order)/components/order-card"
+import { OrderDetails } from "@/src/lib/types"
 
 interface HistoryCardProps {
-  orders: Order[]
+  orders: OrderDetails[]
 }
 
 export default function HistoryCard({ orders }: HistoryCardProps) {

@@ -84,7 +84,9 @@ export default function ChangePasswordForm() {
               />
               {isError && (
                 <Typography as="p" variant="base" className="m-2 text-center">
-                  {error.name === "ChangePasswordError" ? ERROR : UNEXPECTED_ERROR}
+                  {error instanceof Error && error.name === "ChangePasswordError"
+                    ? ERROR
+                    : UNEXPECTED_ERROR}
                 </Typography>
               )}
               <ButtonWithLoader type="submit" label="CHANGE" isLoading={isLoading} />

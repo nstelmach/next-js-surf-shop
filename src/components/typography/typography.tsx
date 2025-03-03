@@ -4,7 +4,7 @@ import { cn } from "@/src/lib/utils"
 type TypographyProps = {
   variant?: "base" | "small" | "2xlarge" | "xsmall" | "xlarge"
   as?: "p" | "h1" | "h2" | "h3"
-  weight?: "bold"
+  weight?: "bold" | "normal"
   className?: string
 }
 
@@ -18,12 +18,13 @@ export const variantMap = {
 
 export const weightMap = {
   bold: "font-bold",
+  normal: "font-normal",
 }
 
 export default function Typography({
   variant = "base",
   as = "p",
-  weight,
+  weight = "normal",
   children,
   className,
 }: PropsWithChildren<TypographyProps>) {

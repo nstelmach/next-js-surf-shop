@@ -1,5 +1,4 @@
 "use client"
-import { CartProduct } from "@prisma/client"
 import { Card, CardContent, CardFooter, CardHeader } from "@/src/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
@@ -13,9 +12,10 @@ import Typography from "@/src/components/typography/typography"
 import { getLink } from "@/src/lib/utils"
 import ParagraphSection from "@/src/components/section/paragraph-section"
 import getCart from "@/src/app/cart/queries/get-cart"
+import { CartProductDetails } from "@/src/lib/types"
 
 interface CartItemsCardProps {
-  cartProduct: CartProduct
+  cartProduct: CartProductDetails
 }
 
 export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
@@ -24,7 +24,7 @@ export default function CartItemsCard({ cartProduct }: CartItemsCardProps) {
   const category = product.category
   const name = product.name
   const quantity = cartProduct.quantity
-  const price = product.prices[0].price
+  const price = +product.prices[0].price
 
   const [deleteCartProductMutation, { isError, isLoading }] = useMutation(deleteCartProduct)
 

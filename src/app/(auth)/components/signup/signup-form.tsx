@@ -13,6 +13,7 @@ import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
 import Terms from "@/src/app/(auth)/components/terms"
 import Typography from "@/src/components/typography/typography"
+import { Prisma } from "@prisma/client"
 
 export default function SignupForm() {
   const [signupMutation, { isLoading, isError, error }] = useMutation(signup)
@@ -49,7 +50,13 @@ export default function SignupForm() {
     <>
       {isError && (
         <Typography as="p" variant="base" className="m-2 text-center">
-          {error.code === "P2002" && error.meta?.target?.includes("email") ? EMAIL_USED : ERROR}
+          {error instanceof Prisma.PrismaClientKnownRequestError &&
+          error.code === "P2002" &&
+          error.meta &&
+          Array.isArray(error.meta?.target) &&
+          error.meta.target.includes("email")
+            ? EMAIL_USED
+            : ERROR}
         </Typography>
       )}
       <Form {...form}>

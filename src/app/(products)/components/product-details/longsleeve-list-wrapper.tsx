@@ -7,5 +7,5 @@ import ProductList from "@/src/app/(products)/components/product-list/product-li
 export default function LongsleeveListWrapper() {
   const [longsleeves] = useQuery(getProducts, { category: Category.longsleeves })
 
-  return <ProductList title="LONGSLEEVES" items={longsleeves} />
+  return <ProductList items={longsleeves} />
 }

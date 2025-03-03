@@ -7,8 +7,8 @@ export default function PersonalInformation() {
 
   return (
     <div className="flex flex-col justify-center items-start lg:items-center">
-      <InformationItem title="Name:" name={user?.name} />
-      <InformationItem title="E-mail:" name={user?.email} />
+      {user && <InformationItem title="Name:" name={user.name} />}
+      {user && <InformationItem title="E-mail:" name={user.email} />}
     </div>
   )
 }

@@ -1,4 +1,3 @@
-import { Order } from "@prisma/client"
 import { Card, CardContent } from "@/src/components/ui/card"
 import Typography from "@/src/components/typography/typography"
 import ProductCard from "@/src/app/(order)/components/product-card"
@@ -6,9 +5,10 @@ import ParagraphSection from "@/src/components/section/paragraph-section"
 import { Separator } from "@/src/components/ui/separator"
 import { getLink } from "@/src/lib/utils"
 import Link from "next/link"
+import { OrderDetails } from "@/src/lib/types"
 
 interface OrderCardProps {
-  order: Order
+  order: OrderDetails
 }
 
 export default function OrderCard({ order }: OrderCardProps) {

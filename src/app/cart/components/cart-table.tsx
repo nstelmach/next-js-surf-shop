@@ -1,12 +1,12 @@
 "use client"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/src/components/ui/table"
-import { Cart } from "@prisma/client"
 import CartTableRow from "@/src/app/cart/components/cart-table-row"
 import Typography from "@/src/components/typography/typography"
 import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
+import { CartDetails } from "@/src/lib/types"
 
 interface CardDetailsProps {
-  cart: Cart
+  cart: CartDetails | null
 }
 
 export default function CartTable({ cart }: CardDetailsProps) {

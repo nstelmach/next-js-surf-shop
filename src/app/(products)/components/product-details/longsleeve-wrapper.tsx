@@ -9,12 +9,16 @@ export default function LongsleeveWrapper() {
   const [longsleeve] = useQuery(getProduct, { id: +params.longsleeveSlug })
 
   return (
-    <ProductDetails
-      productId={longsleeve.id}
-      title={longsleeve.name}
-      description={longsleeve.description}
-      prices={longsleeve.prices}
-      images={longsleeve.images}
-    />
+    <>
+      {longsleeve && (
+        <ProductDetails
+          productId={longsleeve.id}
+          title={longsleeve.name}
+          description={longsleeve.description}
+          prices={longsleeve.prices}
+          images={longsleeve.images}
+        />
+      )}
+    </>
   )
 }

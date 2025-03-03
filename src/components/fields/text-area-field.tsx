@@ -1,9 +1,8 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/src/components/ui/form"
 import { Textarea } from "@/src/components/ui/textarea"
-import { Control } from "react-hook-form"
 
 interface TextAreaFieldProps {
-  control: Control
+  control: any
   name: string
   label: string
 }

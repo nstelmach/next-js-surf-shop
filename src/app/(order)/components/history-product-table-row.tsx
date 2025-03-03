@@ -1,10 +1,10 @@
 import { TableCell, TableRow } from "@/src/components/ui/table"
-import { OrderProduct } from "@prisma/client"
 import Image from "next/image"
 import Typography from "@/src/components/typography/typography"
+import { OrderProductDetails } from "@/src/lib/types"
 
 interface HistoryProductTableRowProps {
-  product: OrderProduct
+  product: OrderProductDetails
 }
 
 export default function HistoryProductTableRow({ product }: HistoryProductTableRowProps) {
@@ -21,7 +21,7 @@ export default function HistoryProductTableRow({ product }: HistoryProductTableR
       </TableCell>
       <TableCell className="w-[65px]">{product.size}</TableCell>
       <TableCell className="w-[105px]">{product.quantity}</TableCell>
-      <TableCell className="w-[75px]">{orderProduct.prices[0].price} €</TableCell>
+      <TableCell className="w-[75px]">{+orderProduct.prices[0].price} €</TableCell>
     </TableRow>
   )
 }

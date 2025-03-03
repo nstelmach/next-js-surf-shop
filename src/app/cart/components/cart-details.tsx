@@ -21,9 +21,9 @@ import { getLink } from "@/src/lib/utils"
 import { useCurrentUser } from "@/src/app/user/hooks/use-current-user"
 
 export default function CartDetails() {
-  const [shippingArr] = useQuery(getShipping)
-  const [paymentArr] = useQuery(getPayment)
-  const [cart] = useQuery(getCart)
+  const [shippingArr] = useQuery(getShipping, undefined)
+  const [paymentArr] = useQuery(getPayment, undefined)
+  const [cart] = useQuery(getCart, {})
   const router = useRouter()
   const user = useCurrentUser()
 
@@ -39,7 +39,7 @@ export default function CartDetails() {
 
   const totalPrice =
     cart?.cartProducts.reduce((total, cartProduct) => {
-      return total + cartProduct.quantity * cartProduct.product.prices[0].price
+      return total + cartProduct.quantity * +cartProduct.product.prices[0].price
     }, 0) ?? 0
 
   const chosenShipping = useWatch({
@@ -48,7 +48,7 @@ export default function CartDetails() {
   })
 
   const foundShipping = shippingArr.find((shippingItem) => shippingItem.name === chosenShipping)
-  const shippingPrice = foundShipping.price
+  const shippingPrice = foundShipping?.price ?? 0
 
   const onSubmit = async (values: z.infer<typeof Order>) => {
     try {
@@ -105,7 +105,9 @@ export default function CartDetails() {
         </div>
         {isError && (
           <Typography as="p" variant="base" className="m-2 text-center">
-            {error.name === "EmptyCartError" ? EMPTY_CART : UNEXPECTED_ERROR}
+            {error instanceof Error && error.name === "EmptyCartError"
+              ? EMPTY_CART
+              : UNEXPECTED_ERROR}
           </Typography>
         )}
         {isSuccess && (
