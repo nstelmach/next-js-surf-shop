@@ -12,8 +12,6 @@ import ButtonWithLoader from "@/src/components/button-with-loader/button-with-lo
 import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
 import Terms from "@/src/app/(auth)/components/terms"
-import Typography from "@/src/components/typography/typography"
-import { Prisma } from "@prisma/client"
 
 export default function SignupForm() {
   const [signupMutation, { isLoading, isError, error }] = useMutation(signup)
@@ -48,17 +46,17 @@ export default function SignupForm() {
 
   return (
     <>
-      {isError && (
-        <Typography as="p" variant="base" className="m-2 text-center">
-          {error instanceof Prisma.PrismaClientKnownRequestError &&
-          error.code === "P2002" &&
-          error.meta &&
-          Array.isArray(error.meta?.target) &&
-          error.meta.target.includes("email")
-            ? EMAIL_USED
-            : ERROR}
-        </Typography>
-      )}
+      {/*{isError && (*/}
+      {/*  <Typography as="p" variant="base" className="m-2 text-center">*/}
+      {/*    {error instanceof Prisma.PrismaClientKnownRequestError &&*/}
+      {/*    error.code === "P2002" &&*/}
+      {/*    error.meta &&*/}
+      {/*    Array.isArray(error.meta?.target) &&*/}
+      {/*    error.meta.target.includes("email")*/}
+      {/*      ? EMAIL_USED*/}
+      {/*      : ERROR}*/}
+      {/*  </Typography>*/}
+      {/*)}*/}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:max-w-xs xl:max-w-sm">
           <InputField control={form.control} name="name" label="Name *" type="text" />
