@@ -6,7 +6,7 @@ import ProductDetails from "@/src/app/(products)/components/product-details/prod
 
 export default function HoodieWrapper() {
   const params = useParams<{ hoodieSlug: string }>()
-  const [hoodie] = useQuery(getProduct, { id: +params.hoodieSlug })
+  const [hoodie] = useQuery(getProduct, { id: params?.hoodieSlug ? +params.hoodieSlug : 0 })
 
   return (
     <>

@@ -6,7 +6,9 @@ import ProductDetails from "@/src/app/(products)/components/product-details/prod
 
 export default function LongsleeveWrapper() {
   const params = useParams<{ longsleeveSlug: string }>()
-  const [longsleeve] = useQuery(getProduct, { id: +params.longsleeveSlug })
+  const [longsleeve] = useQuery(getProduct, {
+    id: params?.longsleeveSlug ? +params.longsleeveSlug : 0,
+  })
 
   return (
     <>

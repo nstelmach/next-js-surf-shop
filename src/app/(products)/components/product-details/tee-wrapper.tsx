@@ -6,7 +6,7 @@ import ProductDetails from "@/src/app/(products)/components/product-details/prod
 
 export default function TeeWrapper() {
   const params = useParams<{ teeSlug: string }>()
-  const [tee] = useQuery(getProduct, { id: +params.teeSlug })
+  const [tee] = useQuery(getProduct, { id: params?.teeSlug ? +params.teeSlug : 0 })
 
   return (
     <>
