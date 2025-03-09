@@ -8,7 +8,7 @@ import OrderCard from "@/src/app/(order)/components/order-card"
 
 export default function OrderDetails() {
   const params = useParams<{ orderSlug: string }>()
-  const [order] = useQuery(getOrder, { id: +params?.orderSlug ?? 0 })
+  const [order] = useQuery(getOrder, { id: params?.orderSlug ? +params.orderSlug : 0 })
 
   return (
     <>
