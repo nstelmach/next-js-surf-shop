@@ -5,7 +5,7 @@ import { BlitzLogger } from "blitz"
 import db from "db"
 import { authConfig } from "@/src/app/blitz-auth-config"
 
-export const { useAuthenticatedBlitzContext, withBlitzAuth } = setupBlitzServer({
+export const { useAuthenticatedBlitzContext, api } = setupBlitzServer({
   plugins: [
     AuthServerPlugin({
       ...authConfig,
