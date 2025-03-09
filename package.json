@@ -10,6 +10,7 @@
     "seed": "blitz db seed",
     "generate": "blitz prisma generate",
     "studio": "blitz prisma studio",
+    "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
