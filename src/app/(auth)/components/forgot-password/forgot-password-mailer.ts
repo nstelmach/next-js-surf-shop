@@ -4,7 +4,6 @@ type ResetPasswordMailer = {
 }
 
 export function forgotPasswordMailer({ to, token }: ResetPasswordMailer) {
-  //TODO In production, set APP_ORIGIN to your production server origin
   const origin = process.env.APP_ORIGIN || process.env.BLITZ_DEV_SERVER_ORIGIN
   const resetUrl = `${origin}/reset-password?token=${token}`
 

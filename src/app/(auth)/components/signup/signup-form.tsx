@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form } from "@/src/components/ui/form"
 import { useMutation } from "@blitzjs/rpc"
-import signup from "@/src/app/(auth)/mutations/signup"
+import signup, { SignupError } from "@/src/app/(auth)/mutations/signup"
 import { useRouter } from "next/navigation"
 import { Signup } from "@/src/lib/validations"
 import { EMAIL_USED, FORM_ERROR } from "@/src/lib/constants"
@@ -13,7 +13,6 @@ import InputField from "@/src/components/fields/input-field"
 import CheckboxField from "@/src/components/fields/checkbox-field"
 import Terms from "@/src/app/(auth)/components/terms"
 import Typography from "@/src/components/typography/typography"
-import { Prisma } from "@prisma/client"
 
 export default function SignupForm() {
   const [signupMutation, { isLoading, isError, error }] = useMutation(signup)
@@ -37,8 +36,7 @@ export default function SignupForm() {
       router.refresh()
       router.push("/profile")
     } catch (error: any) {
-      if (error.code === "P2002" && error.meta?.target?.includes("email")) {
-        // This error comes from Prisma
+      if (error.name === "SignupError") {
         return { email: EMAIL_USED }
       } else {
         return { [FORM_ERROR]: ERROR }
@@ -50,14 +48,7 @@ export default function SignupForm() {
     <>
       {isError && (
         <Typography as="p" variant="base" className="m-2 text-center">
-          {error &&
-          error instanceof Prisma.PrismaClientKnownRequestError &&
-          error.code === "P2002" &&
-          error.meta &&
-          Array.isArray(error.meta?.target) &&
-          error.meta.target.includes("email")
-            ? EMAIL_USED
-            : ERROR}
+          {error instanceof Error && error.name === "SignupError" ? EMAIL_USED : ERROR}
         </Typography>
       )}
       <Form {...form}>

@@ -512,21 +512,6 @@ const PAYMENTS = [
 ]
 
 const seed = async () => {
-  //TODO delete
-  await db.image.deleteMany()
-  await db.price.deleteMany()
-  await db.token.deleteMany()
-  await db.session.deleteMany()
-  await db.message.deleteMany()
-  await db.cartProduct.deleteMany()
-  await db.cart.deleteMany()
-  await db.orderProduct.deleteMany()
-  await db.order.deleteMany()
-  await db.user.deleteMany()
-  await db.product.deleteMany()
-  await db.shipping.deleteMany()
-  await db.payment.deleteMany()
-
   for (const product of PRODUCTS) {
     await db.product.create({
       data: product,
