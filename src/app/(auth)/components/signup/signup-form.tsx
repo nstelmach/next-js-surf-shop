@@ -50,7 +50,8 @@ export default function SignupForm() {
     <>
       {isError && (
         <Typography as="p" variant="base" className="m-2 text-center">
-          {error instanceof Prisma.PrismaClientKnownRequestError &&
+          {error &&
+          error instanceof Prisma.PrismaClientKnownRequestError &&
           error.code === "P2002" &&
           error.meta &&
           Array.isArray(error.meta?.target) &&
