@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     buildCommand:
-      yarn --frozen-lockfile --prod=false &&
+      npm install --prod=false &&
       blitz prisma generate &&
       blitz build &&
       blitz prisma migrate deploy
@@ -18,6 +18,8 @@ services:
           property: connectionString
       - key: SESSION_SECRET_KEY
         generateValue: true
+      - key: APP_ORIGIN
+        value: https://surfapp-ggrv.onrender.com
 
 databases:
   - name: surfapp-db
