@@ -46,9 +46,6 @@ export default function SignupForm() {
     }
   }
 
-  console.log(error)
-  console.log(error instanceof Prisma.PrismaClientKnownRequestError)
-
   return (
     <>
       {isError && (
